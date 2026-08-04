@@ -47,6 +47,26 @@ cp secrets.sample.php secrets.php
 It used to be hardcoded in `enquiry.php`; it was moved out so the key isn't
 public.
 
+## The home page has its own header — read this before editing the nav
+
+`index.php` does **not** `include("header.php")`. It carries its own header
+markup so the bar can be a single row (logo, nav, call button) with no phone
+block. Every other page still uses `header.php` unchanged.
+
+**Consequence: a nav change must be made in two places** — `header.php` for the
+rest of the site, and the `<header class="lx-header">` block near the top of
+`index.php` for the home page. The link list and anchor text are currently
+identical in both; keep them that way.
+
+The phone numbers `header.php` used to show now live in the contact section
+above the footer on the home page, along with the social links and email that
+were in the old top strip.
+
+All home page styling is in `css/home-redesign.css`, scoped to `body.ns-home`
+and loaded only by `index.php`. Rules in there that touch shared markup (the
+footer, and the "Our Awareness & Services" block that lives in `footer.php`)
+are scoped the same way, so no other page is affected.
+
 ## Not in this repo
 
 - **`/blog/`** — a separate WordPress install living in its own directory on the

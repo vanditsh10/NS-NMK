@@ -103,26 +103,66 @@
 </head>
 <body class="campers-theme ns-home">
 <div id="wrapper">
-  <?php include("header.php"); ?>
+
+  <!-- =====================================================================
+       HEADER — one line: logo, navigation, call action.
+       This page does not include header.php; it carries its own header so the
+       bar can be a single row with no phone block. Every link and its anchor
+       text is identical to header.php. The phone numbers it used to hold now
+       live in the contact section further down the page.
+       ===================================================================== -->
+  <header class="lx-header" id="lxHeader">
+    <div class="lx-bar">
+      <strong class="lx-logo"><a href="/"><img src="images/logo.png" alt="Naya Savera - Best Rehab in Delhi, Nasha Mukti Kendra Delhi, Rehab Centre, Drug De-Addiction Centre in Delhi"></a></strong>
+
+      <nav class="lx-nav" id="lxNav" aria-label="Main">
+        <ul>
+          <li class="is-current"><a href="/">Home</a></li>
+          <li class="has-sub">
+            <a href="#">About Us &#8964;</a>
+            <ul>
+              <li><a href="about.php">About Us</a></li>
+              <li><a href="team-naya-savera.php">Team</a></li>
+            </ul>
+          </li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="treatment.html">Treatment</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+          <li><a href="gallery.html">Photo Gallery</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="panchakarma-wellness-treatment.php">Panchakarma</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <a href="tel:+91-9873020709" class="lx-btn lx-btn--call lx-bar__cta"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+
+      <button type="button" class="lx-burger" id="lxBurger" aria-controls="lxNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
   <div id="main">
 
-    <!-- 1. HERO — two columns: the heading and this page's own call/contact CTAs
-         on the left, the campaign carousel contained on the right. The three
-         banner images have their messages baked into the artwork, so they are
-         never cropped or overlaid. -->
-    <section class="ns-hero">
-      <div class="ns-wrap">
-        <div class="ns-hero__grid">
-          <div class="ns-hero__inner">
-            <span class="ns-eyebrow">Welcome to Naya Savera</span>
-            <h1 class="ns-hero__title">Best Drug De addiction &amp; Alcohol Rehab Centre Delhi, Noida &amp; Himachal</h1>
-            <div class="ns-cta-row">
-              <a href="tel:+91-9873020709" class="ns-btn ns-btn--call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
-              <a href="contact.html" class="ns-btn ns-btn--ghost">We can Help
+    <!-- 1. HERO — sunrise photograph, the meaning of the brand name.
+         The campaign carousel sits framed alongside; those three images have
+         their messages baked into the artwork, so they are never cropped. -->
+    <section class="lx-hero">
+      <div class="lx-hero__bg" aria-hidden="true"></div>
+      <div class="lx-wrap lx-hero__wrap">
+        <div class="lx-hero__grid">
+          <div class="lx-hero__copy">
+            <span class="lx-eyebrow lx-eyebrow--light">Welcome to Naya Savera</span>
+            <h1 class="lx-hero__title">Best Drug De addiction &amp; Alcohol Rehab Centre Delhi, Noida &amp; Himachal</h1>
+            <div class="lx-cta-row">
+              <a href="tel:+91-9873020709" class="lx-btn lx-btn--call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+              <a href="contact.html" class="lx-btn lx-btn--onDark">We can Help
               Contact Now</a>
             </div>
           </div>
-          <div class="ns-hero__media">
+          <div class="lx-hero__media">
             <div id="banner">
               <div id="home-banner" class="owl-carousel owl-theme">
                 <div class="item">
@@ -139,15 +179,15 @@
       </div>
     </section>
 
-    <!-- 3. WHO WE ARE — trust before the ask -->
-    <section class="ns-section ns-intro">
-      <div class="ns-wrap">
-        <div class="ns-split">
-          <div class="ns-split__text">
+    <!-- 2. WHO WE ARE -->
+    <section class="lx-section lx-intro">
+      <div class="lx-wrap">
+        <div class="lx-split">
+          <div class="lx-split__text">
             <em> Naya Savera - Best rehab in delhi is a non-profit organization registered under the Indian Trust Act of 1950. It established its first Nasha Mukti Kendra, De addiction &amp; Rehabilitation Facility in 2008, in a small village (Jhiri) in Himachal Pradesh. Today, it is running two Drug De-addiction &amp;  Alcohol Rehabilitation facilities in Himachal Pradesh, one in Delhi and one in Noida (U.P.).  Naya Savera has earned a reputation for its commitment to the cause of effective treatment of addiction / alcoholism and awareness generation. <a href="about.php">Read more&raquo;</a></em>
           </div>
-          <div class="ns-split__media">
-            <div class="ns-video">
+          <div class="lx-split__media">
+            <div class="lx-video">
               <iframe src="https://www.youtube.com/embed/Vcw_R7EEDMo?si=tYUYUGL1icJ_pKxC" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
@@ -155,14 +195,14 @@
       </div>
     </section>
 
-    <!-- 4. WHAT WE TREAT — the five treatment pages as tappable cards -->
-    <section class="ns-section ns-why">
-      <div class="ns-wrap">
-        <div class="ns-head ns-head--onDark">
-          <span class="ns-eyebrow ns-eyebrow--light">This is Why </span>
+    <!-- 3. WHAT WE TREAT -->
+    <section class="lx-section lx-treat">
+      <div class="lx-wrap">
+        <div class="lx-head lx-head--onDark">
+          <span class="lx-eyebrow lx-eyebrow--light">This is Why </span>
           <h2> We are The Best Nasha Mukti Kendra / Drug De addiction &amp;  Alcohol Rehabilitation Centre in India</h2>
         </div>
-        <ul class="ns-cards">
+        <ul class="lx-list">
           <li>
             <h3><a href="nasha-mukti-kendra.php">NASHA MUKTI KENDRA </a></h3>
           </li>
@@ -182,38 +222,38 @@
       </div>
     </section>
 
-    <!-- 5. WHY US — the programme, with the proof video -->
-    <section class="ns-section ns-programme">
-      <div class="ns-wrap">
-        <div class="ns-head">
+    <!-- 4. THE PROGRAMME -->
+    <section class="lx-section lx-programme">
+      <div class="lx-wrap">
+        <div class="lx-head lx-head--center">
           <h2> WHY NAYA SAVERA IS BEST REHAB IN DELHI, NOIDA &amp; HIMACHAL?</h2>
         </div>
-        <p class="ns-lede">We are India's Best Rehabilitation Centre for Alcohol Treatment with high success rate for recovery of Addict.</p>
-        <p class="ns-lede"><strong>Drug &amp; Alcohol Rehabilitation Programme</strong></p>
-        <div class="ns-video ns-video--wide">
+        <p class="lx-lede">We are India's Best Rehabilitation Centre for Alcohol Treatment with high success rate for recovery of Addict.</p>
+        <p class="lx-lede"><strong>Drug &amp; Alcohol Rehabilitation Programme</strong></p>
+        <div class="lx-video lx-video--wide">
           <iframe src="https://www.youtube.com/embed/mETezzTrNSI?si=lsZ6xpPLVjXA71kY" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
     </section>
 
-    <!-- 6. WHERE WE ARE — the three centres -->
-    <section class="ns-section ns-locations">
-      <div class="ns-wrap">
-        <div class="ns-centres">
-          <article class="ns-centre">
-            <div class="ns-centre__media"><img src="images/delhi.jpg" width="100%" alt="Naya Savera - Drug De-addiction & Alcohol Rehabilitation Centre Delhi & Noida" loading="lazy" /></div>
-            <div class="ns-centre__body">
-              <span class="ns-centre__kicker">NAYA SAVERA</span>
-              <strong class="ns-centre__name">Delhi</strong>
-              <a href="naya-savera-delhi.php" class="ns-btn ns-btn--outline">View Details</a>
+    <!-- 5. THE CENTRES -->
+    <section class="lx-section lx-centres">
+      <div class="lx-wrap">
+        <div class="lx-centres__grid">
+          <article class="lx-centre">
+            <div class="lx-centre__media"><img src="images/delhi.jpg" width="100%" alt="Naya Savera - Drug De-addiction & Alcohol Rehabilitation Centre Delhi & Noida" loading="lazy" /></div>
+            <div class="lx-centre__body">
+              <span class="lx-centre__kicker">NAYA SAVERA</span>
+              <strong class="lx-centre__name">Delhi</strong>
+              <a href="naya-savera-delhi.php" class="lx-btn lx-btn--outline">View Details</a>
             </div>
           </article>
-          <article class="ns-centre">
-            <div class="ns-centre__media"><img src="images/noida.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Noida" loading="lazy" /></div>
-            <div class="ns-centre__body">
-              <span class="ns-centre__kicker">NAYA SAVERA</span>
-              <strong class="ns-centre__name">Noida</strong>
-              <a href="naya-savera-noida.php" class="ns-btn ns-btn--outline">View Details</a>
+          <article class="lx-centre">
+            <div class="lx-centre__media"><img src="images/noida.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Noida" loading="lazy" /></div>
+            <div class="lx-centre__body">
+              <span class="lx-centre__kicker">NAYA SAVERA</span>
+              <strong class="lx-centre__name">Noida</strong>
+              <a href="naya-savera-noida.php" class="lx-btn lx-btn--outline">View Details</a>
             </div>
           </article>
           <!--<div class="col-md-3 col-sm-6">
@@ -224,47 +264,82 @@
             </div>
           </div>
           -->
-          <article class="ns-centre">
-            <div class="ns-centre__media"><img src="images/palampur.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Palampur, Himachal" loading="lazy" /></div>
-            <div class="ns-centre__body">
-              <span class="ns-centre__kicker">NAYA SAVERA</span>
-              <strong class="ns-centre__name">Palampur</strong>
-              <a href="#" class="ns-btn ns-btn--outline">View Details</a>
+          <article class="lx-centre">
+            <div class="lx-centre__media"><img src="images/palampur.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Palampur, Himachal" loading="lazy" /></div>
+            <div class="lx-centre__body">
+              <span class="lx-centre__kicker">NAYA SAVERA</span>
+              <strong class="lx-centre__name">Palampur</strong>
+              <a href="#" class="lx-btn lx-btn--outline">View Details</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 7. THE ASK — enquiry form for people who will not call -->
-    <section class="ns-section ns-enquiry">
-      <div class="ns-wrap ns-wrap--narrow">
-        <h2>We can Help -  Contact Us Now!</h2>
-        <form action="enquiry.php" class="ns-form" method="post">
-          <div class="ns-field">
-            <label for="ns-name">Your Name</label>
-            <input id="ns-name" type="text" name="name" placeholder="Enter your name ">
+    <!-- 6. CONTACT + ENQUIRY — the phone numbers and social links that used to
+         sit in the header strip now live here, beside the form. -->
+    <section class="lx-section lx-contact">
+      <div class="lx-wrap">
+        <div class="lx-contact__grid">
+
+          <aside class="lx-contact__side">
+            <div class="lx-numbers">
+              <div class="lx-number">
+                <span>Delhi / Noida Contact Nos:</span>
+                <strong>
+                  <a href="tel:+91-9873290300">9873290300</a>
+                  <a href="tel:+91-9873020709">9873020709</a>
+                  <a href="https://wa.me/919873290300" aria-label="Whatsapp"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a>
+                </strong>
+              </div>
+              <div class="lx-number">
+                <span>Palampur Contact No:</span>
+                <strong><a href="tel:+91-9816008103">+91-9816008103</a></strong>
+              </div>
+            </div>
+
+            <div class="lx-social">
+              <ul>
+                <li><a href="https://www.facebook.com/nayasaverrehab/" target="_blank" aria-label="Facebook"><i class="fa fa-facebook-f"></i></a></li>
+                <li><a href="https://www.youtube.com/@NayaSaveraRehabilitationCentre" target="_blank" aria-label="YouTube"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.instagram.com/nayasavera_wellnessretreat" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/naya-savera-drug-de-addiction-rehabilitation-centre/?viewAsMember=true" target="_blank" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://wa.me/919873290300" aria-label="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
+              </ul>
+              <a href="mailto:info@nayasavera.org" class="lx-email"><i class="fa fa-envelope-o"></i><span class="__cf_email__" data-cfemail="">info@nayasavera.org</span></a>
+            </div>
+          </aside>
+
+          <div class="lx-contact__form">
+            <h2>We can Help -  Contact Us Now!</h2>
+            <form action="enquiry.php" class="lx-form" method="post">
+              <div class="lx-field">
+                <label for="lx-name">Your Name</label>
+                <input id="lx-name" type="text" name="name" placeholder="Enter your name ">
+              </div>
+              <div class="lx-field">
+                <label for="lx-email">Your Email</label>
+                <input id="lx-email" type="text" name="email" placeholder="Enter your email ">
+              </div>
+              <div class="lx-field">
+                <label for="lx-phone">Contact Number</label>
+                <input id="lx-phone" type="text" name="phone" placeholder="Enter your contact ">
+              </div>
+              <div class="lx-field lx-field--full">
+                <label for="lx-message">Additional Description</label>
+                <textarea id="lx-message" cols="10" rows="10" name="message" placeholder="Please Write your Message here"></textarea>
+              </div>
+              <div class="lx-field lx-field--full">
+                <div class="g-recaptcha" data-sitekey="6LdMh64qAAAAAB83rlTvDyG09XY9OPqKNJcSRnoi" ></div>
+              </div>
+              <div class="lx-field lx-field--full lx-form__actions">
+                <input type="submit" value="Submit ">
+                <input type="hidden" name="formtype" value="contact" />
+              </div>
+            </form>
           </div>
-          <div class="ns-field">
-            <label for="ns-email">Your Email</label>
-            <input id="ns-email" type="text" name="email" placeholder="Enter your email ">
-          </div>
-          <div class="ns-field">
-            <label for="ns-phone">Contact Number</label>
-            <input id="ns-phone" type="text" name="phone" placeholder="Enter your contact ">
-          </div>
-          <div class="ns-field ns-field--full">
-            <label for="ns-message">Additional Description</label>
-            <textarea id="ns-message" cols="10" rows="10" name="message" placeholder="Please Write your Message here"></textarea>
-          </div>
-          <div class="ns-field ns-field--full">
-            <div class="g-recaptcha" data-sitekey="6LdMh64qAAAAAB83rlTvDyG09XY9OPqKNJcSRnoi" ></div>
-          </div>
-          <div class="ns-field ns-field--full ns-form__actions">
-            <input type="submit" value="Submit ">
-            <input type="hidden" name="formtype" value="contact" />
-          </div>
-        </form>
+
+        </div>
       </div>
     </section>
 
@@ -273,9 +348,9 @@
 </div>
 
 <!-- Sticky mobile action bar: repeats this page's own call link so it is never more than one tap away -->
-<div class="ns-callbar" role="complementary">
-  <a href="tel:+91-9873020709" class="ns-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
-  <a href="https://wa.me/919873290300" class="ns-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
 </div>
 
 <script src="js/jquery-1.12.2.min.js"></script>
@@ -289,13 +364,42 @@
 <script src="js/jquery.counterup.min.js"></script>
 <script src="js/custom.js"></script>
 <script>
-// custom.js initialises the hero carousel at DOM-ready, and Owl fixes each
-// slide's width from the container at that instant. Fonts and images settling
-// afterwards change that width, which leaves the slides mis-measured and
-// clipped. Nudge Owl to re-measure once everything has actually loaded.
-window.addEventListener('load', function () {
-  setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 80);
-});
+(function () {
+  // Mobile menu. This page has its own header, so it does not use bootstrap's
+  // collapse plugin — a few lines are cheaper and easier to reason about.
+  var burger = document.getElementById('lxBurger');
+  var nav = document.getElementById('lxNav');
+  var header = document.getElementById('lxHeader');
+  if (burger && nav) {
+    burger.addEventListener('click', function () {
+      var open = header.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function (e) {
+      // let a real navigation close the menu; ignore the "About Us" stub link
+      var a = e.target.closest('a');
+      if (a && a.getAttribute('href') !== '#') {
+        header.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Shadow the bar once the page has moved, so it reads as lifted over content.
+  var onScroll = function () {
+    if (header) header.classList.toggle('is-stuck', window.scrollY > 8);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // custom.js initialises the hero carousel at DOM-ready, and Owl fixes each
+  // slide's width from the container at that instant. Fonts and images settling
+  // afterwards change that width, leaving slides mis-measured and clipped.
+  // Nudge Owl to re-measure once everything has actually loaded.
+  window.addEventListener('load', function () {
+    setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 80);
+  });
+})();
 </script>
 </body>
 </html>
