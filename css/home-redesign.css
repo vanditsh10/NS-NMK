@@ -1,0 +1,767 @@
+@charset "utf-8";
+/* ============================================================================
+   Naya Savera — home page redesign
+   ----------------------------------------------------------------------------
+   Loaded ONLY by index.php. Every rule is scoped to `body.ns-home`, so the
+   shared header.php / footer.php render exactly as before on all other pages.
+
+   Palette is taken from the brand assets, nothing invented:
+     #ff6600  logo wordmark orange   -> actions / CTAs
+     #9bc83c  existing UI green      -> brand accent, headings
+     #7ac49f  logo sunrise mint      -> soft accents
+     #66cc99  existing form band     -> supporting tint
+   ========================================================================== */
+
+body.ns-home {
+  --ns-orange: #ff6600;
+  --ns-orange-600: #e65c00;
+  --ns-orange-050: #fff3ea;
+
+  --ns-green: #9bc83c;
+  --ns-green-600: #87b428;
+  --ns-green-050: #f4f9ea;
+
+  --ns-mint: #66cc99;
+  --ns-mint-light: #7ac49f;
+  --ns-mint-050: #eff9f4;
+
+  --ns-ink: #16261c;
+  --ns-body: #4d5c53;
+  --ns-muted: #7d8c83;
+  --ns-line: #e3ebe5;
+  --ns-surface: #ffffff;
+  --ns-surface-2: #f7faf5;
+
+  --ns-radius: 16px;
+  --ns-radius-lg: 22px;
+  --ns-shadow-sm: 0 1px 2px rgba(22, 38, 28, .06), 0 2px 8px rgba(22, 38, 28, .04);
+  --ns-shadow-md: 0 2px 4px rgba(22, 38, 28, .06), 0 12px 28px rgba(22, 38, 28, .08);
+  --ns-shadow-lg: 0 4px 8px rgba(22, 38, 28, .07), 0 24px 48px rgba(22, 38, 28, .12);
+
+  --ns-head-font: 'Montserrat', sans-serif;
+  --ns-body-font: 'Open Sans', sans-serif;
+
+  background: var(--ns-surface);
+  color: var(--ns-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The legacy theme floats #wrapper, #main and #banner. A floated ancestor puts
+   everything inside it into a shrink-to-fit context, which collapses any CSS
+   grid whose tracks can resolve to zero (minmax(0,1fr)) down to width 0. These
+   floats do no layout work on this page, so clear them and size normally. */
+body.ns-home #wrapper,
+body.ns-home #main,
+body.ns-home #banner { float: none; width: 100%; }
+
+body.ns-home #main { overflow-x: hidden; }
+
+body.ns-home .ns-wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+body.ns-home .ns-wrap--narrow { max-width: 820px; }
+
+body.ns-home .ns-section { padding: 56px 0; position: relative; }
+
+/* Visible keyboard focus everywhere in the redesigned area. */
+body.ns-home #main a:focus-visible,
+body.ns-home .ns-callbar a:focus-visible,
+body.ns-home #main button:focus-visible,
+body.ns-home #main input:focus-visible,
+body.ns-home #main textarea:focus-visible {
+  outline: 3px solid var(--ns-orange);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------------------------------------------------------------------------
+   1. Shared header, compacted for this page only.
+   The old header ate ~550px before any content on a 375px screen.
+   ------------------------------------------------------------------------- */
+
+/* Bootstrap gives .container/.row a `display:table` clearfix via ::before and
+   ::after. Once the container becomes a flex parent those pseudo-elements turn
+   into flex items and shove the real columns around — kill them here. */
+body.ns-home .topbar-section .container::before,
+body.ns-home .topbar-section .container::after,
+body.ns-home .logo-section .container::before,
+body.ns-home .logo-section .container::after,
+body.ns-home .main-navigation .container::before,
+body.ns-home .main-navigation .container::after,
+body.ns-home .book-section .number-box::before,
+body.ns-home .book-section .number-box::after { display: none; }
+
+body.ns-home .topbar-section {
+  background: var(--ns-surface-2);
+  border-bottom: 1px solid var(--ns-line);
+  padding: 0;
+}
+body.ns-home .topbar-section .container { padding: 0 16px; }
+body.ns-home .topbar-section .col-md-6 { padding: 0; }
+body.ns-home .topbar-section .top-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  float: none;
+  min-height: 40px;
+}
+body.ns-home .topbar-section .top-social ul {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  float: none;
+  border: 0;
+}
+body.ns-home .topbar-section .top-social ul li { float: none; border: 0; margin: 0; }
+body.ns-home .topbar-section .top-social ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  color: var(--ns-muted);
+  font-size: 14px;
+  line-height: 1;
+  transition: color .18s ease, transform .18s ease;
+}
+body.ns-home .topbar-section .top-social ul li a:hover { color: var(--ns-green-600); transform: translateY(-1px); }
+body.ns-home .topbar-section .top-social a.email {
+  float: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: 400 13px/1 var(--ns-body-font);
+  color: var(--ns-muted);
+}
+body.ns-home .topbar-section .top-social a.email:hover { color: var(--ns-green-600); }
+
+/* Logo + phone numbers on one line instead of three stacked blocks. */
+body.ns-home .logo-section { padding: 10px 0; border-bottom: 1px solid var(--ns-line); }
+body.ns-home .logo-section .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  padding: 0 16px;
+}
+body.ns-home .logo-section .col-md-3,
+body.ns-home .logo-section .col-md-9 { float: none; width: auto; padding: 0; }
+body.ns-home .logo-section .logo { float: none; margin: 0; display: block; }
+body.ns-home .logo-section .logo img { display: block; max-height: 46px; width: auto; }
+
+body.ns-home .book-section { float: none; margin: 0; padding: 0; border: 0; background: none; }
+body.ns-home .book-section .number-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+body.ns-home .book-section .number-box > i.fa-phone { display: none; }
+body.ns-home .book-section .number-text::before,
+body.ns-home .book-section .number-text::after { display: none; } /* old grey arrow markers */
+body.ns-home .book-section .number-text {
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  text-align: left;
+}
+body.ns-home .book-section .number-text span,
+body.ns-home .book-section .number-text span strong {
+  font: 600 11px/1.4 var(--ns-body-font);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ns-muted);
+}
+body.ns-home .book-section .number-text > strong { display: inline-flex; align-items: center; gap: 10px; }
+body.ns-home .book-section .number-text a {
+  font: 700 15px/1.3 var(--ns-head-font);
+  color: var(--ns-ink);
+  text-decoration: none;
+  transition: color .18s ease;
+}
+body.ns-home .book-section .number-text a:hover { color: var(--ns-orange); }
+body.ns-home .book-section .number-text a .fa-whatsapp { color: #25d366; font-size: 17px; }
+
+/* Nav bar */
+body.ns-home .main-navigation { background: var(--ns-surface); }
+body.ns-home .main-navigation .navbar { margin: 0; border: 0; background: var(--ns-surface); min-height: 0; }
+body.ns-home .main-navigation .navbar-inverse { border-bottom: 1px solid var(--ns-line); }
+body.ns-home .main-navigation .container { padding: 0 16px; }
+body.ns-home .main-navigation .col-md-12 { padding: 0; }
+body.ns-home .main-navigation .navbar-toggle {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--ns-line);
+  background: var(--ns-surface-2);
+}
+body.ns-home .main-navigation .navbar-toggle .icon-bar { background: var(--ns-ink); }
+body.ns-home .main-navigation ul#nav > li > a {
+  font: 700 12.5px/1 var(--ns-head-font);
+  letter-spacing: .03em;
+  color: var(--ns-ink);
+  padding: 17px 13px;
+  transition: color .18s ease, background .18s ease;
+}
+body.ns-home .main-navigation ul#nav > li > a:hover,
+body.ns-home .main-navigation ul#nav > li.active > a { color: var(--ns-orange); background: var(--ns-orange-050); }
+body.ns-home .main-navigation ul#nav ul { border-radius: 0 0 12px 12px; box-shadow: var(--ns-shadow-md); border: 0; overflow: hidden; }
+body.ns-home .main-navigation ul#nav ul li a { font: 600 13px/1.4 var(--ns-body-font); padding: 12px 16px; }
+
+/* ---------------------------------------------------------------------------
+   2. Hero — first thing on the page, carries the H1 and the call CTA.
+   ------------------------------------------------------------------------- */
+
+body.ns-home .ns-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 44px 0 48px;
+  background:
+    radial-gradient(60% 90% at 88% 8%, rgba(255, 102, 0, .10) 0%, rgba(255, 102, 0, 0) 62%),
+    radial-gradient(70% 100% at 6% 100%, rgba(122, 196, 159, .22) 0%, rgba(122, 196, 159, 0) 60%),
+    linear-gradient(178deg, var(--ns-surface) 0%, var(--ns-green-050) 100%);
+}
+/* Decorative sunrise arc, echoing the logo mark. Purely ornamental. */
+body.ns-home .ns-hero::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -220px;
+  width: 760px;
+  height: 380px;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 0 0;
+  background: radial-gradient(closest-side, rgba(255, 102, 0, .12), rgba(255, 102, 0, 0));
+  pointer-events: none;
+}
+body.ns-home .ns-hero__inner { position: relative; z-index: 1; max-width: 820px; }
+
+body.ns-home .ns-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 12px/1 var(--ns-head-font);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ns-green-600);
+  margin-bottom: 18px;
+}
+body.ns-home .ns-eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ns-orange), var(--ns-green));
+}
+
+body.ns-home .ns-hero__title {
+  font: 700 clamp(29px, 6.4vw, 54px) / 1.13 var(--ns-head-font);
+  color: var(--ns-ink);
+  letter-spacing: -.02em;
+  margin: 0 0 26px;
+  text-transform: none;
+}
+
+body.ns-home .ns-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+}
+
+/* Buttons ------------------------------------------------------------------ */
+body.ns-home .ns-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 15px 26px;
+  border-radius: 999px;
+  font: 700 15px/1.25 var(--ns-head-font);
+  letter-spacing: .01em;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform .16s ease, box-shadow .16s ease, background .16s ease, color .16s ease, border-color .16s ease;
+}
+body.ns-home .ns-btn:hover { text-decoration: none; transform: translateY(-2px); }
+body.ns-home .ns-btn:active { transform: translateY(0); }
+
+body.ns-home .ns-btn--call {
+  background: linear-gradient(180deg, var(--ns-orange) 0%, var(--ns-orange-600) 100%);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(255, 102, 0, .30);
+}
+body.ns-home .ns-btn--call:hover { color: #fff; box-shadow: 0 10px 24px rgba(255, 102, 0, .38); }
+body.ns-home .ns-btn--call .fa { font-size: 17px; }
+
+body.ns-home .ns-btn--ghost {
+  background: var(--ns-surface);
+  color: var(--ns-ink);
+  border-color: var(--ns-line);
+  box-shadow: var(--ns-shadow-sm);
+  white-space: pre-line;
+}
+body.ns-home .ns-btn--ghost:hover { color: var(--ns-green-600); border-color: var(--ns-green); }
+
+body.ns-home .ns-btn--outline {
+  background: transparent;
+  color: var(--ns-ink);
+  border-color: var(--ns-line);
+  min-height: 46px;
+  padding: 12px 22px;
+  font-size: 14px;
+}
+body.ns-home .ns-btn--outline:hover { color: #fff; background: var(--ns-green-600); border-color: var(--ns-green-600); }
+
+/* ---------------------------------------------------------------------------
+   3. Banner band — the three campaign images have text baked in, so they are
+   shown uncropped at their natural 2.81:1 ratio and never overlaid.
+   ------------------------------------------------------------------------- */
+
+body.ns-home #banner {
+  background: var(--ns-ink);
+  border-top: 3px solid var(--ns-orange);
+  line-height: 0;
+  margin: 0; /* the shared theme pulls #banner up by -24px; not wanted here */
+}
+body.ns-home #banner .item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+body.ns-home #banner .caption { display: none; }
+body.ns-home #banner .owl-controls { margin: 0; position: relative; }
+body.ns-home #banner .owl-controls .owl-pagination {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  text-align: center;
+}
+body.ns-home #banner .owl-controls .owl-page span {
+  width: 9px;
+  height: 9px;
+  margin: 0 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .55);
+  opacity: 1;
+  transition: background .2s ease, width .2s ease;
+}
+body.ns-home #banner .owl-controls .owl-page.active span { background: var(--ns-orange); width: 24px; }
+
+/* ---------------------------------------------------------------------------
+   4. Section headings
+   ------------------------------------------------------------------------- */
+
+body.ns-home .ns-head { margin: 0 0 32px; max-width: 900px; }
+/* legacy theme hangs a grey 35px bar off every h2::before */
+body.ns-home .ns-head h2::before,
+body.ns-home .ns-head h2::after,
+body.ns-home .ns-enquiry h2::before,
+body.ns-home .ns-enquiry h2::after,
+body.ns-home .ns-cards h3::before { display: none; }
+body.ns-home .ns-head h2 {
+  font: 700 clamp(22px, 3.6vw, 34px) / 1.24 var(--ns-head-font);
+  color: var(--ns-ink);
+  letter-spacing: -.01em;
+  margin: 0;
+}
+body.ns-home .ns-head--onDark h2 { color: #fff; }
+body.ns-home .ns-eyebrow--light { color: #cfe6a4; }
+body.ns-home .ns-eyebrow--light::before { background: linear-gradient(90deg, var(--ns-orange), #cfe6a4); }
+
+/* ---------------------------------------------------------------------------
+   5. Intro — copy beside the welcome video
+   ------------------------------------------------------------------------- */
+
+body.ns-home .ns-intro { background: var(--ns-surface); }
+body.ns-home .ns-split { display: grid; gap: 30px; align-items: center; }
+body.ns-home .ns-split__media { min-width: 0; }
+body.ns-home .ns-split__text em {
+  display: block;
+  font: italic 400 clamp(15px, 2.1vw, 17.5px) / 1.75 var(--ns-body-font);
+  color: var(--ns-body);
+}
+body.ns-home .ns-split__text a {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ns-orange);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 102, 0, .3);
+  transition: border-color .18s ease;
+}
+body.ns-home .ns-split__text a:hover { border-bottom-color: var(--ns-orange); }
+
+body.ns-home .ns-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--ns-radius);
+  box-shadow: var(--ns-shadow-md);
+  background: var(--ns-ink);
+}
+body.ns-home .ns-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+body.ns-home .ns-video--wide { max-width: 900px; margin: 26px auto 0; border-radius: var(--ns-radius-lg); }
+
+/* ---------------------------------------------------------------------------
+   6. "This is why" — the five treatment pages, on the existing brand backdrop
+   ------------------------------------------------------------------------- */
+
+body.ns-home .ns-why {
+  background:
+    linear-gradient(180deg, rgba(16, 33, 22, .90) 0%, rgba(16, 33, 22, .82) 100%),
+    url(../images/home-bg.jpg) center / cover no-repeat;
+  color: #fff;
+}
+body.ns-home .ns-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+body.ns-home .ns-cards li { margin: 0; padding: 0; }
+body.ns-home .ns-cards h3 { margin: 0; }
+body.ns-home .ns-cards h3 a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding: 18px 22px;
+  border-radius: var(--ns-radius);
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(255, 255, 255, .16);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font: 700 14px/1.35 var(--ns-head-font);
+  letter-spacing: .04em;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+body.ns-home .ns-cards h3 a::after {
+  content: "\f105"; /* fa-angle-right */
+  font-family: FontAwesome;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ns-orange);
+  flex: none;
+  transition: transform .2s ease;
+}
+body.ns-home .ns-cards h3 a:hover {
+  background: rgba(255, 255, 255, .14);
+  border-color: var(--ns-orange);
+  transform: translateY(-2px);
+  color: #fff;
+}
+body.ns-home .ns-cards h3 a:hover::after { transform: translateX(4px); }
+
+/* ---------------------------------------------------------------------------
+   7. Programme
+   ------------------------------------------------------------------------- */
+
+body.ns-home .ns-programme { background: var(--ns-surface-2); text-align: center; }
+body.ns-home .ns-programme .ns-head { margin-left: auto; margin-right: auto; }
+body.ns-home .ns-lede {
+  font: 400 clamp(15px, 2vw, 17px) / 1.7 var(--ns-body-font);
+  color: var(--ns-body);
+  max-width: 760px;
+  margin: 0 auto 10px;
+}
+body.ns-home .ns-lede strong { color: var(--ns-ink); font-weight: 700; }
+
+/* ---------------------------------------------------------------------------
+   8. Centres
+   ------------------------------------------------------------------------- */
+
+body.ns-home .ns-locations { background: var(--ns-surface); }
+body.ns-home .ns-centres { display: grid; gap: 22px; }
+body.ns-home .ns-centre {
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-line);
+  border-radius: var(--ns-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--ns-shadow-sm);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  display: flex;
+  flex-direction: column;
+}
+body.ns-home .ns-centre:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ns-shadow-lg);
+  border-color: rgba(155, 200, 60, .5);
+}
+body.ns-home .ns-centre__media { line-height: 0; background: var(--ns-surface-2); }
+body.ns-home .ns-centre__media img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+body.ns-home .ns-centre__body {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 1;
+}
+body.ns-home .ns-centre__kicker {
+  font: 700 10.5px/1 var(--ns-head-font);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ns-green-600);
+}
+body.ns-home .ns-centre__name {
+  font: 700 24px/1.2 var(--ns-head-font);
+  color: var(--ns-ink);
+  margin-bottom: 16px;
+}
+body.ns-home .ns-centre__body .ns-btn { margin-top: auto; }
+
+/* ---------------------------------------------------------------------------
+   9. Enquiry form
+   ------------------------------------------------------------------------- */
+
+body.ns-home .ns-enquiry {
+  background:
+    radial-gradient(80% 120% at 50% 0%, rgba(102, 204, 153, .20) 0%, rgba(102, 204, 153, 0) 60%),
+    var(--ns-mint-050);
+  border-top: 1px solid var(--ns-line);
+}
+body.ns-home .ns-enquiry h2 {
+  font: 700 clamp(23px, 4vw, 34px) / 1.24 var(--ns-head-font);
+  color: var(--ns-ink);
+  text-align: center;
+  margin: 0 0 30px;
+}
+body.ns-home .ns-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  background: var(--ns-surface);
+  padding: 28px 22px;
+  border-radius: var(--ns-radius-lg);
+  box-shadow: var(--ns-shadow-md);
+  border: 1px solid var(--ns-line);
+}
+body.ns-home .ns-field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+body.ns-home .ns-field label {
+  font: 600 12.5px/1.2 var(--ns-head-font);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ns-muted);
+}
+body.ns-home .ns-field input[type="text"],
+body.ns-home .ns-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border: 1.5px solid var(--ns-line);
+  border-radius: 12px;
+  background: var(--ns-surface-2);
+  font: 400 16px/1.5 var(--ns-body-font);
+  color: var(--ns-ink);
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+body.ns-home .ns-field textarea { min-height: 130px; height: auto; resize: vertical; }
+body.ns-home .ns-field input[type="text"]::placeholder,
+body.ns-home .ns-field textarea::placeholder { color: #9fada4; }
+body.ns-home .ns-field input[type="text"]:focus,
+body.ns-home .ns-field textarea:focus {
+  outline: none;
+  border-color: var(--ns-green);
+  background: var(--ns-surface);
+  box-shadow: 0 0 0 4px rgba(155, 200, 60, .18);
+}
+body.ns-home .ns-form__actions { align-items: stretch; }
+body.ns-home .ns-form input[type="submit"] {
+  min-height: 56px;
+  padding: 16px 40px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--ns-orange) 0%, var(--ns-orange-600) 100%);
+  color: #fff;
+  font: 700 16px/1 var(--ns-head-font);
+  letter-spacing: .02em;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255, 102, 0, .30);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+body.ns-home .ns-form input[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(255, 102, 0, .38); }
+/* reCAPTCHA is a fixed 304px widget — let it scroll rather than break the grid */
+body.ns-home .ns-field .g-recaptcha { max-width: 100%; overflow-x: auto; }
+
+/* ---------------------------------------------------------------------------
+   10. Sticky mobile action bar
+   ------------------------------------------------------------------------- */
+
+body.ns-home .ns-callbar { display: none; }
+
+@media (max-width: 900px) {
+  body.ns-home .ns-callbar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 6000;
+    gap: 10px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--ns-line);
+    box-shadow: 0 -6px 24px rgba(22, 38, 28, .12);
+  }
+  body.ns-home .ns-callbar__call {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 52px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--ns-orange) 0%, var(--ns-orange-600) 100%);
+    color: #fff;
+    font: 700 15px/1.2 var(--ns-head-font);
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(255, 102, 0, .32);
+  }
+  body.ns-home .ns-callbar__call:hover,
+  body.ns-home .ns-callbar__call:focus { color: #fff; text-decoration: none; }
+  body.ns-home .ns-callbar__wa {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    background: #25d366;
+    color: #fff;
+    font-size: 26px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, .32);
+  }
+  body.ns-home .ns-callbar__wa:hover,
+  body.ns-home .ns-callbar__wa:focus { color: #fff; }
+
+  /* Keep the bar clear of the footer, and retire the two floating widgets it
+     replaces so nothing sits on top of the content. Both numbers remain
+     reachable in the header block, the footer and the bar itself. */
+  body.ns-home #wrapper { padding-bottom: 84px; }
+  body.ns-home .call { display: none; }
+  body.ns-home .whatsapp { display: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   11. Breakpoints
+   ------------------------------------------------------------------------- */
+
+/* Phone-sized: keep the whole header under ~200px so the H1 and the call
+   button are both inside the first screen. */
+@media (max-width: 767px) {
+  body.ns-home .topbar-section .top-social { min-height: 38px; gap: 0 8px; }
+  body.ns-home .topbar-section .top-social ul li a { width: 30px; height: 30px; font-size: 13px; }
+  body.ns-home .topbar-section .top-social a.email { font-size: 12px; }
+  body.ns-home .logo-section { padding: 8px 0; }
+  body.ns-home .logo-section .container { gap: 6px 12px; }
+  body.ns-home .logo-section .logo img { max-height: 38px; }
+  body.ns-home .logo-section .col-md-9 { width: 100%; }
+  body.ns-home .book-section .number-box { gap: 2px 14px; }
+  body.ns-home .book-section .number-text span,
+  body.ns-home .book-section .number-text span strong { font-size: 10px; letter-spacing: .03em; }
+  body.ns-home .book-section .number-text a { font-size: 13.5px; }
+  body.ns-home .main-navigation .navbar-toggle { margin: 6px 0; }
+
+  /* Equal-width stacked CTAs read as one decision, not a big one and a small one */
+  body.ns-home .ns-hero { padding: 30px 0 36px; }
+  body.ns-home .ns-cta-row { flex-direction: column; }
+  body.ns-home .ns-cta-row .ns-btn { width: 100%; }
+  body.ns-home .ns-btn--ghost { white-space: normal; }
+}
+
+@media (min-width: 600px) {
+  body.ns-home .ns-cards { grid-template-columns: repeat(2, 1fr); }
+  body.ns-home .ns-centres { grid-template-columns: repeat(2, 1fr); }
+  body.ns-home .ns-form { grid-template-columns: repeat(2, 1fr); padding: 34px 30px; }
+  body.ns-home .ns-field--full { grid-column: 1 / -1; }
+  body.ns-home .ns-form__actions { align-items: center; }
+  body.ns-home .ns-form input[type="submit"] { justify-self: center; min-width: 240px; }
+}
+
+@media (min-width: 768px) {
+  body.ns-home .ns-section { padding: 76px 0; }
+  body.ns-home .ns-hero { padding: 68px 0 74px; }
+  body.ns-home .topbar-section .top-social { justify-content: flex-start; }
+}
+
+@media (min-width: 992px) {
+  body.ns-home .ns-section { padding: 92px 0; }
+  body.ns-home .ns-hero { padding: 86px 0 96px; }
+  /* minmax(0,…) so a long word in the copy can never squeeze the video to 0 */
+  body.ns-home .ns-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 52px; }
+  body.ns-home .ns-cards { grid-template-columns: repeat(3, 1fr); }
+  body.ns-home .ns-cards li:nth-child(4),
+  body.ns-home .ns-cards li:nth-child(5) { grid-column: span 1; }
+  body.ns-home .ns-centres { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  body.ns-home .ns-form { padding: 40px 38px; gap: 22px; }
+}
+
+/* The three campaign banners are 2.81:1. Below ~560px that is a very short
+   strip, so cap how wide the band grows on big screens to keep it in
+   proportion with the rest of the page. */
+@media (min-width: 1400px) {
+  body.ns-home #banner { display: flex; justify-content: center; background: var(--ns-ink); }
+  body.ns-home #banner #home-banner { width: 100%; max-width: 1400px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.ns-home *,
+  body.ns-home *::before,
+  body.ns-home *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  body.ns-home .ns-btn:hover,
+  body.ns-home .ns-centre:hover { transform: none; }
+}

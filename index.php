@@ -19,24 +19,7 @@
 <meta name="twitter:domain" content="nayasavera.org" />
 <meta name="twitter:title" content="Best Luxury Drug and Alcohol Rehab in Delhi, Best Alcohol Rehab in Noida NayaSavera.org" />
 <?php include("header-includes.php"); ?>
-<style>
-.videowrapper {
-    float: none;
-    clear: both;
-    width: 100%;
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 25px;
-    height: 0;
-}
-.videowrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>
+<link href="/css/home-redesign.css" rel="stylesheet" type="text/css">
 <link rel="canonical" href="https://nayasavera.org" />
 <script type="application/ld+json">
 {
@@ -55,158 +38,179 @@
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org/", 
-  "@type": "BreadcrumbList", 
+  "@context": "https://schema.org/",
+  "@type": "BreadcrumbList",
   "itemListElement": [{
-    "@type": "ListItem", 
-    "position": 1, 
+    "@type": "ListItem",
+    "position": 1,
     "name": "Rehabilitation Centre in Gurgaon",
-    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-gurgaon.php"  
+    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-gurgaon.php"
   },{
-    "@type": "ListItem", 
-    "position": 2, 
+    "@type": "ListItem",
+    "position": 2,
     "name": "Rehabilitation Centre in faridabad",
-    "item": "https://nayasavera.org/rehabilitation-centre-faridabad.php"  
+    "item": "https://nayasavera.org/rehabilitation-centre-faridabad.php"
   },{
-    "@type": "ListItem", 
-    "position": 3, 
+    "@type": "ListItem",
+    "position": 3,
     "name": "Rehabilitation Centre in Chandigarh",
-    "item": "https://nayasavera.org/rehabilitation-centre-chandigrah.php"  
+    "item": "https://nayasavera.org/rehabilitation-centre-chandigrah.php"
   },{
-    "@type": "ListItem", 
-    "position": 4, 
+    "@type": "ListItem",
+    "position": 4,
     "name": "Rehabilitation Centre in Ludhiana",
-    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-ludhiana.php"  
+    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-ludhiana.php"
   },{
-    "@type": "ListItem", 
-    "position": 5, 
+    "@type": "ListItem",
+    "position": 5,
     "name": "Rehabilitation Centre in Meerut",
-    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-meerut.php"  
+    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-meerut.php"
   },{
-    "@type": "ListItem", 
-    "position": 6, 
+    "@type": "ListItem",
+    "position": 6,
     "name": "Rehabilitation Centre in Jaipur",
-    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-jaipur.php"  
+    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-jaipur.php"
   },{
-    "@type": "ListItem", 
-    "position": 7, 
+    "@type": "ListItem",
+    "position": 7,
     "name": "Rehabilitation Centre in kanpur",
-    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-kanpur.php"  
+    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-kanpur.php"
   },{
-    "@type": "ListItem", 
-    "position": 8, 
+    "@type": "ListItem",
+    "position": 8,
     "name": "Rehabilitation Centre in Lucknow",
-    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-lucknow.php"  
+    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-lucknow.php"
   },{
-    "@type": "ListItem", 
-    "position": 9, 
+    "@type": "ListItem",
+    "position": 9,
     "name": "Rehabilitation Centre in Gwalior",
-    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-gwalior.php"  
+    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-gwalior.php"
   },{
-    "@type": "ListItem", 
-    "position": 10, 
+    "@type": "ListItem",
+    "position": 10,
     "name": "Rehabilitation Centre in Rohtak",
-    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-rohtak.php"  
+    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-rohtak.php"
   },{
-    "@type": "ListItem", 
-    "position": 11, 
+    "@type": "ListItem",
+    "position": 11,
     "name": "Rehabilitation Centre in Agra",
-    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-agra.php"  
+    "item": "https://nayasavera.org/rehabilitation-de-addiction-centre-agra.php"
   }]
 }
 </script>
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-home">
 <div id="wrapper">
   <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="home-banner" class="owl-carousel owl-theme">
-      <div class="item">
-        <div class="caption">
-          <div class="container"> </div>
-        </div>
-        <img src="images/banner-img-1.jpg" alt="Drug De addiction centre in Delhi, Best Alcohol Rehab in Delhi, Nasha Mukti  Kendra Noida"> </div>
-      <div class="item"> <img src="images/banner-img-2.jpg" alt="Best Rehab in Delhi, Alcohlism Treatment Delhi"> </div>
-      <div class="item"> <img src="images/banner-img-3.jpg" alt=" Alcohlism Treatment Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi"> </div>
-    </div>
-  </div>
   <div id="main">
-    <section class="campers-text-section">
-      <div class="container">
-        <div class="heading-style-1"> <span>Welcome to Naya Savera</span>
-          <h1>Best Drug De addiction & Alcohol Rehab Centre Delhi, Noida & Himachal</span></h1>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-sm-6"> <em> Naya Savera - Best rehab in delhi is a non-profit organization registered under the Indian Trust Act of 1950. It established its first Nasha Mukti Kendra, De addiction & Rehabilitation Facility in 2008, in a small village (Jhiri) in Himachal Pradesh. Today, it is running two Drug De-addiction &  Alcohol Rehabilitation facilities in Himachal Pradesh, one in Delhi and one in Noida (U.P.).  Naya Savera has earned a reputation for its commitment to the cause of effective treatment of addiction / alcoholism and awareness generation. <a href="about.php">Read more&raquo;</a></em> </div>
-        
-        <div class="col-md-6 col-sm-6"> <iframe width="100%" height="315" src="https://www.youtube.com/embed/Vcw_R7EEDMo?si=tYUYUGL1icJ_pKxC&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> </div>
+
+    <!-- 1. HERO — heading + the page's own call/contact CTAs, reachable on the first screen -->
+    <section class="ns-hero">
+      <div class="ns-wrap">
+        <div class="ns-hero__inner">
+          <span class="ns-eyebrow">Welcome to Naya Savera</span>
+          <h1 class="ns-hero__title">Best Drug De addiction &amp; Alcohol Rehab Centre Delhi, Noida &amp; Himachal</h1>
+          <div class="ns-cta-row">
+            <a href="tel:+91-9873020709" class="ns-btn ns-btn--call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+            <a href="contact.html" class="ns-btn ns-btn--ghost">We can Help
+            Contact Now</a>
+          </div>
         </div>
       </div>
     </section>
-    <section class="campers-text-section" style="background-color: #ccc; padding: 30px 0; background:url(images/home-bg.jpg); color:#FFF">
-      <div class="container">
-        <div class="heading-style-2" > <span>This is Why </span>
-          <h2> We are The Best Nasha Mukti Kendra / Drug De addiction &  Alcohol Rehabilitation Centre in India</h2>
-          
-        </div>
-        <div class="row" style="padding:0 0px">
-          <div class="col-md-4 col-sm-6">
-            <ul class="tips-detail-list" style="color:#FFF">
-              <li>
-                <h3><a href="nasha-mukti-kendra.php" style="color:#FFF">NASHA MUKTI KENDRA </a></h3>
-              </li>
-              <li>
-                <h3><a href="best-alcohol-treatment-india.php" style="color:#FFF">ALCOHOL TREATMENT </a></h3>
-              </li>
-              <li>
-                <h3><a href="best-drug-treatment-india.php" style="color:#FFF">DRUGS TREATMENT</a></h3>
-              </li>
-              <li>
-                <h3><a href="best-de-addiction-centre-india.php" style="color:#FFF">DE ADDICTION CENTRE</a></h3>
-              </li>
-              <li>
-                <h3><a href="best-rehabilitation-centre-india.php" style="color:#FFF">ALCOHOL REHABILITAION CENTRE</a></h3>
-              </li>
-            </ul>
+
+    <!-- 2. BANNER BAND — the three campaign images keep their own baked-in messages, uncropped -->
+    <div id="banner">
+      <div id="home-banner" class="owl-carousel owl-theme">
+        <div class="item">
+          <div class="caption">
+            <div class="container"> </div>
           </div>
-          <div class="col-md-4 col-sm-6"> <br>
-            <br>
-            <a href="tel:+91-9873020709" class="btn-style-2" style="margin-top:20px"><i class="fa fa-phone" style="font-size:24px"></i> CALL NOW +91-9873020709 </a> </div>
-          <div class="col-md-4 col-sm-6"> <br>
-            <br>
-            <a href="contact.html" class="btn-style-2" style="margin-top:20px">We can Help 
-            Contact Now</a> </div>
+          <img src="images/banner-img-1.jpg" alt="Drug De addiction centre in Delhi, Best Alcohol Rehab in Delhi, Nasha Mukti  Kendra Noida"> </div>
+        <div class="item"> <img src="images/banner-img-2.jpg" alt="Best Rehab in Delhi, Alcohlism Treatment Delhi"> </div>
+        <div class="item"> <img src="images/banner-img-3.jpg" alt=" Alcohlism Treatment Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi"> </div>
+      </div>
+    </div>
+
+    <!-- 3. WHO WE ARE — trust before the ask -->
+    <section class="ns-section ns-intro">
+      <div class="ns-wrap">
+        <div class="ns-split">
+          <div class="ns-split__text">
+            <em> Naya Savera - Best rehab in delhi is a non-profit organization registered under the Indian Trust Act of 1950. It established its first Nasha Mukti Kendra, De addiction &amp; Rehabilitation Facility in 2008, in a small village (Jhiri) in Himachal Pradesh. Today, it is running two Drug De-addiction &amp;  Alcohol Rehabilitation facilities in Himachal Pradesh, one in Delhi and one in Noida (U.P.).  Naya Savera has earned a reputation for its commitment to the cause of effective treatment of addiction / alcoholism and awareness generation. <a href="about.php">Read more&raquo;</a></em>
+          </div>
+          <div class="ns-split__media">
+            <div class="ns-video">
+              <iframe src="https://www.youtube.com/embed/Vcw_R7EEDMo?si=tYUYUGL1icJ_pKxC" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="price-plans-section" style=" padding: 30px 0">
-      <div class="container">
-        <div class="heading-style-2" >
-          <h2> WHY NAYA SAVERA IS BEST REHAB IN DELHI, NOIDA & HIMACHAL?</h2>
+
+    <!-- 4. WHAT WE TREAT — the five treatment pages as tappable cards -->
+    <section class="ns-section ns-why">
+      <div class="ns-wrap">
+        <div class="ns-head ns-head--onDark">
+          <span class="ns-eyebrow ns-eyebrow--light">This is Why </span>
+          <h2> We are The Best Nasha Mukti Kendra / Drug De addiction &amp;  Alcohol Rehabilitation Centre in India</h2>
         </div>
-        <div class="row" style="padding:0 10px">
-          <div class="col-md-12 col-sm-12">
-            <p align="center">We are India's Best Rehabilitation Centre for Alcohol Treatment with high success rate for recovery of Addict.</p>
-            <p align="center"><strong>Drug & Alcohol Rehabilitation Programme</strong></p>
-            <div align="center" class="videowrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/mETezzTrNSI?si=lsZ6xpPLVjXA71kY&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><br>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="table-style-1">
-              <div class="head"> <span>NAYA SAVERA</span> <strong class="amount">Delhi</strong> </div>
-              <div style="width:100%; margin-bottom:30px"><img src="images/delhi.jpg" width="100%" alt="Naya Savera - Drug De-addiction & Alcohol Rehabilitation Centre Delhi & Noida" /></div>
-              <div class="btn-row"><a href="naya-savera-delhi.php" class="btn-style-3">View Details</a></div>
+        <ul class="ns-cards">
+          <li>
+            <h3><a href="nasha-mukti-kendra.php">NASHA MUKTI KENDRA </a></h3>
+          </li>
+          <li>
+            <h3><a href="best-alcohol-treatment-india.php">ALCOHOL TREATMENT </a></h3>
+          </li>
+          <li>
+            <h3><a href="best-drug-treatment-india.php">DRUGS TREATMENT</a></h3>
+          </li>
+          <li>
+            <h3><a href="best-de-addiction-centre-india.php">DE ADDICTION CENTRE</a></h3>
+          </li>
+          <li>
+            <h3><a href="best-rehabilitation-centre-india.php">ALCOHOL REHABILITAION CENTRE</a></h3>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. WHY US — the programme, with the proof video -->
+    <section class="ns-section ns-programme">
+      <div class="ns-wrap">
+        <div class="ns-head">
+          <h2> WHY NAYA SAVERA IS BEST REHAB IN DELHI, NOIDA &amp; HIMACHAL?</h2>
+        </div>
+        <p class="ns-lede">We are India's Best Rehabilitation Centre for Alcohol Treatment with high success rate for recovery of Addict.</p>
+        <p class="ns-lede"><strong>Drug &amp; Alcohol Rehabilitation Programme</strong></p>
+        <div class="ns-video ns-video--wide">
+          <iframe src="https://www.youtube.com/embed/mETezzTrNSI?si=lsZ6xpPLVjXA71kY" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WHERE WE ARE — the three centres -->
+    <section class="ns-section ns-locations">
+      <div class="ns-wrap">
+        <div class="ns-centres">
+          <article class="ns-centre">
+            <div class="ns-centre__media"><img src="images/delhi.jpg" width="100%" alt="Naya Savera - Drug De-addiction & Alcohol Rehabilitation Centre Delhi & Noida" loading="lazy" /></div>
+            <div class="ns-centre__body">
+              <span class="ns-centre__kicker">NAYA SAVERA</span>
+              <strong class="ns-centre__name">Delhi</strong>
+              <a href="naya-savera-delhi.php" class="ns-btn ns-btn--outline">View Details</a>
             </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="table-style-1">
-              <div class="head"> <span>NAYA SAVERA</span> <strong class="amount">Noida</strong> </div>
-              <div style="width:100%; margin-bottom:30px"><img src="images/noida.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Noida" /></div>
-              <div class="btn-row"><a href="naya-savera-noida.php" class="btn-style-3">View Details</a></div>
+          </article>
+          <article class="ns-centre">
+            <div class="ns-centre__media"><img src="images/noida.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Noida" loading="lazy" /></div>
+            <div class="ns-centre__body">
+              <span class="ns-centre__kicker">NAYA SAVERA</span>
+              <strong class="ns-centre__name">Noida</strong>
+              <a href="naya-savera-noida.php" class="ns-btn ns-btn--outline">View Details</a>
             </div>
-          </div>
+          </article>
           <!--<div class="col-md-3 col-sm-6">
             <div class="table-style-1">
               <div class="head"> <span>NAYA SAVERA</span> <strong class="amount">Kullu</strong> </div>
@@ -214,60 +218,61 @@
               <div class="btn-row"><a href="naya-savera-kullu.php" class="btn-style-3">View Details</a></div>
             </div>
           </div>
-          --><div class="col-md-4 col-sm-6">
-            <div class="table-style-1">
-              <div class="head"> <span>NAYA SAVERA</span> <strong class="amount">Palampur</strong> </div>
-              <div style="width:100%; margin-bottom:30px"><img src="images/palampur.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Palampur, Himachal" /></div>
-              <div class="btn-row"><a href="#" class="btn-style-3">View Details</a></div>
+          -->
+          <article class="ns-centre">
+            <div class="ns-centre__media"><img src="images/palampur.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Palampur, Himachal" loading="lazy" /></div>
+            <div class="ns-centre__body">
+              <span class="ns-centre__kicker">NAYA SAVERA</span>
+              <strong class="ns-centre__name">Palampur</strong>
+              <a href="#" class="ns-btn ns-btn--outline">View Details</a>
             </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. THE ASK — enquiry form for people who will not call -->
+    <section class="ns-section ns-enquiry">
+      <div class="ns-wrap ns-wrap--narrow">
+        <h2>We can Help -  Contact Us Now!</h2>
+        <form action="enquiry.php" class="ns-form" method="post">
+          <div class="ns-field">
+            <label for="ns-name">Your Name</label>
+            <input id="ns-name" type="text" name="name" placeholder="Enter your name ">
           </div>
-        </div>
+          <div class="ns-field">
+            <label for="ns-email">Your Email</label>
+            <input id="ns-email" type="text" name="email" placeholder="Enter your email ">
+          </div>
+          <div class="ns-field">
+            <label for="ns-phone">Contact Number</label>
+            <input id="ns-phone" type="text" name="phone" placeholder="Enter your contact ">
+          </div>
+          <div class="ns-field ns-field--full">
+            <label for="ns-message">Additional Description</label>
+            <textarea id="ns-message" cols="10" rows="10" name="message" placeholder="Please Write your Message here"></textarea>
+          </div>
+          <div class="ns-field ns-field--full">
+            <div class="g-recaptcha" data-sitekey="6LdMh64qAAAAAB83rlTvDyG09XY9OPqKNJcSRnoi" ></div>
+          </div>
+          <div class="ns-field ns-field--full ns-form__actions">
+            <input type="submit" value="Submit ">
+            <input type="hidden" name="formtype" value="contact" />
+          </div>
+        </form>
       </div>
     </section>
-    <section class="booking-form" style="background: #66CC99">
-      <div class="container">
-        <h2 align="center">We can Help -  Contact Us Now!</h2>
-        <div class="search-form">
-          <form action="enquiry.php" class="row" method="post">
-            <div class="col-md-4 col-sm-6">
-              <div class="input-box">
-                <label>Your Name</label>
-                <input type="text" name="name" placeholder="Enter your name ">
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="input-box">
-                <label>Your Email</label>
-                <input type="text" name="email" placeholder="Enter your email ">
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="input-box">
-                <label>Contact Number</label>
-                <input type="text" name="phone" placeholder="Enter your contact ">
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div class="input-box"><label>Additional Description</label>
-              <textarea cols="10" rows="10"  name="message" placeholder="Please Write your Message here"></textarea>
-              </div>
-            </div>
-            <div class="col-md-12">
-                    <div class="input-box"><div class="g-recaptcha" data-sitekey="6LdMh64qAAAAAB83rlTvDyG09XY9OPqKNJcSRnoi" ></div>
-                  </div></div>
-            <div class="col-md-12 btn-row">
-              <input type="submit" value="Submit " style="border:1px solid #000">
-              <input type="hidden" name="formtype" value="contact" />
-              <br>
-              <br>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
+
+<!-- Sticky mobile action bar: repeats this page's own call link so it is never more than one tap away -->
+<div class="ns-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="ns-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="ns-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
 <script src="js/jquery-1.12.2.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
@@ -297,24 +302,24 @@ function lastcomments($link)	{
 			$sno = $pos+1;
 			//echo "<ol start=\"$sno\"> \n";
 			while($i = mysqli_fetch_array($result1)){
-				
+
 				echo '<div class="item">
     	<div class="inner-col">
-    		<div class="right-col"> <em>'.stripslashes($i['comments']).'</em> 
+    		<div class="right-col"> <em>'.stripslashes($i['comments']).'</em>
     			<p align="right"><em>Name: '.$i['name'].'<br>Place: '.$i['place'].'</em></p>
     		</div>
     	</div>
     </div>';
-				
+
 				//echo "  <strong>Date:</strong> ".$i[4]."<br />";
-				
-				
+
+
 				$sno++;
 			}
 			//echo "</ol> \n";
-	
-			
-	
+
+
+
 		}else{
 				print "Review not found...";
 		}
