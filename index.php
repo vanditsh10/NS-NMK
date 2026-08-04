@@ -288,6 +288,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <script src="js/jquery.counterup.min.js"></script>
 <script src="js/custom.js"></script>
+<script>
+// custom.js initialises the hero carousel at DOM-ready, and Owl fixes each
+// slide's width from the container at that instant. Fonts and images settling
+// afterwards change that width, which leaves the slides mis-measured and
+// clipped. Nudge Owl to re-measure once everything has actually loaded.
+window.addEventListener('load', function () {
+  setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 80);
+});
+</script>
 </body>
 </html>
 <?php

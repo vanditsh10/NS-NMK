@@ -78,14 +78,17 @@ body.ns-home .book-section .number-box::after,
 body.ns-home .book-section .number-text::before,
 body.ns-home .book-section .number-text::after { display: none; }
 
+/* Full-bleed: no centred column. The gutter scales with the viewport so the
+   layout uses the whole screen while never letting content touch the edge.
+   Line length is capped per-element instead (measure caps below). */
 body.ns-home .ns-wrap {
   width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 24px;
+  max-width: none;
+  margin: 0;
+  padding: 0 clamp(18px, 3.2vw, 60px);
   box-sizing: border-box;
 }
-body.ns-home .ns-wrap--narrow { max-width: 860px; }
+body.ns-home .ns-wrap--narrow { max-width: none; }
 body.ns-home .ns-section { padding: 64px 0; position: relative; }
 
 body.ns-home #main a:focus-visible,
@@ -127,8 +130,9 @@ body.ns-home .logo-section .container {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px 32px;
-  padding: 14px 24px;
-  max-width: 1240px;
+  padding: 14px clamp(18px, 3.2vw, 60px);
+  width: 100%;
+  max-width: none;
 }
 body.ns-home .logo-section,
 body.ns-home .logo-section .col-md-9,
@@ -200,16 +204,18 @@ body.ns-home .main-navigation .navbar {
   border-radius: 0;
 }
 body.ns-home .main-navigation .navbar-inverse { border-bottom: 0; }
-body.ns-home .main-navigation .container { padding: 0 24px; max-width: 1240px; }
+body.ns-home .main-navigation .container { padding: 0 clamp(18px, 3.2vw, 60px); width: 100%; max-width: none; }
 body.ns-home .main-navigation .col-md-12 { padding: 0; float: none; width: 100%; }
 body.ns-home .main-navigation .nav-outer { float: none; }
 
+/* left-aligned to the same gutter as the logo — a centred nav floats oddly on a
+   full-bleed bar */
 body.ns-home .main-navigation ul#nav {
   float: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  margin: 0;
+  margin: 0 0 0 -17px;
   padding: 0;
 }
 body.ns-home .main-navigation ul#nav > li { float: none; position: relative; }
@@ -298,7 +304,8 @@ body.ns-home .ns-eyebrow::before {
 body.ns-home .ns-eyebrow--light { color: var(--lux-bronze); }
 body.ns-home .ns-eyebrow--light::before { background: var(--lux-bronze); }
 
-body.ns-home .ns-head { margin: 0 0 40px; max-width: 940px; }
+/* measure cap: full-bleed layout, but headings stay readable */
+body.ns-home .ns-head { margin: 0 0 40px; max-width: 26ch; }
 /* legacy theme hangs a grey 35px bar off every h2::before */
 body.ns-home .ns-head h2::before, body.ns-home .ns-head h2::after,
 body.ns-home .ns-enquiry h2::before, body.ns-home .ns-enquiry h2::after,
@@ -450,6 +457,7 @@ body.ns-home .ns-split { display: grid; gap: 40px; align-items: center; }
 body.ns-home .ns-split__media { min-width: 0; }
 body.ns-home .ns-split__text em {
   display: block;
+  max-width: 62ch;
   font: italic 400 clamp(15.5px, 1.9vw, 18px) / 1.85 var(--lux-body-font);
   color: var(--lux-ink);
   padding-left: 28px;
@@ -480,7 +488,7 @@ body.ns-home .ns-video {
   background: var(--lux-forest);
 }
 body.ns-home .ns-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-body.ns-home .ns-video--wide { max-width: 960px; margin: 34px auto 0; }
+body.ns-home .ns-video--wide { max-width: 1100px; margin: 34px auto 0; }
 
 /* ---------------------------------------------------------------------------
    6. WHAT WE TREAT — editorial hairline list, no boxes
@@ -683,8 +691,9 @@ body.ns-home .price-plans-section {
   border-top: 1px solid var(--lux-line-soft);
 }
 body.ns-home .price-plans-section .container {
-  max-width: 1240px;
-  padding: 0 24px;
+  width: 100%;
+  max-width: none;
+  padding: 0 clamp(18px, 3.2vw, 60px);
   box-sizing: border-box;
 }
 /* Each bootstrap .row becomes its own even grid. Gridding the rows rather than
@@ -856,13 +865,17 @@ body.ns-home .ns-callbar { display: none; }
   body.ns-home .logo-section .container { padding: 11px 0 11px 20px; gap: 6px 14px; }
   body.ns-home .logo-section .logo img { max-height: 40px; }
   body.ns-home .logo-section .col-md-9 { flex-basis: 100%; width: 100%; }
-  body.ns-home .book-section .number-box { gap: 1px 20px; }
-  body.ns-home .book-section .number-text { flex-direction: row; align-items: baseline; gap: 7px; }
+  body.ns-home .book-section .number-box { gap: 4px 18px; }
+  body.ns-home .book-section .number-text { flex-direction: column; align-items: flex-start; gap: 0; }
+  body.ns-home .book-section .number-text > strong { flex-wrap: wrap; gap: 4px 12px; }
   body.ns-home .book-section .number-text span,
-  body.ns-home .book-section .number-text span strong { font-size: 8.5px; letter-spacing: .15em; }
-  body.ns-home .book-section .number-text a { font-size: 16px; }
+  body.ns-home .book-section .number-text span strong { font-size: 8.5px; letter-spacing: .14em; }
+  body.ns-home .book-section .number-text a { font-size: 15px; }
 
+  /* the toggle is floated by bootstrap, so it contributes nothing to its
+     parent's intrinsic width and the phone block rides over it */
   body.ns-home .main-navigation { flex: 0 0 auto; }
+  body.ns-home .main-navigation .navbar-header { display: flex; justify-content: flex-end; }
   body.ns-home .main-navigation .navbar { border-top: 0; }
   body.ns-home .main-navigation .container { padding: 0 16px 0 8px; }
   body.ns-home .main-navigation .navbar-header { float: none; margin: 0; }
@@ -921,6 +934,22 @@ body.ns-home .ns-callbar { display: none; }
   body.ns-home .price-plans-section .container > .row { grid-template-columns: repeat(3, 1fr); column-gap: 60px; }
 }
 
+
+/* Wide screens: spend the extra width on more columns rather than longer lines */
+@media (min-width: 1500px) {
+  body.ns-home .ns-form { grid-template-columns: repeat(3, 1fr); }
+  body.ns-home .ns-form .ns-field--full { grid-column: 1 / -1; }
+  body.ns-home .price-plans-section .container > .row { grid-template-columns: repeat(4, 1fr); column-gap: 56px; }
+  body.ns-home .ns-centre__media img { height: 300px; }
+}
+
+/* Footer containers are bootstrap-centred; match the full-bleed page. */
+body.ns-home #footer .container {
+  width: 100%;
+  max-width: none;
+  padding-left: clamp(18px, 3.2vw, 60px);
+  padding-right: clamp(18px, 3.2vw, 60px);
+}
 
 @media (prefers-reduced-motion: reduce) {
   body.ns-home *, body.ns-home *::before, body.ns-home *::after {
