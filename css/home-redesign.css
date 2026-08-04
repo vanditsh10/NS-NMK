@@ -1,297 +1,357 @@
 @charset "utf-8";
 /* ============================================================================
-   Naya Savera — home page redesign
+   Naya Savera — home page, luxury redesign
    ----------------------------------------------------------------------------
    Loaded ONLY by index.php. Every rule is scoped to `body.ns-home`, so the
-   shared header.php / footer.php render exactly as before on all other pages.
+   shared header.php / footer.php render exactly as before on every other page.
 
-   Palette is taken from the brand assets, nothing invented:
-     #ff6600  logo wordmark orange   -> actions / CTAs
-     #9bc83c  existing UI green      -> brand accent, headings
-     #7ac49f  logo sunrise mint      -> soft accents
-     #66cc99  existing form band     -> supporting tint
+   Same brand hues, taken to a luxury register: the bright logo orange is
+   reserved for actions only, and the page is built on deep forest green,
+   ivory and a bronze drawn from the same orange family.
+
+     #ff6600  logo orange        -> actions only
+     #c9954a  bronze (same hue, luxury saturation) -> accents, hairlines, rules
+     #9bc83c  brand green        -> sparing highlights
+     #0f1f16  deep forest        -> dark sections, headings
+     #faf8f3  ivory              -> page ground (replaces flat white)
    ========================================================================== */
 
 body.ns-home {
-  --ns-orange: #ff6600;
-  --ns-orange-600: #e65c00;
-  --ns-orange-050: #fff3ea;
+  --lux-orange: #ff6600;
+  --lux-orange-600: #e65c00;
 
-  --ns-green: #9bc83c;
-  --ns-green-600: #87b428;
-  --ns-green-050: #f4f9ea;
+  --lux-bronze: #c9954a;
+  --lux-bronze-dark: #a97a37;
+  --lux-bronze-050: rgba(201, 149, 74, .10);
 
-  --ns-mint: #66cc99;
-  --ns-mint-light: #7ac49f;
-  --ns-mint-050: #eff9f4;
+  --lux-forest: #0f1f16;
+  --lux-forest-2: #1a3325;
+  --lux-sage: #9bc83c;
 
-  --ns-ink: #16261c;
-  --ns-body: #4d5c53;
-  --ns-muted: #7d8c83;
-  --ns-line: #e3ebe5;
-  --ns-surface: #ffffff;
-  --ns-surface-2: #f7faf5;
+  --lux-ivory: #faf8f3;
+  --lux-cream: #f2ece1;
+  --lux-white: #ffffff;
 
-  --ns-radius: 16px;
-  --ns-radius-lg: 22px;
-  --ns-shadow-sm: 0 1px 2px rgba(22, 38, 28, .06), 0 2px 8px rgba(22, 38, 28, .04);
-  --ns-shadow-md: 0 2px 4px rgba(22, 38, 28, .06), 0 12px 28px rgba(22, 38, 28, .08);
-  --ns-shadow-lg: 0 4px 8px rgba(22, 38, 28, .07), 0 24px 48px rgba(22, 38, 28, .12);
+  --lux-ink: #16261c;
+  --lux-body: #55625a;
+  --lux-muted: #8c968f;
+  --lux-line: rgba(15, 31, 22, .13);
+  --lux-line-soft: rgba(15, 31, 22, .07);
+  --lux-line-light: rgba(255, 255, 255, .16);
 
-  --ns-head-font: 'Montserrat', sans-serif;
-  --ns-body-font: 'Open Sans', sans-serif;
+  --lux-shadow-sm: 0 1px 2px rgba(15, 31, 22, .04), 0 6px 18px rgba(15, 31, 22, .05);
+  --lux-shadow-md: 0 2px 6px rgba(15, 31, 22, .05), 0 18px 44px rgba(15, 31, 22, .09);
+  --lux-shadow-lg: 0 6px 14px rgba(15, 31, 22, .06), 0 34px 70px rgba(15, 31, 22, .13);
 
-  background: var(--ns-surface);
-  color: var(--ns-body);
+  /* Montserrat + Open Sans, already loaded by header-includes.php.
+     Only 400 and 700 exist, so hierarchy comes from size, tracking and colour
+     rather than from extra weights. */
+  --lux-display: 'Montserrat', sans-serif;
+  --lux-label: 'Montserrat', sans-serif;
+  --lux-body-font: 'Open Sans', sans-serif;
+
+  background: var(--lux-ivory);
+  color: var(--lux-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* The legacy theme floats #wrapper, #main and #banner. A floated ancestor puts
-   everything inside it into a shrink-to-fit context, which collapses any CSS
-   grid whose tracks can resolve to zero (minmax(0,1fr)) down to width 0. These
-   floats do no layout work on this page, so clear them and size normally. */
+/* The legacy theme floats #wrapper/#main/#banner. A floated ancestor puts every
+   descendant into a shrink-to-fit context, which collapses any CSS grid whose
+   tracks can resolve to zero down to width 0. Clear them. */
 body.ns-home #wrapper,
 body.ns-home #main,
-body.ns-home #banner { float: none; width: 100%; }
+body.ns-home #banner,
+body.ns-home .price-plans-section,
+body.ns-home #footer { float: none; width: 100%; }
+body.ns-home #main { overflow-x: hidden; background: var(--lux-ivory); }
 
-body.ns-home #main { overflow-x: hidden; }
+/* Bootstrap's .container/.row clearfix is display:table on ::before/::after.
+   Once those parents become flex or grid the pseudo-elements become items and
+   shove the real columns around. */
+body.ns-home #header .container::before,
+body.ns-home #header .container::after,
+body.ns-home .price-plans-section .container::before,
+body.ns-home .price-plans-section .container::after,
+body.ns-home .book-section .number-box::before,
+body.ns-home .book-section .number-box::after,
+body.ns-home .book-section .number-text::before,
+body.ns-home .book-section .number-text::after { display: none; }
 
 body.ns-home .ns-wrap {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   box-sizing: border-box;
 }
-body.ns-home .ns-wrap--narrow { max-width: 820px; }
+body.ns-home .ns-wrap--narrow { max-width: 860px; }
+body.ns-home .ns-section { padding: 64px 0; position: relative; }
 
-body.ns-home .ns-section { padding: 56px 0; position: relative; }
-
-/* Visible keyboard focus everywhere in the redesigned area. */
 body.ns-home #main a:focus-visible,
+body.ns-home #header a:focus-visible,
 body.ns-home .ns-callbar a:focus-visible,
-body.ns-home #main button:focus-visible,
+body.ns-home .price-plans-section a:focus-visible,
 body.ns-home #main input:focus-visible,
 body.ns-home #main textarea:focus-visible {
-  outline: 3px solid var(--ns-orange);
-  outline-offset: 3px;
-  border-radius: 6px;
+  outline: 2px solid var(--lux-bronze);
+  outline-offset: 4px;
 }
 
 /* ---------------------------------------------------------------------------
-   1. Shared header, compacted for this page only.
-   The old header ate ~550px before any content on a 375px screen.
+   1. HEADER — social strip removed, single refined sticky bar
    ------------------------------------------------------------------------- */
 
-/* Bootstrap gives .container/.row a `display:table` clearfix via ::before and
-   ::after. Once the container becomes a flex parent those pseudo-elements turn
-   into flex items and shove the real columns around — kill them here. */
-body.ns-home .topbar-section .container::before,
-body.ns-home .topbar-section .container::after,
-body.ns-home .logo-section .container::before,
-body.ns-home .logo-section .container::after,
-body.ns-home .main-navigation .container::before,
-body.ns-home .main-navigation .container::after,
-body.ns-home .book-section .number-box::before,
-body.ns-home .book-section .number-box::after { display: none; }
+/* The social/email strip is gone from this page. Facebook, YouTube, Instagram
+   and the email address all still appear in the footer. */
+body.ns-home .topbar-section { display: none; }
 
-body.ns-home .topbar-section {
-  background: var(--ns-surface-2);
-  border-bottom: 1px solid var(--ns-line);
-  padding: 0;
+body.ns-home #header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: rgba(250, 248, 243, .88);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--lux-line-soft);
 }
-body.ns-home .topbar-section .container { padding: 0 16px; }
-body.ns-home .topbar-section .col-md-6 { padding: 0; }
-body.ns-home .topbar-section .top-social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2px 14px;
-  float: none;
-  min-height: 40px;
-}
-body.ns-home .topbar-section .top-social ul {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  margin: 0;
-  padding: 0;
-  float: none;
-  border: 0;
-}
-body.ns-home .topbar-section .top-social ul li { float: none; border: 0; margin: 0; }
-body.ns-home .topbar-section .top-social ul li a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border: 0;
-  color: var(--ns-muted);
-  font-size: 14px;
-  line-height: 1;
-  transition: color .18s ease, transform .18s ease;
-}
-body.ns-home .topbar-section .top-social ul li a:hover { color: var(--ns-green-600); transform: translateY(-1px); }
-body.ns-home .topbar-section .top-social a.email {
-  float: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: 400 13px/1 var(--ns-body-font);
-  color: var(--ns-muted);
-}
-body.ns-home .topbar-section .top-social a.email:hover { color: var(--ns-green-600); }
 
-/* Logo + phone numbers on one line instead of three stacked blocks. */
-body.ns-home .logo-section { padding: 10px 0; border-bottom: 1px solid var(--ns-line); }
+body.ns-home .logo-section {
+  padding: 0;
+  border: 0;
+  background: none;
+}
 body.ns-home .logo-section .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px 24px;
-  padding: 0 16px;
+  gap: 16px 32px;
+  padding: 14px 24px;
+  max-width: 1240px;
 }
+body.ns-home .logo-section,
+body.ns-home .logo-section .col-md-9,
+body.ns-home .book-section { min-width: 0; }
 body.ns-home .logo-section .col-md-3,
 body.ns-home .logo-section .col-md-9 { float: none; width: auto; padding: 0; }
 body.ns-home .logo-section .logo { float: none; margin: 0; display: block; }
-body.ns-home .logo-section .logo img { display: block; max-height: 46px; width: auto; }
+body.ns-home .logo-section .logo img {
+  display: block;
+  max-height: 52px;
+  width: auto;
+  transition: opacity .25s ease;
+}
+body.ns-home .logo-section .logo a:hover img { opacity: .78; }
 
+/* Phone block, restyled as a quiet luxury detail rather than a shouty banner */
 body.ns-home .book-section { float: none; margin: 0; padding: 0; border: 0; background: none; }
 body.ns-home .book-section .number-box {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px 18px;
-  float: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
+  gap: 6px 28px;
+  float: none; margin: 0; padding: 0; border: 0; background: none;
 }
 body.ns-home .book-section .number-box > i.fa-phone { display: none; }
-body.ns-home .book-section .number-text::before,
-body.ns-home .book-section .number-text::after { display: none; } /* old grey arrow markers */
 body.ns-home .book-section .number-text {
-  float: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
+  float: none; margin: 0; padding: 0; border: 0; background: none;
   display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 2px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
   text-align: left;
 }
 body.ns-home .book-section .number-text span,
 body.ns-home .book-section .number-text span strong {
-  font: 600 11px/1.4 var(--ns-body-font);
-  letter-spacing: .04em;
+  font: 600 9.5px/1.5 var(--lux-label);
+  letter-spacing: .19em;
   text-transform: uppercase;
-  color: var(--ns-muted);
+  color: var(--lux-muted);
 }
-body.ns-home .book-section .number-text > strong { display: inline-flex; align-items: center; gap: 10px; }
+body.ns-home .book-section .number-text > strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
 body.ns-home .book-section .number-text a {
-  font: 700 15px/1.3 var(--ns-head-font);
-  color: var(--ns-ink);
+  font: 700 15.5px/1.35 var(--lux-display);
+  letter-spacing: -.01em;
+  color: var(--lux-ink);
   text-decoration: none;
-  transition: color .18s ease;
+  transition: color .22s ease;
 }
-body.ns-home .book-section .number-text a:hover { color: var(--ns-orange); }
-body.ns-home .book-section .number-text a .fa-whatsapp { color: #25d366; font-size: 17px; }
+body.ns-home .book-section .number-text a:hover { color: var(--lux-orange); }
+body.ns-home .book-section .number-text a .fa-whatsapp {
+  color: #25d366;
+  font-size: 18px;
+  vertical-align: middle;
+}
 
-/* Nav bar */
-body.ns-home .main-navigation { background: var(--ns-surface); }
-body.ns-home .main-navigation .navbar { margin: 0; border: 0; background: var(--ns-surface); min-height: 0; }
-body.ns-home .main-navigation .navbar-inverse { border-bottom: 1px solid var(--ns-line); }
-body.ns-home .main-navigation .container { padding: 0 16px; }
-body.ns-home .main-navigation .col-md-12 { padding: 0; }
-body.ns-home .main-navigation .navbar-toggle {
-  margin: 8px 0;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid var(--ns-line);
-  background: var(--ns-surface-2);
+/* Navigation ---------------------------------------------------------------
+   Hairline rule, small letterspaced caps, bronze underline that draws in. */
+body.ns-home .main-navigation { background: none; }
+body.ns-home .main-navigation .navbar {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--lux-line-soft);
+  background: none;
+  min-height: 0;
+  border-radius: 0;
 }
-body.ns-home .main-navigation .navbar-toggle .icon-bar { background: var(--ns-ink); }
+body.ns-home .main-navigation .navbar-inverse { border-bottom: 0; }
+body.ns-home .main-navigation .container { padding: 0 24px; max-width: 1240px; }
+body.ns-home .main-navigation .col-md-12 { padding: 0; float: none; width: 100%; }
+body.ns-home .main-navigation .nav-outer { float: none; }
+
+body.ns-home .main-navigation ul#nav {
+  float: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+body.ns-home .main-navigation ul#nav > li { float: none; position: relative; }
 body.ns-home .main-navigation ul#nav > li > a {
-  font: 700 12.5px/1 var(--ns-head-font);
-  letter-spacing: .03em;
-  color: var(--ns-ink);
-  padding: 17px 13px;
-  transition: color .18s ease, background .18s ease;
+  position: relative;
+  display: block;
+  padding: 17px 17px;
+  font: 600 10.5px/1 var(--lux-label);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--lux-ink);
+  background: none;
+  transition: color .24s ease;
+}
+body.ns-home .main-navigation ul#nav > li > a::after {
+  content: "";
+  position: absolute;
+  left: 17px;
+  right: 17px;
+  bottom: 10px;
+  height: 1px;
+  background: var(--lux-bronze);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .34s cubic-bezier(.22, .61, .36, 1);
 }
 body.ns-home .main-navigation ul#nav > li > a:hover,
-body.ns-home .main-navigation ul#nav > li.active > a { color: var(--ns-orange); background: var(--ns-orange-050); }
-body.ns-home .main-navigation ul#nav ul { border-radius: 0 0 12px 12px; box-shadow: var(--ns-shadow-md); border: 0; overflow: hidden; }
-body.ns-home .main-navigation ul#nav ul li a { font: 600 13px/1.4 var(--ns-body-font); padding: 12px 16px; }
+body.ns-home .main-navigation ul#nav > li.active > a { color: var(--lux-bronze-dark); background: none; }
+body.ns-home .main-navigation ul#nav > li > a:hover::after,
+body.ns-home .main-navigation ul#nav > li.active > a::after { transform: scaleX(1); }
+
+/* Dropdown */
+body.ns-home .main-navigation ul#nav ul {
+  border: 0;
+  border-top: 2px solid var(--lux-bronze);
+  border-radius: 0 0 3px 3px;
+  box-shadow: var(--lux-shadow-md);
+  background: var(--lux-white);
+  padding: 6px 0;
+  min-width: 210px;
+}
+body.ns-home .main-navigation ul#nav ul li a {
+  font: 400 13px/1.5 var(--lux-body-font);
+  letter-spacing: .02em;
+  text-transform: none;
+  color: var(--lux-body);
+  padding: 11px 20px;
+  border: 0;
+  transition: background .2s ease, color .2s ease, padding .2s ease;
+}
+body.ns-home .main-navigation ul#nav ul li a:hover {
+  background: var(--lux-ivory);
+  color: var(--lux-ink);
+  padding-left: 26px;
+}
+
+body.ns-home .main-navigation .navbar-toggle {
+  margin: 9px 0;
+  padding: 11px 13px;
+  border-radius: 2px;
+  border: 1px solid var(--lux-line);
+  background: none;
+}
+body.ns-home .main-navigation .navbar-toggle .icon-bar { background: var(--lux-ink); }
 
 /* ---------------------------------------------------------------------------
-   2. Hero — first thing on the page, carries the H1 and the call CTA.
+   2. TYPOGRAPHY PRIMITIVES
+   ------------------------------------------------------------------------- */
+
+body.ns-home .ns-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font: 600 10px/1 var(--lux-label);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--lux-bronze-dark);
+  margin-bottom: 22px;
+}
+body.ns-home .ns-eyebrow::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--lux-bronze);
+}
+body.ns-home .ns-eyebrow--light { color: var(--lux-bronze); }
+body.ns-home .ns-eyebrow--light::before { background: var(--lux-bronze); }
+
+body.ns-home .ns-head { margin: 0 0 40px; max-width: 940px; }
+/* legacy theme hangs a grey 35px bar off every h2::before */
+body.ns-home .ns-head h2::before, body.ns-home .ns-head h2::after,
+body.ns-home .ns-enquiry h2::before, body.ns-home .ns-enquiry h2::after,
+body.ns-home .ns-cards h3::before,
+body.ns-home .price-plans-section h2::before,
+body.ns-home .price-plans-section h2::after { display: none; }
+
+body.ns-home .ns-head h2 {
+  font: 700 clamp(24px, 3.7vw, 40px) / 1.22 var(--lux-display);
+  color: var(--lux-ink);
+  letter-spacing: -.022em;
+  text-transform: none;
+  margin: 0;
+}
+body.ns-home .ns-head--onDark h2 { color: var(--lux-white); }
+
+/* ---------------------------------------------------------------------------
+   3. HERO
    ------------------------------------------------------------------------- */
 
 body.ns-home .ns-hero {
   position: relative;
   overflow: hidden;
-  padding: 44px 0 48px;
+  padding: 60px 0 66px;
   background:
-    radial-gradient(60% 90% at 88% 8%, rgba(255, 102, 0, .10) 0%, rgba(255, 102, 0, 0) 62%),
-    radial-gradient(70% 100% at 6% 100%, rgba(122, 196, 159, .22) 0%, rgba(122, 196, 159, 0) 60%),
-    linear-gradient(178deg, var(--ns-surface) 0%, var(--ns-green-050) 100%);
+    radial-gradient(120% 90% at 85% 0%, rgba(201, 149, 74, .13) 0%, rgba(201, 149, 74, 0) 58%),
+    radial-gradient(90% 80% at 0% 100%, rgba(155, 200, 60, .10) 0%, rgba(155, 200, 60, 0) 60%),
+    linear-gradient(180deg, var(--lux-ivory) 0%, var(--lux-cream) 100%);
 }
-/* Decorative sunrise arc, echoing the logo mark. Purely ornamental. */
-body.ns-home .ns-hero::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -220px;
-  width: 760px;
-  height: 380px;
-  transform: translateX(-50%);
-  border-radius: 50% 50% 0 0;
-  background: radial-gradient(closest-side, rgba(255, 102, 0, .12), rgba(255, 102, 0, 0));
-  pointer-events: none;
-}
-body.ns-home .ns-hero__inner { position: relative; z-index: 1; max-width: 820px; }
-
-body.ns-home .ns-eyebrow {
-  display: inline-flex;
+body.ns-home .ns-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 40px;
   align-items: center;
-  gap: 10px;
-  font: 700 12px/1 var(--ns-head-font);
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--ns-green-600);
-  margin-bottom: 18px;
 }
-body.ns-home .ns-eyebrow::before {
-  content: "";
-  width: 30px;
-  height: 3px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--ns-orange), var(--ns-green));
-}
+body.ns-home .ns-hero__inner { min-width: 0; }
+body.ns-home .ns-hero__media { min-width: 0; }
 
 body.ns-home .ns-hero__title {
-  font: 700 clamp(29px, 6.4vw, 54px) / 1.13 var(--ns-head-font);
-  color: var(--ns-ink);
-  letter-spacing: -.02em;
-  margin: 0 0 26px;
+  font: 700 clamp(31px, 5.6vw, 58px) / 1.11 var(--lux-display);
+  color: var(--lux-ink);
+  letter-spacing: -.032em;
   text-transform: none;
+  margin: 0 0 34px;
+  max-width: 15ch;
 }
 
 body.ns-home .ns-cta-row {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  gap: 12px;
+  gap: 14px;
 }
 
 /* Buttons ------------------------------------------------------------------ */
@@ -299,337 +359,425 @@ body.ns-home .ns-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 54px;
-  padding: 15px 26px;
-  border-radius: 999px;
-  font: 700 15px/1.25 var(--ns-head-font);
-  letter-spacing: .01em;
+  gap: 11px;
+  min-height: 58px;
+  padding: 17px 34px;
+  border-radius: 2px;
+  font: 600 11.5px/1.5 var(--lux-label);
+  letter-spacing: .17em;
+  text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: transform .16s ease, box-shadow .16s ease, background .16s ease, color .16s ease, border-color .16s ease;
+  transition: background .28s ease, color .28s ease, border-color .28s ease, box-shadow .28s ease, transform .28s ease;
 }
-body.ns-home .ns-btn:hover { text-decoration: none; transform: translateY(-2px); }
-body.ns-home .ns-btn:active { transform: translateY(0); }
+body.ns-home .ns-btn:hover { text-decoration: none; transform: translateY(-1px); }
 
 body.ns-home .ns-btn--call {
-  background: linear-gradient(180deg, var(--ns-orange) 0%, var(--ns-orange-600) 100%);
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(255, 102, 0, .30);
+  background: var(--lux-orange);
+  color: var(--lux-white);
+  box-shadow: 0 10px 26px rgba(255, 102, 0, .26);
 }
-body.ns-home .ns-btn--call:hover { color: #fff; box-shadow: 0 10px 24px rgba(255, 102, 0, .38); }
-body.ns-home .ns-btn--call .fa { font-size: 17px; }
+body.ns-home .ns-btn--call:hover {
+  background: var(--lux-orange-600);
+  color: var(--lux-white);
+  box-shadow: 0 14px 34px rgba(255, 102, 0, .34);
+}
+body.ns-home .ns-btn--call .fa { font-size: 15px; }
 
 body.ns-home .ns-btn--ghost {
-  background: var(--ns-surface);
-  color: var(--ns-ink);
-  border-color: var(--ns-line);
-  box-shadow: var(--ns-shadow-sm);
+  background: none;
+  color: var(--lux-ink);
+  border-color: rgba(15, 31, 22, .28);
   white-space: pre-line;
 }
-body.ns-home .ns-btn--ghost:hover { color: var(--ns-green-600); border-color: var(--ns-green); }
+body.ns-home .ns-btn--ghost:hover {
+  color: var(--lux-white);
+  background: var(--lux-forest);
+  border-color: var(--lux-forest);
+}
 
 body.ns-home .ns-btn--outline {
-  background: transparent;
-  color: var(--ns-ink);
-  border-color: var(--ns-line);
-  min-height: 46px;
-  padding: 12px 22px;
-  font-size: 14px;
+  background: none;
+  color: var(--lux-ink);
+  border-color: rgba(15, 31, 22, .24);
+  min-height: 50px;
+  padding: 14px 28px;
+  font-size: 10.5px;
 }
-body.ns-home .ns-btn--outline:hover { color: #fff; background: var(--ns-green-600); border-color: var(--ns-green-600); }
+body.ns-home .ns-btn--outline:hover {
+  color: var(--lux-white);
+  background: var(--lux-forest);
+  border-color: var(--lux-forest);
+}
 
 /* ---------------------------------------------------------------------------
-   3. Banner band — the three campaign images have text baked in, so they are
-   shown uncropped at their natural 2.81:1 ratio and never overlaid.
+   4. BANNER BAND — campaign images have text baked in, never cropped/overlaid
    ------------------------------------------------------------------------- */
 
+/* Contained inside the hero's right column, not a full-bleed band. */
 body.ns-home #banner {
-  background: var(--ns-ink);
-  border-top: 3px solid var(--ns-orange);
+  background: var(--lux-forest);
   line-height: 0;
-  margin: 0; /* the shared theme pulls #banner up by -24px; not wanted here */
+  margin: 0;
+  overflow: hidden;
+  box-shadow: var(--lux-shadow-md);
+  outline: 1px solid rgba(201, 149, 74, .35);
+  outline-offset: 0;
 }
-body.ns-home #banner .item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+body.ns-home #banner .item img { width: 100%; height: auto; display: block; }
 body.ns-home #banner .caption { display: none; }
 body.ns-home #banner .owl-controls { margin: 0; position: relative; }
 body.ns-home #banner .owl-controls .owl-pagination {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 12px;
-  text-align: center;
+  position: absolute; left: 0; right: 0; bottom: 12px; text-align: center;
 }
 body.ns-home #banner .owl-controls .owl-page span {
-  width: 9px;
-  height: 9px;
-  margin: 0 4px;
+  width: 7px; height: 7px; margin: 0 5px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, .55);
+  background: rgba(255, 255, 255, .45);
   opacity: 1;
-  transition: background .2s ease, width .2s ease;
+  transition: background .3s ease, width .3s ease;
 }
-body.ns-home #banner .owl-controls .owl-page.active span { background: var(--ns-orange); width: 24px; }
+body.ns-home #banner .owl-controls .owl-page.active span { background: var(--lux-bronze); width: 26px; }
 
 /* ---------------------------------------------------------------------------
-   4. Section headings
+   5. INTRO
    ------------------------------------------------------------------------- */
 
-body.ns-home .ns-head { margin: 0 0 32px; max-width: 900px; }
-/* legacy theme hangs a grey 35px bar off every h2::before */
-body.ns-home .ns-head h2::before,
-body.ns-home .ns-head h2::after,
-body.ns-home .ns-enquiry h2::before,
-body.ns-home .ns-enquiry h2::after,
-body.ns-home .ns-cards h3::before { display: none; }
-body.ns-home .ns-head h2 {
-  font: 700 clamp(22px, 3.6vw, 34px) / 1.24 var(--ns-head-font);
-  color: var(--ns-ink);
-  letter-spacing: -.01em;
-  margin: 0;
-}
-body.ns-home .ns-head--onDark h2 { color: #fff; }
-body.ns-home .ns-eyebrow--light { color: #cfe6a4; }
-body.ns-home .ns-eyebrow--light::before { background: linear-gradient(90deg, var(--ns-orange), #cfe6a4); }
-
-/* ---------------------------------------------------------------------------
-   5. Intro — copy beside the welcome video
-   ------------------------------------------------------------------------- */
-
-body.ns-home .ns-intro { background: var(--ns-surface); }
-body.ns-home .ns-split { display: grid; gap: 30px; align-items: center; }
+body.ns-home .ns-intro { background: var(--lux-ivory); }
+body.ns-home .ns-split { display: grid; gap: 40px; align-items: center; }
 body.ns-home .ns-split__media { min-width: 0; }
 body.ns-home .ns-split__text em {
   display: block;
-  font: italic 400 clamp(15px, 2.1vw, 17.5px) / 1.75 var(--ns-body-font);
-  color: var(--ns-body);
+  font: italic 400 clamp(15.5px, 1.9vw, 18px) / 1.85 var(--lux-body-font);
+  color: var(--lux-ink);
+  padding-left: 28px;
+  border-left: 1px solid var(--lux-bronze);
 }
 body.ns-home .ns-split__text a {
   font-style: normal;
-  font-weight: 700;
-  color: var(--ns-orange);
+  font-family: var(--lux-label);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--lux-bronze-dark);
   text-decoration: none;
-  border-bottom: 2px solid rgba(255, 102, 0, .3);
-  transition: border-color .18s ease;
+  border-bottom: 1px solid var(--lux-bronze);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: color .24s ease, border-color .24s ease;
 }
-body.ns-home .ns-split__text a:hover { border-bottom-color: var(--ns-orange); }
+body.ns-home .ns-split__text a:hover { color: var(--lux-orange); border-color: var(--lux-orange); }
 
 body.ns-home .ns-video {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  border-radius: var(--ns-radius);
-  box-shadow: var(--ns-shadow-md);
-  background: var(--ns-ink);
+  box-shadow: var(--lux-shadow-md);
+  background: var(--lux-forest);
 }
-body.ns-home .ns-video iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-body.ns-home .ns-video--wide { max-width: 900px; margin: 26px auto 0; border-radius: var(--ns-radius-lg); }
+body.ns-home .ns-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+body.ns-home .ns-video--wide { max-width: 960px; margin: 34px auto 0; }
 
 /* ---------------------------------------------------------------------------
-   6. "This is why" — the five treatment pages, on the existing brand backdrop
+   6. WHAT WE TREAT — editorial hairline list, no boxes
    ------------------------------------------------------------------------- */
 
 body.ns-home .ns-why {
   background:
-    linear-gradient(180deg, rgba(16, 33, 22, .90) 0%, rgba(16, 33, 22, .82) 100%),
-    url(../images/home-bg.jpg) center / cover no-repeat;
-  color: #fff;
+    linear-gradient(180deg, rgba(15, 31, 22, .93) 0%, rgba(15, 31, 22, .88) 100%),
+    url(../images/home-bg.jpg) center / cover no-repeat fixed;
+  color: var(--lux-white);
 }
-body.ns-home .ns-cards {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 14px;
-}
-body.ns-home .ns-cards li { margin: 0; padding: 0; }
+body.ns-home .ns-cards { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--lux-line-light); }
+body.ns-home .ns-cards li { margin: 0; padding: 0; border-bottom: 1px solid var(--lux-line-light); }
 body.ns-home .ns-cards h3 { margin: 0; }
 body.ns-home .ns-cards h3 a {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  min-height: 64px;
-  padding: 18px 22px;
-  border-radius: var(--ns-radius);
-  background: rgba(255, 255, 255, .07);
-  border: 1px solid rgba(255, 255, 255, .16);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: #fff;
-  font: 700 14px/1.35 var(--ns-head-font);
-  letter-spacing: .04em;
+  gap: 20px;
+  padding: 26px 8px 26px 0;
+  color: rgba(255, 255, 255, .86);
+  font: 700 clamp(14px, 1.7vw, 17px) / 1.4 var(--lux-label);
+  letter-spacing: .1em;
+  text-transform: none;
   text-decoration: none;
-  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  background: none;
+  transition: color .3s ease, padding-left .35s cubic-bezier(.22, .61, .36, 1);
+}
+body.ns-home .ns-cards h3 a::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 1px;
+  background: var(--lux-bronze);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s cubic-bezier(.22, .61, .36, 1);
+  display: block;
 }
 body.ns-home .ns-cards h3 a::after {
-  content: "\f105"; /* fa-angle-right */
+  content: "\f178"; /* fa-long-arrow-right */
   font-family: FontAwesome;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1;
-  color: var(--ns-orange);
+  color: var(--lux-bronze);
   flex: none;
-  transition: transform .2s ease;
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity .35s ease, transform .35s ease;
 }
-body.ns-home .ns-cards h3 a:hover {
-  background: rgba(255, 255, 255, .14);
-  border-color: var(--ns-orange);
-  transform: translateY(-2px);
-  color: #fff;
-}
-body.ns-home .ns-cards h3 a:hover::after { transform: translateX(4px); }
+body.ns-home .ns-cards h3 a:hover { color: var(--lux-white); padding-left: 16px; }
+body.ns-home .ns-cards h3 a:hover::before { transform: scaleX(1); }
+body.ns-home .ns-cards h3 a:hover::after { opacity: 1; transform: translateX(0); }
 
 /* ---------------------------------------------------------------------------
-   7. Programme
+   7. PROGRAMME
    ------------------------------------------------------------------------- */
 
-body.ns-home .ns-programme { background: var(--ns-surface-2); text-align: center; }
+body.ns-home .ns-programme { background: var(--lux-cream); text-align: center; }
 body.ns-home .ns-programme .ns-head { margin-left: auto; margin-right: auto; }
 body.ns-home .ns-lede {
-  font: 400 clamp(15px, 2vw, 17px) / 1.7 var(--ns-body-font);
-  color: var(--ns-body);
-  max-width: 760px;
-  margin: 0 auto 10px;
+  font: 400 clamp(15px, 1.9vw, 17px) / 1.85 var(--lux-body-font);
+  color: var(--lux-body);
+  max-width: 680px;
+  margin: 0 auto 12px;
 }
-body.ns-home .ns-lede strong { color: var(--ns-ink); font-weight: 700; }
+body.ns-home .ns-lede strong {
+  display: inline-block;
+  margin-top: 14px;
+  font: 600 10.5px/1.6 var(--lux-label);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--lux-bronze-dark);
+}
 
 /* ---------------------------------------------------------------------------
-   8. Centres
+   8. CENTRES
    ------------------------------------------------------------------------- */
 
-body.ns-home .ns-locations { background: var(--ns-surface); }
-body.ns-home .ns-centres { display: grid; gap: 22px; }
+body.ns-home .ns-locations { background: var(--lux-ivory); }
+body.ns-home .ns-centres { display: grid; gap: 30px; }
 body.ns-home .ns-centre {
-  background: var(--ns-surface);
-  border: 1px solid var(--ns-line);
-  border-radius: var(--ns-radius-lg);
+  background: var(--lux-white);
+  border: 1px solid var(--lux-line-soft);
   overflow: hidden;
-  box-shadow: var(--ns-shadow-sm);
-  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  box-shadow: var(--lux-shadow-sm);
+  transition: box-shadow .4s ease, transform .4s ease, border-color .4s ease;
   display: flex;
   flex-direction: column;
 }
 body.ns-home .ns-centre:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--ns-shadow-lg);
-  border-color: rgba(155, 200, 60, .5);
+  transform: translateY(-5px);
+  box-shadow: var(--lux-shadow-lg);
+  border-color: rgba(201, 149, 74, .45);
 }
-body.ns-home .ns-centre__media { line-height: 0; background: var(--ns-surface-2); }
+body.ns-home .ns-centre__media { line-height: 0; background: var(--lux-cream); overflow: hidden; }
 body.ns-home .ns-centre__media img {
   width: 100%;
-  height: 200px;
+  height: 260px;
   object-fit: cover;
   display: block;
+  transition: transform 1.1s cubic-bezier(.22, .61, .36, 1);
 }
+body.ns-home .ns-centre:hover .ns-centre__media img { transform: scale(1.06); }
 body.ns-home .ns-centre__body {
-  padding: 20px 22px 24px;
+  padding: 28px 30px 32px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
   flex: 1;
 }
 body.ns-home .ns-centre__kicker {
-  font: 700 10.5px/1 var(--ns-head-font);
-  letter-spacing: .18em;
+  font: 600 9.5px/1 var(--lux-label);
+  letter-spacing: .3em;
   text-transform: uppercase;
-  color: var(--ns-green-600);
+  color: var(--lux-bronze-dark);
+  margin-bottom: 10px;
 }
 body.ns-home .ns-centre__name {
-  font: 700 24px/1.2 var(--ns-head-font);
-  color: var(--ns-ink);
-  margin-bottom: 16px;
+  font: 700 25px/1.2 var(--lux-display);
+  letter-spacing: -.02em;
+  color: var(--lux-ink);
+  margin-bottom: 24px;
 }
 body.ns-home .ns-centre__body .ns-btn { margin-top: auto; }
 
 /* ---------------------------------------------------------------------------
-   9. Enquiry form
+   9. ENQUIRY — underline fields, no heavy boxes
    ------------------------------------------------------------------------- */
 
-body.ns-home .ns-enquiry {
-  background:
-    radial-gradient(80% 120% at 50% 0%, rgba(102, 204, 153, .20) 0%, rgba(102, 204, 153, 0) 60%),
-    var(--ns-mint-050);
-  border-top: 1px solid var(--ns-line);
-}
+body.ns-home .ns-enquiry { background: var(--lux-forest); }
 body.ns-home .ns-enquiry h2 {
-  font: 700 clamp(23px, 4vw, 34px) / 1.24 var(--ns-head-font);
-  color: var(--ns-ink);
+  font: 700 clamp(24px, 3.7vw, 40px) / 1.22 var(--lux-display);
+  letter-spacing: -.022em;
+  color: var(--lux-white);
   text-align: center;
-  margin: 0 0 30px;
+  text-transform: none;
+  margin: 0 0 44px;
 }
-body.ns-home .ns-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-  background: var(--ns-surface);
-  padding: 28px 22px;
-  border-radius: var(--ns-radius-lg);
-  box-shadow: var(--ns-shadow-md);
-  border: 1px solid var(--ns-line);
-}
-body.ns-home .ns-field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+body.ns-home .ns-form { display: grid; grid-template-columns: 1fr; gap: 30px 26px; }
+body.ns-home .ns-field { display: flex; flex-direction: column; gap: 9px; min-width: 0; }
 body.ns-home .ns-field label {
-  font: 600 12.5px/1.2 var(--ns-head-font);
-  letter-spacing: .04em;
+  font: 600 9.5px/1 var(--lux-label);
+  letter-spacing: .26em;
   text-transform: uppercase;
-  color: var(--ns-muted);
+  color: rgba(255, 255, 255, .52);
 }
 body.ns-home .ns-field input[type="text"],
 body.ns-home .ns-field textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 14px 16px;
-  border: 1.5px solid var(--ns-line);
-  border-radius: 12px;
-  background: var(--ns-surface-2);
-  font: 400 16px/1.5 var(--ns-body-font);
-  color: var(--ns-ink);
-  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+  padding: 12px 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 0;
+  background: none;
+  font: 400 16px/1.6 var(--lux-body-font);
+  color: var(--lux-white);
+  transition: border-color .3s ease;
 }
-body.ns-home .ns-field textarea { min-height: 130px; height: auto; resize: vertical; }
+body.ns-home .ns-field textarea { min-height: 96px; height: auto; resize: vertical; }
 body.ns-home .ns-field input[type="text"]::placeholder,
-body.ns-home .ns-field textarea::placeholder { color: #9fada4; }
+body.ns-home .ns-field textarea::placeholder { color: rgba(255, 255, 255, .34); }
 body.ns-home .ns-field input[type="text"]:focus,
 body.ns-home .ns-field textarea:focus {
   outline: none;
-  border-color: var(--ns-green);
-  background: var(--ns-surface);
-  box-shadow: 0 0 0 4px rgba(155, 200, 60, .18);
+  border-bottom-color: var(--lux-bronze);
 }
 body.ns-home .ns-form__actions { align-items: stretch; }
 body.ns-home .ns-form input[type="submit"] {
-  min-height: 56px;
-  padding: 16px 40px;
+  min-height: 58px;
+  padding: 18px 48px;
   border: 0;
-  border-radius: 999px;
-  background: linear-gradient(180deg, var(--ns-orange) 0%, var(--ns-orange-600) 100%);
-  color: #fff;
-  font: 700 16px/1 var(--ns-head-font);
-  letter-spacing: .02em;
+  border-radius: 2px;
+  background: var(--lux-orange);
+  color: var(--lux-white);
+  font: 600 11.5px/1 var(--lux-label);
+  letter-spacing: .17em;
+  text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(255, 102, 0, .30);
-  transition: transform .16s ease, box-shadow .16s ease;
+  box-shadow: 0 10px 26px rgba(255, 102, 0, .26);
+  transition: background .28s ease, box-shadow .28s ease, transform .28s ease;
 }
-body.ns-home .ns-form input[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(255, 102, 0, .38); }
-/* reCAPTCHA is a fixed 304px widget — let it scroll rather than break the grid */
+body.ns-home .ns-form input[type="submit"]:hover {
+  background: var(--lux-orange-600);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(255, 102, 0, .34);
+}
 body.ns-home .ns-field .g-recaptcha { max-width: 100%; overflow-x: auto; }
 
 /* ---------------------------------------------------------------------------
-   10. Sticky mobile action bar
+   10. "Our Awareness & Services" (lives in footer.php, restyled on this page
+   only) — was a boxy grid of bordered buttons, now a quiet hairline directory.
+   ------------------------------------------------------------------------- */
+
+body.ns-home .price-plans-section {
+  background: var(--lux-ivory);
+  padding: 64px 0 !important;
+  border-top: 1px solid var(--lux-line-soft);
+}
+body.ns-home .price-plans-section .container {
+  max-width: 1240px;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+/* Each bootstrap .row becomes its own even grid. Gridding the rows rather than
+   flattening them with display:contents keeps placement predictable — the
+   container's clearfix pseudo-elements would otherwise occupy grid cells and
+   push the links into a ragged stagger. */
+body.ns-home .price-plans-section .container > .row {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 60px;
+  margin: 0;
+  /* explicit: the first row's cols carry .col-sm-12 (width:100%), which makes
+     the grid's width circular and collapses the row to 0 without this */
+  width: 100%;
+}
+body.ns-home .price-plans-section .container > .row::before,
+body.ns-home .price-plans-section .container > .row::after { display: none; }
+body.ns-home .price-plans-section .container > .row > [class*="col-"] { float: none; width: auto; padding: 0; min-width: 0; }
+body.ns-home .price-plans-section .heading-style-2 {
+  margin: 0 0 12px;
+  text-align: center;
+}
+body.ns-home .price-plans-section .heading-style-2 h2 {
+  font: 700 clamp(21px, 3.1vw, 32px) / 1.25 var(--lux-display);
+  color: var(--lux-ink);
+  text-transform: none;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+/* cells that hold nothing must not leave gaps in the grid */
+body.ns-home .price-plans-section .btn-row:empty { display: none; }
+body.ns-home .price-plans-section .container > .row > [class*="col-"]:not(:has(a)) { display: none; }
+
+body.ns-home .price-plans-section a.btn-style-5 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 62px;
+  padding: 18px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--lux-line-soft);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--lux-body);
+  font: 400 15px/1.45 var(--lux-body-font);
+  letter-spacing: .01em;
+  text-transform: none;
+  text-align: left;
+  text-decoration: none;
+  transition: color .28s ease, padding-left .32s cubic-bezier(.22,.61,.36,1), border-color .28s ease;
+}
+body.ns-home .price-plans-section a.btn-style-5::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: var(--lux-bronze);
+  flex: none;
+  transition: width .32s cubic-bezier(.22,.61,.36,1);
+}
+body.ns-home .price-plans-section a.btn-style-5:hover {
+  color: var(--lux-ink);
+  padding-left: 8px;
+  border-bottom-color: var(--lux-bronze);
+}
+body.ns-home .price-plans-section a.btn-style-5:hover::before { width: 22px; }
+
+/* ---------------------------------------------------------------------------
+   11. Footer polish (scoped to this page)
+   ------------------------------------------------------------------------- */
+
+body.ns-home #footer .footer-section-1 { background: var(--lux-forest); }
+body.ns-home #footer .footer-section-2 { background: #0a1610; }
+body.ns-home #footer h3 {
+  font: 600 10px/1 var(--lux-label);
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--lux-bronze);
+}
+body.ns-home #footer a { transition: color .22s ease; }
+body.ns-home #footer .nav > li > a:hover { color: var(--lux-bronze); background: none; }
+body.ns-home #footer .tags a { color: rgba(255, 255, 255, .5); }
+body.ns-home #footer .tags a:hover { color: var(--lux-bronze); }
+
+/* The floating call badge is a dated raster graphic. The header is sticky on
+   desktop and there is a call bar on mobile, so the number is always reachable
+   without it. */
+body.ns-home .call { display: none; }
+
+/* ---------------------------------------------------------------------------
+   12. Sticky mobile action bar
    ------------------------------------------------------------------------- */
 
 body.ns-home .ns-callbar { display: none; }
@@ -638,130 +786,150 @@ body.ns-home .ns-callbar { display: none; }
   body.ns-home .ns-callbar {
     display: flex;
     position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 0; right: 0; bottom: 0;
     z-index: 6000;
     gap: 10px;
     padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
-    background: rgba(255, 255, 255, .94);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid var(--ns-line);
-    box-shadow: 0 -6px 24px rgba(22, 38, 28, .12);
+    background: rgba(250, 248, 243, .93);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid var(--lux-line-soft);
+    box-shadow: 0 -8px 30px rgba(15, 31, 22, .13);
   }
   body.ns-home .ns-callbar__call {
     flex: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    min-height: 52px;
+    gap: 10px;
+    min-height: 54px;
     padding: 12px 16px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, var(--ns-orange) 0%, var(--ns-orange-600) 100%);
-    color: #fff;
-    font: 700 15px/1.2 var(--ns-head-font);
+    border-radius: 2px;
+    background: var(--lux-orange);
+    color: var(--lux-white);
+    font: 600 11.5px/1.3 var(--lux-label);
+    letter-spacing: .13em;
+    text-transform: uppercase;
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(255, 102, 0, .32);
+    box-shadow: 0 8px 20px rgba(255, 102, 0, .26);
   }
   body.ns-home .ns-callbar__call:hover,
-  body.ns-home .ns-callbar__call:focus { color: #fff; text-decoration: none; }
+  body.ns-home .ns-callbar__call:focus { color: var(--lux-white); text-decoration: none; }
   body.ns-home .ns-callbar__wa {
     flex: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 999px;
+    width: 54px; height: 54px;
+    border-radius: 2px;
     background: #25d366;
-    color: #fff;
+    color: var(--lux-white);
     font-size: 26px;
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(37, 211, 102, .32);
   }
   body.ns-home .ns-callbar__wa:hover,
-  body.ns-home .ns-callbar__wa:focus { color: #fff; }
+  body.ns-home .ns-callbar__wa:focus { color: var(--lux-white); }
 
-  /* Keep the bar clear of the footer, and retire the two floating widgets it
-     replaces so nothing sits on top of the content. Both numbers remain
-     reachable in the header block, the footer and the bar itself. */
-  body.ns-home #wrapper { padding-bottom: 84px; }
-  body.ns-home .call { display: none; }
+  body.ns-home #wrapper { padding-bottom: 86px; }
   body.ns-home .whatsapp { display: none; }
 }
 
 /* ---------------------------------------------------------------------------
-   11. Breakpoints
+   13. Breakpoints
    ------------------------------------------------------------------------- */
 
-/* Phone-sized: keep the whole header under ~200px so the H1 and the call
-   button are both inside the first screen. */
 @media (max-width: 767px) {
-  body.ns-home .topbar-section .top-social { min-height: 38px; gap: 0 8px; }
-  body.ns-home .topbar-section .top-social ul li a { width: 30px; height: 30px; font-size: 13px; }
-  body.ns-home .topbar-section .top-social a.email { font-size: 12px; }
-  body.ns-home .logo-section { padding: 8px 0; }
-  body.ns-home .logo-section .container { gap: 6px 12px; }
-  body.ns-home .logo-section .logo img { max-height: 38px; }
-  body.ns-home .logo-section .col-md-9 { width: 100%; }
-  body.ns-home .book-section .number-box { gap: 2px 14px; }
+  /* Logo and the menu button share one row; the phone numbers sit under the
+     logo; the opened menu drops over the page instead of pushing it down. */
+  body.ns-home #header {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  /* the legacy theme puts width:100% on these sections; as flex items they
+     must size to content instead or the nav swallows the whole row */
+  body.ns-home .logo-section { flex: 1 1 auto; width: auto; min-width: 0; }
+  body.ns-home .main-navigation,
+  body.ns-home .main-navigation .navbar,
+  body.ns-home .main-navigation .container { width: auto; max-width: none; }
+  body.ns-home .logo-section .container { padding: 11px 0 11px 20px; gap: 6px 14px; }
+  body.ns-home .logo-section .logo img { max-height: 40px; }
+  body.ns-home .logo-section .col-md-9 { flex-basis: 100%; width: 100%; }
+  body.ns-home .book-section .number-box { gap: 1px 20px; }
+  body.ns-home .book-section .number-text { flex-direction: row; align-items: baseline; gap: 7px; }
   body.ns-home .book-section .number-text span,
-  body.ns-home .book-section .number-text span strong { font-size: 10px; letter-spacing: .03em; }
-  body.ns-home .book-section .number-text a { font-size: 13.5px; }
-  body.ns-home .main-navigation .navbar-toggle { margin: 6px 0; }
+  body.ns-home .book-section .number-text span strong { font-size: 8.5px; letter-spacing: .15em; }
+  body.ns-home .book-section .number-text a { font-size: 16px; }
 
-  /* Equal-width stacked CTAs read as one decision, not a big one and a small one */
-  body.ns-home .ns-hero { padding: 30px 0 36px; }
+  body.ns-home .main-navigation { flex: 0 0 auto; }
+  body.ns-home .main-navigation .navbar { border-top: 0; }
+  body.ns-home .main-navigation .container { padding: 0 16px 0 8px; }
+  body.ns-home .main-navigation .navbar-header { float: none; margin: 0; }
+  body.ns-home .main-navigation .navbar-toggle { float: none; margin: 0; }
+  body.ns-home .main-navigation #navbar {
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    margin: 0;
+    padding: 4px 20px 12px;
+    background: var(--lux-ivory);
+    border-top: 1px solid var(--lux-line-soft);
+    box-shadow: var(--lux-shadow-md);
+    max-height: 74vh;
+    overflow-y: auto;
+  }
+  body.ns-home .main-navigation ul#nav { display: block; }
+  body.ns-home .main-navigation ul#nav > li > a { padding: 14px 0; letter-spacing: .16em; }
+  body.ns-home .main-navigation ul#nav > li > a::after { left: 0; right: 0; bottom: 8px; }
+  body.ns-home .main-navigation ul#nav ul { box-shadow: none; border-top: 0; padding: 0 0 0 14px; background: none; }
+  body.ns-home .main-navigation ul#nav ul li a { padding: 10px 0; }
+
+  body.ns-home .ns-hero { padding: 44px 0 48px; }
   body.ns-home .ns-cta-row { flex-direction: column; }
   body.ns-home .ns-cta-row .ns-btn { width: 100%; }
   body.ns-home .ns-btn--ghost { white-space: normal; }
+  body.ns-home .ns-split__text em { padding-left: 18px; }
+  body.ns-home .ns-why { background-attachment: scroll; }
+  body.ns-home .price-plans-section { padding: 52px 0 !important; }
 }
 
 @media (min-width: 600px) {
-  body.ns-home .ns-cards { grid-template-columns: repeat(2, 1fr); }
   body.ns-home .ns-centres { grid-template-columns: repeat(2, 1fr); }
-  body.ns-home .ns-form { grid-template-columns: repeat(2, 1fr); padding: 34px 30px; }
+  body.ns-home .ns-form { grid-template-columns: repeat(2, 1fr); }
   body.ns-home .ns-field--full { grid-column: 1 / -1; }
   body.ns-home .ns-form__actions { align-items: center; }
-  body.ns-home .ns-form input[type="submit"] { justify-self: center; min-width: 240px; }
+  body.ns-home .ns-form input[type="submit"] { justify-self: center; min-width: 250px; }
+  body.ns-home .price-plans-section .container > .row { grid-template-columns: repeat(2, 1fr); column-gap: 48px; }
 }
 
 @media (min-width: 768px) {
-  body.ns-home .ns-section { padding: 76px 0; }
-  body.ns-home .ns-hero { padding: 68px 0 74px; }
-  body.ns-home .topbar-section .top-social { justify-content: flex-start; }
+  body.ns-home .ns-section { padding: 92px 0; }
+  body.ns-home .ns-hero { padding: 96px 0 104px; }
+  body.ns-home .price-plans-section { padding: 92px 0 !important; }
 }
 
 @media (min-width: 992px) {
-  body.ns-home .ns-section { padding: 92px 0; }
-  body.ns-home .ns-hero { padding: 86px 0 96px; }
-  /* minmax(0,…) so a long word in the copy can never squeeze the video to 0 */
-  body.ns-home .ns-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 52px; }
-  body.ns-home .ns-cards { grid-template-columns: repeat(3, 1fr); }
-  body.ns-home .ns-cards li:nth-child(4),
-  body.ns-home .ns-cards li:nth-child(5) { grid-column: span 1; }
-  body.ns-home .ns-centres { grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  body.ns-home .ns-form { padding: 40px 38px; gap: 22px; }
+  body.ns-home .ns-section { padding: 118px 0; }
+  body.ns-home .ns-hero { padding: 124px 0 132px; }
+  /* minmax(0,…) so a long word in the copy can never squeeze the media to 0 */
+  body.ns-home .ns-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 66px; }
+  body.ns-home .ns-hero__grid { grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: 56px; }
+  body.ns-home .ns-hero__title { max-width: 13ch; }
+  body.ns-home .ns-centres { grid-template-columns: repeat(3, 1fr); gap: 34px; }
+  body.ns-home .ns-form { gap: 36px 40px; }
+  body.ns-home .price-plans-section { padding: 118px 0 !important; }
+  body.ns-home .price-plans-section .container > .row { grid-template-columns: repeat(3, 1fr); column-gap: 60px; }
 }
 
-/* The three campaign banners are 2.81:1. Below ~560px that is a very short
-   strip, so cap how wide the band grows on big screens to keep it in
-   proportion with the rest of the page. */
-@media (min-width: 1400px) {
-  body.ns-home #banner { display: flex; justify-content: center; background: var(--ns-ink); }
-  body.ns-home #banner #home-banner { width: 100%; max-width: 1400px; }
-}
 
 @media (prefers-reduced-motion: reduce) {
-  body.ns-home *,
-  body.ns-home *::before,
-  body.ns-home *::after {
+  body.ns-home *, body.ns-home *::before, body.ns-home *::after {
     animation-duration: .001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .001ms !important;
   }
   body.ns-home .ns-btn:hover,
   body.ns-home .ns-centre:hover { transform: none; }
+  body.ns-home .ns-centre:hover .ns-centre__media img { transform: none; }
+  body.ns-home .ns-why { background-attachment: scroll; }
 }

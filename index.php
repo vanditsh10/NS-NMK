@@ -106,33 +106,38 @@
   <?php include("header.php"); ?>
   <div id="main">
 
-    <!-- 1. HERO — heading + the page's own call/contact CTAs, reachable on the first screen -->
+    <!-- 1. HERO — two columns: the heading and this page's own call/contact CTAs
+         on the left, the campaign carousel contained on the right. The three
+         banner images have their messages baked into the artwork, so they are
+         never cropped or overlaid. -->
     <section class="ns-hero">
       <div class="ns-wrap">
-        <div class="ns-hero__inner">
-          <span class="ns-eyebrow">Welcome to Naya Savera</span>
-          <h1 class="ns-hero__title">Best Drug De addiction &amp; Alcohol Rehab Centre Delhi, Noida &amp; Himachal</h1>
-          <div class="ns-cta-row">
-            <a href="tel:+91-9873020709" class="ns-btn ns-btn--call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
-            <a href="contact.html" class="ns-btn ns-btn--ghost">We can Help
-            Contact Now</a>
+        <div class="ns-hero__grid">
+          <div class="ns-hero__inner">
+            <span class="ns-eyebrow">Welcome to Naya Savera</span>
+            <h1 class="ns-hero__title">Best Drug De addiction &amp; Alcohol Rehab Centre Delhi, Noida &amp; Himachal</h1>
+            <div class="ns-cta-row">
+              <a href="tel:+91-9873020709" class="ns-btn ns-btn--call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+              <a href="contact.html" class="ns-btn ns-btn--ghost">We can Help
+              Contact Now</a>
+            </div>
+          </div>
+          <div class="ns-hero__media">
+            <div id="banner">
+              <div id="home-banner" class="owl-carousel owl-theme">
+                <div class="item">
+                  <div class="caption">
+                    <div class="container"> </div>
+                  </div>
+                  <img src="images/banner-img-1.jpg" alt="Drug De addiction centre in Delhi, Best Alcohol Rehab in Delhi, Nasha Mukti  Kendra Noida"> </div>
+                <div class="item"> <img src="images/banner-img-2.jpg" alt="Best Rehab in Delhi, Alcohlism Treatment Delhi"> </div>
+                <div class="item"> <img src="images/banner-img-3.jpg" alt=" Alcohlism Treatment Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi"> </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- 2. BANNER BAND — the three campaign images keep their own baked-in messages, uncropped -->
-    <div id="banner">
-      <div id="home-banner" class="owl-carousel owl-theme">
-        <div class="item">
-          <div class="caption">
-            <div class="container"> </div>
-          </div>
-          <img src="images/banner-img-1.jpg" alt="Drug De addiction centre in Delhi, Best Alcohol Rehab in Delhi, Nasha Mukti  Kendra Noida"> </div>
-        <div class="item"> <img src="images/banner-img-2.jpg" alt="Best Rehab in Delhi, Alcohlism Treatment Delhi"> </div>
-        <div class="item"> <img src="images/banner-img-3.jpg" alt=" Alcohlism Treatment Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi"> </div>
-      </div>
-    </div>
 
     <!-- 3. WHO WE ARE — trust before the ask -->
     <section class="ns-section ns-intro">
