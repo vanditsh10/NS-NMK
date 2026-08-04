@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ns-nmk-dev",
+      "runtimeExecutable": "/opt/homebrew/bin/php",
+      "runtimeArgs": [
+        "-S",
+        "localhost:8765",
+        "-t",
+        "/Users/KefiNama/NS-NMK",
+        "/Users/KefiNama/NS-NMK/router.php"
+      ],
+      "port": 8765
+    }
+  ]
+}

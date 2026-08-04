@@ -1,0 +1,97 @@
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/booking.php$
+RewriteCond %{REQUEST_URI} !^/header.php$
+RewriteCond %{REQUEST_URI} !^/footer.php$
+
+RewriteRule ^(.+)\.html$ $1.php [NC]
+
+RewriteCond %{SERVER_PORT} 80 
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^(.*)$ https://nayasavera.org/$1 [L,R=301]
+
+Redirect 301 /blog1.php /blog.php
+Redirect 301 /blog-7-myths-about-rehabilitation-centers-that-stop-people-from-getting-help.php /blog/7-myths-about-rehabilitation-centers-that-stop-people-from-getting-help.php
+Redirect 301 /blog-a-guide-to-overcoming-addiction.php /blog/a-guide-to-overcoming-addiction.php
+Redirect 301 /blog-alcohol-rehabilitation-how-it-works-and-why-its-effective.php /blog/alcohol-rehabilitation-how-it-works-and-why-its-effective.php
+Redirect 301 /blog-deaddiction-and-rehabilitation-centre-leads-the-way-in-himachal-pradesh.php /blog/deaddiction-and-rehabilitation-centre-leads-the-way-in-himachal-pradesh.php
+Redirect 301 /blog-drug-addiction-amid-covid-19.php /blog/drug-addiction-amid-covid-19.php
+Redirect 301 /blog-nayasaveras-awareness-drive-in-south-delhi-area.php /blog/nayasaveras-awareness-drive-in-south-delhi-area.php
+Redirect 301 /blog-stages-of-drug-addiction.php /blog/stages-of-drug-addiction.php
+Redirect 301 /blog-understanding-the-challenges-of-addiction-a-guide-for-families.php /blog/understanding-the-challenges-of-addiction-a-guide-for-families.php
+Redirect 301 /blog-what-to-expect-at-a-rehabilitation-center-a-comprehensive-guide.php /blog/what-to-expect-at-a-rehabilitation-center-a-comprehensive-guide.php
+Redirect 301 /blog-why-naya-savera-is-recognized-as-the-best-rehab-centre-in-delhi.php /blog/why-naya-savera-is-recognized-as-the-best-rehab-centre-in-delhi.php
+
+
+Redirect 301 /blog/drug-addiction-amid-covid-19.php /blog/2020/05/27/drug-addiction-amid-covid-19/
+Redirect 301 /blog/stages-of-drug-addiction.php /blog/2020/07/27/stages-of-drug-addiction/
+Redirect 301 /blog/deaddiction-and-rehabilitation-centre-leads-the-way-in-himachal-pradesh.php /blog/2020/11/20/fighting-the-heroin-addiction-with-indias-best-nasha-mukti-kendra/
+Redirect 301 /blog/a-guide-to-overcoming-addiction.php /blog/2024/09/10/embarking-on-the-journey-to-sobriety-a-guide-to-overcoming-addiction/
+Redirect 301 /blog/nayasaveras-awareness-drive-in-south-delhi-area.php /blog/2024/09/15/rehabilitation-centre-in-vasant-kunj/
+Redirect 301 /blog/7-myths-about-rehabilitation-centers-that-stop-people-from-getting-help.php /blog/2024/09/20/7-myths-about-rehabilitation-centers-that-stop-people-from-getting-help/
+Redirect 301 /blog/understanding-the-challenges-of-addiction-a-guide-for-families.php /blog/2024/09/25/understanding-the-challenges-of-addiction-a-guide-for-families/
+Redirect 301 /blog/why-naya-savera-is-recognized-as-the-best-rehab-centre-in-delhi.php /blog/2024/09/27/why-naya-savera-is-recognized-as-the-best-rehab-centre-in-delhi/
+Redirect 301 /blog/alcohol-rehabilitation-how-it-works-and-why-its-effective.php /blog/2024/09/29/alcohol-rehabilitation-how-it-works-and-why-its-effective/
+Redirect 301 /blog/what-to-expect-at-a-rehabilitation-center-a-comprehensive-guide.php /blog/2024/09/30/what-to-expect-at-a-rehabilitation-center/
+Redirect 301 /blog/recognize-the-signs-of-addiction-today-your-first-step-to-recovery.php /blog/2024/10/01/recognize-the-signs-of-addiction-today-your-first-step-to-recovery/
+Redirect 301 /blog/are-all-rehab-centers-the-same-why-personalization-is-key-to-recovery.php /blog/2024/10/03/are-all-rehab-centers-the-same-why-personalization-is-key-to-recovery/
+Redirect 301 /blog/rehabilitation-vs-detox-which-one-do-you-need.php /blog/2024/10/05/rehabilitation-vs-detox-which-one-do-you-need/
+Redirect 301 /blog/a-day-in-the-life-at-naya-savera-inside-our-rehabilitation-centre.php /blog/2024/12/01/a-day-in-the-life-at-naya-savera-inside-our-rehabilitation-centre/
+Redirect 301 /blog/the-benefits-of-yoga-in-rehabilitation-centers.php /blog/2024/12/07/the-benefits-of-yoga-in-rehabilitation-centers/
+Redirect 301 /blog/healing-together-how-naya-savera-supports-patients-and-families-alike.php /blog/2024/12/14/healing-together-how-naya-savera-supports-patients-and-families-alike/
+Redirect 301 /blog/the-role-of-lifestyle-changes-in-addiction-recovery.php /blog/2024/12/21/the-role-of-lifestyle-changes-in-addiction-recovery/
+Redirect 301 /blog/how-to-identify-the-need-for-a-rehab-center-in-delhi-ncr-for-your-loved-one.php /blog/2024/12/21/how-to-identify-the-need-for-a-rehab-center-in-delhi-ncr-for-your-loved-one/
+Redirect 301 /blog/life-after-rehab-how-naya-savera-prepares-you-for-the-real-world.php /blog/2025/01/05/life-after-rehab-how-naya-savera-prepares-you-for-the-real-world/
+Redirect 301 /blog/the-journey-to-sobriety-a-path-at-naya-savera.php /blog/2025/01/10/the-journey-to-sobriety-a-path-at-naya-savera/
+Redirect 301 /blog/success-stories-transformations-at-naya-saveras-alcohol-de-addiction-centre.php /blog/2025/01/15/success-stories-transformations-at-naya-saveras-alcohol-de-addiction-centre/
+Redirect 301 /blog/debunking-the-misconceptions-about-alcohol-rehabilitation-what-you-should-know.php /blog/2025/01/20/debunking-the-misconceptions-about-alcohol-rehabilitation-what-you-should-know/
+Redirect 301 /blog/choosing-the-right-path-in-patient-vs.-out-patient-treatment-for-alcohol-addiction.php /blog/2025/01/25/choosing-the-right-path-in-patient-vs-out-patient-treatment-for-alcohol-addiction/
+Redirect 301 /blog/why-asking-for-help-is-the-strongest-thing-you-can-do.php /blog/2025/01/30/why-asking-for-help-is-the-strongest-thing-you-can-do/
+Redirect 301 /blog/from-rock-bottom-to-recovery-how-naya-savera-helped-patients-reclaim-their-lives.php /blog/2025/02/05/from-rock-bottom-to-recovery-how-naya-savera-helped-patients-reclaim-their-lives/
+Redirect 301 /blog/our-approach-blending-traditional-and-modern-therapies-at-the-best-rehab-in-india.php /blog/2025/02/15/our-approach-blending-traditional-and-modern-therapies-at-the-best-rehab-in-india/
+Redirect 301 /blog/is-rehab-only-for-severe-cases-when-to-seek-help-at-a-drug-de-addiction-centre.php /blog/2025/02/20/is-rehab-only-for-severe-cases-when-to-seek-help-at-a-drug-de-addiction-centre/
+Redirect 301 /blog/exploring-naya-saveras-comprehensive-drug-de-addiction-programs.php /blog/2025/02/25/exploring-naya-saveras-comprehensive-drug-de-addiction-programs/
+Redirect 301 /blog/the-role-of-nutrition-and-exercise-in-drug-de-addiction.php /blog/2025/03/01/the-role-of-nutrition-and-exercise-in-drug-de-addiction/
+Redirect 301 /blog/alternative-therapies-in-de-addiction-art-music-and-more.php /blog/2025/03/05/alternative-therapies-in-de-addiction-art-music-and-more/
+Redirect 301 /blog/the-rising-need-for-rehabilitation-centres-in-india-an-analytical-perspective.php /blog/2025/03/10/the-rising-need-for-rehabilitation-centres-in-india-an-analytical-perspective/
+Redirect 301 /blog/from-rehab-to-reintegration-the-steps-toward-a-fresh-start.php /blog/2025/03/15/from-rehab-to-reintegration-the-steps-toward-a-fresh-start/
+Redirect 301 /blog/how-hobbies-and-interests-help-in-staying-sober-after-rehab.php /blog/2025/03/20/how-hobbies-and-interests-help-in-staying-sober-after-rehab/
+Redirect 301 /blog/are-you-ready-to-start-a-new-chapter-contact-naya-savera-today.php /blog/2025/03/30/are-you-ready-to-start-a-new-chapter-contact-naya-savera-today/
+Redirect 301 /blog/how-therapy-at-naya-savera-changed-a-life-a-true-story.php /blog/2025/04/05/how-therapy-at-naya-savera-changed-a-life-a-true-story/
+Redirect 301 /blog/a-guide-to-finding-the-best-rehab-in-noida-tips-for-choosing-the-right-centre.php /blog/2025/04/10/a-guide-to-finding-the-best-rehab-in-noida-tips-for-choosing-the-right-centre/
+Redirect 301 /blog/a-program-for-every-need-how-naya-savera-caters-to-diverse-addiction-challenges.php /blog/2025/04/20/a-program-for-every-need-how-naya-savera-caters-to-diverse-addiction-challenges/
+Redirect 301 /blog/incorporating-mindfulness-and-meditation-in-alcohol-rehabilitation.php /blog/2025/04/25/incorporating-mindfulness-and-meditation-in-alcohol-rehabilitation/
+Redirect 301 /blog/understanding-the-role-of-a-de-addiction-centre-in-recovery.php /blog/2025/04/30/understanding-the-role-of-a-de-addiction-centre-in-recovery/
+Redirect 301 /blog/rising-drug-abuse-among-youth-in-india-the-urgent-need-for-effective-de-addiction-centres.php /blog/2025/05/05/rising-drug-abuse-among-youth-in-india-the-urgent-need-for-effective-de-addiction-centres/
+Redirect 301 /blog/synthetic-drugs-on-the-rise-how-de-addiction-centres-are-adapting-to-new-challenges.php /blog/2025/05/10/synthetic-drug-abuse-on-the-rise-how-de-addiction-centres-are-adapting-to-new-challenges/
+Redirect 301 /blog/alcohol-addiction-and-marital-breakdown-understanding-the-link-and-the-road-to-recovery.php /blog/2025/05/15/alcohol-addiction-and-marital-breakdown-understanding-the-link-and-the-road-to-recovery/
+Redirect 301 /blog/addiction-in-the-workplace-the-hidden-struggle-and-how-rehabilitation-can-help.php /blog/2025/05/15/addiction-in-the-workplace-the-hidden-struggle-and-how-rehabilitation-can-help/
+Redirect 301 /blog/preventive-education-a-key-strategy-in-combating-substance-abuse-in-india.php /blog/2025/05/20/preventive-education-a-key-strategy-in-combating-substance-abuse-in-india/
+Redirect 301 /blog/how-work-from-home-culture-is-fueling-alcohol-abuse-and-what-rehab-centres-can-do.php /blog/2025/05/30/how-work-from-home-culture-is-fueling-alcohol-abuse-and-what-rehab-centres-can-do/
+Redirect 301 /blog/social-media-and-substance-use-a-dangerous-trend-among-indian-teenagers.php /blog/2025/06/05/social-media-and-substance-use-a-dangerous-trend-among-indian-teenagers/
+Redirect 301 /blog/why-early-intervention-matters-spotting-addiction-signs-before-its-too-late.php /blog/2025/06/15/why-early-intervention-matters-spotting-addiction-signs-before-its-too-late/
+Redirect 301 /blog/i-want-to-quit-drinking-but-dont-know-where-to-start-a-beginners-roadmap.php /blog/2025/06/25/i-want-to-quit-drinking-but-dont-know-where-to-start-a-beginners-roadmap/
+Redirect 301 /blog/how-to-help-your-husband-overcome-alcohol-addiction-without-conflict.php /blog/2025/07/05/how-to-help-your-husband-overcome-alcohol-addiction-without-conflict/
+Redirect 301 /blog/affordable-rehab-options-in-india-what-you-can-expect-under-a-budget.php /blog/2025/07/15/affordable-rehab-options-in-india-what-you-can-expect-under-a-budget/
+Redirect 301 /blog/ayurveda-recovery-how-natural-therapies-can-support-alcohol-de-addiction.php /blog/2025/07/25/ayurveda-recovery-how-natural-therapies-can-support-alcohol-de-addiction/
+Redirect 301 /blog/what-a-typical-day-looks-like-inside-a-de-addiction-centre-in-india.php /blog/2025/08/01/what-a-typical-day-looks-like-inside-a-de-addiction-centre-in-india/
+Redirect 301 /blog/panchakarma-therapy-a-complete-guide-to-ayurvedic-detox-and-healing.php /blog/2025/08/10/panchakarma-therapy-a-complete-guide-to-ayurvedic-detox-and-healing/
+Redirect 301 /blog/shirodhara-therapy-the-ayurvedic-treatment-for-stress-anxiety-and-detox.php /blog/2025/08/15/shirodhara-therapy-the-ayurvedic-treatment-for-stress-anxiety-and-detox/
+Redirect 301 /blog/sarvang-dhara-therapy-a-complete-ayurvedic-solution-for-detox-and-deep-relaxation.php /blog/2025/08/20/sarvang-dhara-therapy-a-complete-ayurvedic-solution-for-detox-and-deep-relaxation/
+Redirect 301 /blog/how-sarvang-swedana-helps-your-body-heal-naturally-in-panchakarma-therapy.php /blog/2025/08/27/how-sarvang-swedana-therapy-helps-your-body-heal-naturally-in-panchakarma-therapy/
+Redirect 301 /blog/beyond-the-high-understanding-the-devastating-effects-and-symptoms-of-drug-use.php /blog/2025/09/22/beyond-the-high-understanding-the-devastating-effects-and-symptoms-of-drug-use/
+Redirect 301 /blog/understanding-addiction-and-recovery-a-closer-look-at-palampur-himachal-pradesh.php /blog/2025/08/31/understanding-addiction-and-recovery-a-closer-look-at-palampur-himachal-pradesh/
+
+Redirect 301 /rehabilitation-de-addiction-centre-meerut.php /
+
+Redirect 301 /blog.php /blog/
+
+ErrorDocument 404 /404.php
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php82” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

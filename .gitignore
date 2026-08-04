@@ -1,0 +1,23 @@
+# Secrets — real DB credentials live here, never commit.
+# See connect.sample.php / secrets.sample.php for the shape of these files.
+connect.php
+secrets.php
+
+# Large media: over GitHub's 100 MB per-file limit. Deployed to the host directly.
+video/*.mp4
+
+# Server noise
+error_log
+.htaccess.lock-*
+.htaccess.phpupgrader.*
+
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+.idea/
+.vscode/
+*.swp
