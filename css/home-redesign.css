@@ -62,7 +62,10 @@ body.ns-home #main,
 body.ns-home #banner,
 body.ns-home .price-plans-section,
 body.ns-home #footer { float: none; width: 100%; }
-body.ns-home #main { overflow-x: hidden; background: var(--ivory); }
+/* `overflow-x: hidden` computes overflow-y to auto, which makes #main a scroll
+   container and breaks position:sticky inside it. `clip` contains the same
+   overflow without creating one. */
+body.ns-home #main { overflow-x: clip; background: var(--ivory); }
 
 body.ns-home .lx-wrap { width: 100%; padding: 0 var(--gutter); box-sizing: border-box; }
 body.ns-home .lx-section { padding: clamp(64px, 8vw, 132px) 0; position: relative; }
@@ -303,26 +306,34 @@ body.ns-home #banner .owl-controls .owl-page.active span { background: var(--bro
    ------------------------------------------------------------------------- */
 
 body.ns-home .lx-intro { background: var(--ivory); }
-body.ns-home .lx-split { display: grid; gap: 48px; align-items: center; }
-body.ns-home .lx-split__text, body.ns-home .lx-split__media { min-width: 0; }
-body.ns-home .lx-split__text em {
-  display: block; max-width: 62ch;
-  font: italic 400 clamp(15.5px, 1.9vw, 18.5px) / 1.9 var(--text);
+body.ns-home .lx-lead { max-width: 1180px; margin: 0 auto; }
+body.ns-home .lx-lead em {
+  display: block;
+  font: italic 400 clamp(19px, 2.6vw, 32px) / 1.62 var(--text);
   color: var(--ink);
-  padding-left: 30px;
-  border-left: 2px solid var(--bronze);
+  letter-spacing: -.008em;
 }
-body.ns-home .lx-split__text a {
+body.ns-home .lx-lead a {
   display: inline-flex; align-items: center; gap: 9px;
-  margin-top: 10px; padding: 13px 26px;
+  margin-top: 26px; padding: 13px 26px;
   border-radius: var(--r-pill);
   background: rgba(201, 149, 74, .12);
   font: 600 10.5px/1 var(--label); font-style: normal;
   letter-spacing: .17em; text-transform: uppercase;
   color: var(--bronze-dark); text-decoration: none; white-space: nowrap;
   transition: background .28s ease, color .28s ease, transform .28s ease;
+  opacity: 1 !important; /* the reveal never dims the call to action */
 }
-body.ns-home .lx-split__text a:hover { background: var(--orange); color: var(--white); transform: translateY(-2px); }
+body.ns-home .lx-lead a:hover { background: var(--orange); color: var(--white); transform: translateY(-2px); }
+
+/* Scroll-reveal words. Deliberately no opacity here: the dim value is written
+   inline by the script on its first pass. That makes the effect inherently
+   fail-safe — no script, no inline styles, paragraph reads at full contrast,
+   and there is no CSS state that can strand it dim. */
+body.ns-home .lx-lead.is-split .lx-word {
+  transition: opacity .18s linear;
+  will-change: opacity;
+}
 
 body.ns-home .lx-video {
   position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
@@ -332,6 +343,46 @@ body.ns-home .lx-video {
 }
 body.ns-home .lx-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 body.ns-home .lx-video--wide { max-width: 1100px; margin: 44px auto 0; border-radius: var(--r-xl); }
+
+/* ---------------------------------------------------------------------------
+   SHOWCASE — video grows from a contained card to full bleed on scroll
+   ------------------------------------------------------------------------- */
+
+body.ns-home .lx-showcase { background: var(--ivory); padding-bottom: clamp(48px, 6vw, 96px); }
+/* Without JS this is just a wide, contained video — no sticky, no tall track. */
+body.ns-home .lx-showcase__track { position: relative; }
+body.ns-home .lx-showcase__sticky {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 var(--gutter);
+}
+body.ns-home .lx-showcase.is-live .lx-showcase__sticky { padding: 0; }
+body.ns-home .lx-showcase__frame {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+body.ns-home .lx-showcase__frame .lx-video { border-radius: 0; box-shadow: none; }
+
+/* Live version, switched on by the script. */
+body.ns-home .lx-showcase.is-live .lx-showcase__track { height: 210vh; }
+body.ns-home .lx-showcase.is-live .lx-showcase__sticky {
+  position: sticky;
+  top: var(--bar-h);
+  height: calc(100vh - var(--bar-h));
+  height: calc(100svh - var(--bar-h));
+  overflow: hidden;
+}
+body.ns-home .lx-showcase.is-live .lx-showcase__frame {
+  --p: 0;
+  /* 62% of the gutter-inset width at rest -> the full viewport at --p:1 */
+  width: calc(62% + (100% - 62%) * var(--p));
+  max-width: none;
+  border-radius: calc(var(--r-xl) * (1 - var(--p)));
+  box-shadow: 0 calc(40px * (1 - var(--p))) calc(90px * (1 - var(--p))) rgba(15, 31, 22, calc(.22 * (1 - var(--p))));
+}
+body.ns-home .lx-showcase.is-live .lx-showcase__wrap { padding: 0; }
 
 /* ---------------------------------------------------------------------------
    WHAT WE TREAT — numbered editorial list over a photograph
@@ -881,7 +932,12 @@ body.ns-home .lx-callbar { display: none; }
   body.ns-home .lx-cta-row { flex-direction: column; }
   body.ns-home .lx-cta-row .lx-btn { width: 100%; }
   body.ns-home .lx-btn--onDark { white-space: normal; }
-  body.ns-home .lx-split__text em { padding-left: 20px; }
+  /* On phones the sticky expand costs more than it gives — plain wide video. */
+  body.ns-home .lx-showcase.is-live .lx-showcase__track { height: auto; }
+  body.ns-home .lx-showcase.is-live .lx-showcase__sticky { position: static; height: auto; overflow: visible; padding: 0 var(--gutter); }
+  body.ns-home .lx-showcase.is-live .lx-showcase__frame {
+    width: 100%; max-width: 100%; border-radius: var(--r-lg); box-shadow: var(--shadow-md);
+  }
   body.ns-home .lx-hero__bg { background-position: center 42%; }
   body.ns-home .lx-hero { padding: 34px 0 68px; }
   body.ns-home .lx-scrollcue { bottom: -40px; }
@@ -900,7 +956,6 @@ body.ns-home .lx-callbar { display: none; }
 @media (min-width: 992px) {
   /* the carousel gets the larger share of the hero */
   body.ns-home .lx-hero__grid { grid-template-columns: minmax(0, .92fr) minmax(0, 1.28fr); gap: 56px; }
-  body.ns-home .lx-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 70px; }
   body.ns-home .lx-centres__grid { grid-template-columns: repeat(3, 1fr); gap: 34px; }
   body.ns-home .lx-contact__grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 60px; }
   body.ns-home .price-plans-section .container > .row { grid-template-columns: repeat(3, 1fr); }

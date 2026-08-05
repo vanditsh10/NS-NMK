@@ -180,14 +180,24 @@
       </div>
     </section>
 
-    <!-- 2. WHO WE ARE -->
+    <!-- 2. WHO WE ARE — the paragraph lights up word by word as it scrolls
+         through (opacity only; the script adds the spans, so with no JS the
+         text simply renders normally). -->
     <section class="lx-section lx-intro">
       <div class="lx-wrap">
-        <div class="lx-split">
-          <div class="lx-split__text">
-            <em> Naya Savera - Best rehab in delhi is a non-profit organization registered under the Indian Trust Act of 1950. It established its first Nasha Mukti Kendra, De addiction &amp; Rehabilitation Facility in 2008, in a small village (Jhiri) in Himachal Pradesh. Today, it is running two Drug De-addiction &amp;  Alcohol Rehabilitation facilities in Himachal Pradesh, one in Delhi and one in Noida (U.P.).  Naya Savera has earned a reputation for its commitment to the cause of effective treatment of addiction / alcoholism and awareness generation. <a href="about.php">Read more&raquo;</a></em>
-          </div>
-          <div class="lx-split__media">
+        <div class="lx-lead" id="lxLead">
+          <em> Naya Savera - Best rehab in delhi is a non-profit organization registered under the Indian Trust Act of 1950. It established its first Nasha Mukti Kendra, De addiction &amp; Rehabilitation Facility in 2008, in a small village (Jhiri) in Himachal Pradesh. Today, it is running two Drug De-addiction &amp;  Alcohol Rehabilitation facilities in Himachal Pradesh, one in Delhi and one in Noida (U.P.).  Naya Savera has earned a reputation for its commitment to the cause of effective treatment of addiction / alcoholism and awareness generation. <a href="about.php">Read more&raquo;</a></em>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SHOWCASE — the welcome video, growing from a contained card to full
+         bleed as it is scrolled through. Falls back to a normal wide video if
+         the script does not run. -->
+    <section class="lx-showcase" id="lxShowcase">
+      <div class="lx-showcase__track">
+        <div class="lx-showcase__sticky">
+          <div class="lx-showcase__frame">
             <div class="lx-video">
               <iframe src="https://www.youtube.com/embed/Vcw_R7EEDMo?si=tYUYUGL1icJ_pKxC" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -408,6 +418,7 @@
   // Reveal-on-scroll. Targets are chosen here rather than marked up in the
   // HTML, so the markup stays clean and nothing shifts if this script fails.
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
   if (!reduced && 'IntersectionObserver' in window) {
     var targets = document.querySelectorAll(
       '.lx-head, .lx-split__text, .lx-split__media, .lx-list li, .lx-lede,' +
@@ -429,6 +440,89 @@
     setTimeout(function () {
       Array.prototype.forEach.call(targets, function (el) { el.classList.add('is-in'); });
     }, 3000);
+  }
+
+  // --- Scroll-expand showcase -------------------------------------------
+  // The video frame grows from a contained card to full bleed as its track is
+  // scrolled through. Width and radius are driven from scroll progress; if this
+  // never runs the CSS defaults leave a perfectly good wide video.
+  var showcase = document.getElementById('lxShowcase');
+  if (showcase && !reduced) {
+    var track = showcase.querySelector('.lx-showcase__track');
+    var frame = showcase.querySelector('.lx-showcase__frame');
+    showcase.classList.add('is-live');
+    var paint = function () {
+      var r = track.getBoundingClientRect();
+      // progress 0 -> 1 across the part of the track above the sticky panel
+      var travel = r.height - window.innerHeight;
+      var p = travel > 0 ? clamp(-r.top / travel, 0, 1) : 0;
+      // ease out so most of the growth happens early
+      var e = 1 - Math.pow(1 - p, 2);
+      frame.style.setProperty('--p', e.toFixed(4));
+    };
+    // One rect read and one custom-property write — cheap enough to run
+    // straight off the scroll event. A rAF guard that simply drops events can
+    // leave the last one unpainted, which strands the frame mid-expansion.
+    window.addEventListener('scroll', paint, { passive: true });
+    window.addEventListener('resize', paint);
+    paint();
+  }
+
+  // --- Scroll-reveal paragraph -------------------------------------------
+  // Words are wrapped here, not in the markup, and the dimming only applies
+  // once the wrapper class is on — so without JS the paragraph reads normally.
+  var lead = document.getElementById('lxLead');
+  if (lead && !reduced) {
+    try {
+      var walker = document.createTreeWalker(lead, NodeFilter.SHOW_TEXT, null);
+      var textNodes = [], node;
+      while ((node = walker.nextNode())) textNodes.push(node);
+      textNodes.forEach(function (tn) {
+        if (!tn.nodeValue.trim()) return;
+        var frag = document.createDocumentFragment();
+        tn.nodeValue.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          var s = document.createElement('span');
+          s.className = 'lx-word';
+          s.textContent = part;
+          frag.appendChild(s);
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+      var words = lead.querySelectorAll('.lx-word');
+      if (words.length) {
+        lead.classList.add('is-split');
+        var litTicking = false;
+        var light = function () {
+          var vh = window.innerHeight;
+          var top = vh * 0.86, bottom = vh * 0.30;   // band the text lights up in
+          for (var i = 0; i < words.length; i++) {
+            var b = words[i].getBoundingClientRect();
+            var mid = b.top + b.height / 2;
+            var t = (top - mid) / (top - bottom);
+            words[i].style.opacity = (0.18 + 0.82 * clamp(t, 0, 1)).toFixed(3);
+          }
+          litTicking = false;
+        };
+        // 87 rect reads, so this one stays on rAF — but with a trailing edge,
+        // so a dropped event can never leave words stuck part-lit.
+        var litQueued = false;
+        var onScrollLead = function () {
+          if (litTicking) { litQueued = true; return; }
+          litTicking = true;
+          requestAnimationFrame(function () {
+            light();
+            if (litQueued) { litQueued = false; onScrollLead(); }
+          });
+        };
+        window.addEventListener('scroll', onScrollLead, { passive: true });
+        window.addEventListener('resize', onScrollLead);
+        light(); // writes the initial dim inline; nothing dims without this
+      }
+    } catch (e) {
+      lead.classList.remove('is-split');
+    }
   }
 
   // custom.js initialises the hero carousel at DOM-ready, and Owl fixes each
