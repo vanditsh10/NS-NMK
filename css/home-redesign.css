@@ -627,44 +627,187 @@ body.ns-home .price-plans-section a.btn-style-5:hover::before { transform: trans
    Footer (shared markup, scoped to this page)
    ------------------------------------------------------------------------- */
 
-/* Clearing #footer's own float left it no longer containing its floated
-   sections, so it collapsed to 80px and its background photo showed through as
-   a stray strip above the footer. flow-root makes it contain them again. */
-body.ns-home #footer { display: flow-root; background-image: none; background-color: var(--forest); }
-body.ns-home #footer .footer-section-1 { background: var(--forest); }
-body.ns-home #footer .footer-section-2 { background: #0a1610; }
-
-/* legacy dotted brackets around the footer quick-links */
-body.ns-home #footer .footer-box .nav > li,
-body.ns-home #footer .footer-box .nav > li > a { border: 0; background: none; }
-body.ns-home #footer .footer-box .nav > li > a { padding: 8px 0; }
-body.ns-home #footer .footer-box .nav > li > a::before,
-body.ns-home #footer .footer-box .nav > li > a::after { display: none; }
-body.ns-home #footer address ul li { border: 0; }
+/* The sunrise photograph is restored here, as in the original design. It is the
+   same file the hero uses, so the two are cropped differently — the hero shows
+   the sun, the footer the darker valley and prayer flags — and carry different
+   overlays so they read as a pair rather than a repeat.
+   flow-root: clearing #footer's legacy float left it not containing its floated
+   sections, so it collapsed to 80px and leaked the photo as a stray strip. */
+body.ns-home #footer {
+  display: flow-root;
+  background: url(../images/footer-bg.jpg) center 72% / cover no-repeat;
+  background-color: var(--forest);
+}
+body.ns-home #footer .footer-section-1 {
+  background: linear-gradient(180deg, rgba(9, 18, 13, .86) 0%, rgba(9, 18, 13, .93) 100%);
+  padding: clamp(48px, 5vw, 80px) 0 clamp(40px, 4vw, 64px);
+}
+body.ns-home #footer .footer-section-2 {
+  background: rgba(5, 11, 8, .93);
+  border-top: 1px solid var(--line-light);
+  padding: 30px 0 36px;
+}
 body.ns-home #footer .container {
   width: 100%; max-width: none;
   padding-left: var(--gutter); padding-right: var(--gutter);
 }
+body.ns-home #footer .container::before,
+body.ns-home #footer .container::after { display: none; }
+body.ns-home #footer a { transition: color .22s ease, padding-left .22s ease; }
+
+/* --- top row: brand · quick links · contact ------------------------------ */
+body.ns-home #footer .footer-section-1 > .container > .row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px;
+  margin: 0;
+}
+body.ns-home #footer .footer-section-1 > .container > .row::before,
+body.ns-home #footer .footer-section-1 > .container > .row::after { display: none; }
+body.ns-home #footer .footer-section-1 > .container > .row > [class*="col-"] {
+  float: none; width: auto; padding: 0; min-width: 0;
+}
+body.ns-home #footer .footer-logo { display: block; float: none; margin: 0 0 22px; }
+body.ns-home #footer .footer-logo img { max-height: 62px; width: auto; }
+body.ns-home #footer .footer-section-1 p {
+  font: 400 14.5px/1.85 var(--text);
+  color: rgba(255, 255, 255, .6);
+  max-width: 46ch;
+  margin: 0;
+}
 body.ns-home #footer h3 {
   font: 600 10px/1 var(--label); letter-spacing: .28em; text-transform: uppercase;
   color: var(--bronze);
+  margin: 0 0 24px;
 }
-body.ns-home #footer a { transition: color .22s ease; }
-body.ns-home #footer .nav > li > a { border-radius: var(--r-sm); }
-body.ns-home #footer .nav > li > a:hover { color: var(--bronze); background: none; }
+body.ns-home #footer .footer-box { float: none; width: 100%; }
+
+/* Quick links: bootstrap's .navbar-nav floats every li, which is what made
+   "About Us"/"Services" collide. Two clean vertical columns instead. */
+body.ns-home #footer .footer-box > .row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+  margin: 0;
+}
+body.ns-home #footer .footer-box > .row::before,
+body.ns-home #footer .footer-box > .row::after { display: none; }
+body.ns-home #footer .footer-box > .row > [class*="col-"] { float: none; width: auto; padding: 0; min-width: 0; }
+body.ns-home #footer .footer-box ul.nav {
+  display: block; float: none; width: 100%; margin: 0; padding: 0;
+}
+body.ns-home #footer .footer-box ul.nav > li {
+  float: none; display: block; width: 100%; margin: 0; padding: 0; border: 0; background: none;
+}
+body.ns-home #footer .footer-box ul.nav > li > a {
+  display: block;
+  padding: 9px 0;
+  border: 0; background: none; border-radius: 0;
+  font: 400 14.5px/1.55 var(--text);
+  color: rgba(255, 255, 255, .64);
+  text-transform: none;
+  letter-spacing: 0;
+}
+body.ns-home #footer .footer-box ul.nav > li > a::before,
+body.ns-home #footer .footer-box ul.nav > li > a::after { display: none; }
+body.ns-home #footer .footer-box ul.nav > li > a:hover { color: var(--bronze); background: none; padding-left: 6px; }
+
+/* Contact block */
+body.ns-home #footer address { margin: 0; font-style: normal; }
+body.ns-home #footer address ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 22px; }
+body.ns-home #footer address ul li {
+  display: flex; align-items: flex-start; gap: 16px;
+  border: 0; padding: 0; margin: 0; float: none; background: none;
+}
+body.ns-home #footer address ul li > span {
+  flex: none;
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border: 1px solid var(--line-light); border-radius: var(--r-pill);
+  color: var(--bronze); font-size: 15px;
+  background: none;
+}
+body.ns-home #footer address ul li > span::before,
+body.ns-home #footer address ul li > span::after { display: none; }
+body.ns-home #footer address .text-box { min-width: 0; }
+body.ns-home #footer address .text-box p {
+  font: 400 14.5px/1.7 var(--text);
+  color: rgba(255, 255, 255, .6);
+  margin: 0 0 2px;
+  max-width: none;
+}
+body.ns-home #footer address .text-box a,
+body.ns-home #footer address a {
+  font: 600 16px/1.6 var(--text);
+  color: var(--white);
+  text-decoration: none;
+}
+body.ns-home #footer address .text-box a:hover,
+body.ns-home #footer address a:hover { color: var(--bronze); }
+
+/* --- bottom row --------------------------------------------------------- */
+body.ns-home #footer .footer-section-2 > .container > .row {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px 30px; margin: 0;
+}
+body.ns-home #footer .footer-section-2 > .container > .row::before,
+body.ns-home #footer .footer-section-2 > .container > .row::after { display: none; }
+body.ns-home #footer .footer-section-2 > .container > .row > [class*="col-"] {
+  float: none; width: auto; padding: 0; min-width: 0;
+}
+body.ns-home #footer .footer-socila { float: none; }
+body.ns-home #footer .footer-socila ul {
+  display: flex; align-items: center; gap: 10px; margin: 0; padding: 0; list-style: none;
+}
+body.ns-home #footer .footer-socila ul li { float: none; border: 0; margin: 0; padding: 0; }
 body.ns-home #footer .footer-socila ul li a {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; border-radius: var(--r-pill);
+  width: 42px; height: 42px; border-radius: var(--r-pill);
   border: 1px solid var(--line-light);
-  transition: background .26s ease, color .26s ease, border-color .26s ease;
+  color: rgba(255, 255, 255, .7);
+  transition: background .26s ease, color .26s ease, border-color .26s ease, transform .26s ease;
 }
-body.ns-home #footer .footer-socila ul li a:hover { background: var(--bronze); border-color: var(--bronze); color: var(--forest); }
-body.ns-home #footer .tags a { color: rgba(255, 255, 255, .5); }
+body.ns-home #footer .footer-socila ul li a:hover {
+  background: var(--bronze); border-color: var(--bronze); color: var(--forest); transform: translateY(-2px);
+}
+body.ns-home #footer .copy {
+  display: block;
+  font: 400 13.5px/1.7 var(--text);
+  color: rgba(255, 255, 255, .5);
+  text-align: right;
+}
+/* the keyword list is its own full-width row under the social/copyright line */
+body.ns-home #footer .footer-section-2 > .container > .row + .row { display: block; margin-top: 22px; }
+body.ns-home #footer .footer-section-2 > .container > .row + .row > [class*="col-"] { width: 100%; }
+body.ns-home #footer .tags {
+  display: block;
+  font: 400 12px/2.1 var(--text);
+  color: rgba(255, 255, 255, .32);
+  text-align: center;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+body.ns-home #footer .tags a { color: rgba(255, 255, 255, .42); }
 body.ns-home #footer .tags a:hover { color: var(--bronze); }
+
+@media (min-width: 992px) {
+  body.ns-home #footer .footer-section-1 > .container > .row {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 64px;
+  }
+}
 
 /* Dated floating call graphic: the header CTA is sticky and the mobile bar
    carries the same number, so it is redundant. */
 body.ns-home .call { display: none; }
+
+/* The floating WhatsApp bubble is pinned bottom-LEFT, where it sat on top of
+   the footer's social row and keyword list. Moved to the right margin, which is
+   clear now that the call graphic is gone. */
+@media (min-width: 901px) {
+  body.ns-home .whatsapp { left: auto !important; right: 22px; bottom: 22px !important; }
+  body.ns-home .whatsapp img { width: 58px; height: 58px; }
+}
 
 /* ---------------------------------------------------------------------------
    Sticky mobile action bar
