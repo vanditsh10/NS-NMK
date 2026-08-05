@@ -199,7 +199,10 @@
         <div class="lx-showcase__sticky">
           <div class="lx-showcase__frame">
             <div class="lx-video">
-              <iframe src="https://www.youtube.com/embed/Vcw_R7EEDMo?si=tYUYUGL1icJ_pKxC" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <!-- autoplay requires mute=1 or browsers block it; playsinline
+                   stops iOS taking the video fullscreen. Still lazy-loaded, so
+                   it only starts once scrolled near. -->
+              <iframe src="https://www.youtube.com/embed/Vcw_R7EEDMo?si=tYUYUGL1icJ_pKxC&amp;autoplay=1&amp;mute=1&amp;playsinline=1" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
         </div>

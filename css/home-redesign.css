@@ -355,7 +355,6 @@ body.ns-home .lx-showcase__sticky {
   display: flex; align-items: center; justify-content: center;
   padding: 0 var(--gutter);
 }
-body.ns-home .lx-showcase.is-live .lx-showcase__sticky { padding: 0; }
 body.ns-home .lx-showcase__frame {
   width: 100%;
   max-width: 1100px;
@@ -376,13 +375,16 @@ body.ns-home .lx-showcase.is-live .lx-showcase__sticky {
 }
 body.ns-home .lx-showcase.is-live .lx-showcase__frame {
   --p: 0;
-  /* 62% of the gutter-inset width at rest -> the full viewport at --p:1 */
+  /* 62% of the gutter-inset width at rest, growing to fill it. The sticky keeps
+     its gutter, so the video never touches the edge, and the radius is held
+     throughout rather than easing away. */
   width: calc(62% + (100% - 62%) * var(--p));
-  max-width: none;
-  border-radius: calc(var(--r-xl) * (1 - var(--p)));
-  box-shadow: 0 calc(40px * (1 - var(--p))) calc(90px * (1 - var(--p))) rgba(15, 31, 22, calc(.22 * (1 - var(--p))));
+  /* second cap: keep the 16:9 frame inside the sticky panel with breathing
+     room above and below, so it is never cropped at full expansion */
+  max-width: min(100%, calc((100svh - var(--bar-h) - 64px) * 1.7778));
+  border-radius: var(--r-xl);
+  box-shadow: 0 40px 90px rgba(15, 31, 22, .22);
 }
-body.ns-home .lx-showcase.is-live .lx-showcase__wrap { padding: 0; }
 
 /* ---------------------------------------------------------------------------
    WHAT WE TREAT — numbered editorial list over a photograph
