@@ -335,11 +335,20 @@ body.ns-home .lx-lead.is-split .lx-word {
   will-change: opacity;
 }
 
+/* 16:9. NOT the padding-bottom trick — percentage padding resolves against the
+   PARENT's width, so any .lx-video with its own max-width (the programme one is
+   capped at 1100px inside an 1880px wrap) came out far too tall. aspect-ratio
+   resolves against the element's own width, which is what we want. The
+   padding-bottom pair below is only a fallback for engines without it. */
 body.ns-home .lx-video {
-  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+  position: relative; overflow: hidden;
+  padding-bottom: 56.25%; height: 0;
   background: var(--forest);
   border-radius: var(--r-lg);
   box-shadow: var(--shadow-md);
+}
+@supports (aspect-ratio: 16 / 9) {
+  body.ns-home .lx-video { padding-bottom: 0; height: auto; aspect-ratio: 16 / 9; }
 }
 body.ns-home .lx-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 body.ns-home .lx-video--wide { max-width: 1100px; margin: 44px auto 0; border-radius: var(--r-xl); }
