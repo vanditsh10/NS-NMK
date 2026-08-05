@@ -619,6 +619,96 @@ body.ns-home .lx-form input[type="submit"]:hover {
 }
 
 /* ---------------------------------------------------------------------------
+   FAQ — native details/summary accordion, no JavaScript
+   ------------------------------------------------------------------------- */
+
+body.ns-home .lx-faq { background: var(--cream); }
+body.ns-home .lx-faq__list {
+  max-width: 940px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+  counter-reset: faq;
+}
+body.ns-home .lx-faq__item {
+  counter-increment: faq;
+  background: var(--white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color .28s ease, box-shadow .28s ease;
+}
+body.ns-home .lx-faq__item[open] { border-color: rgba(201, 149, 74, .5); box-shadow: var(--shadow-sm); }
+
+body.ns-home .lx-faq__item > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 22px 26px;
+  cursor: pointer;
+  list-style: none;
+  font: 700 clamp(14.5px, 1.5vw, 16.5px) / 1.5 var(--display);
+  letter-spacing: -.01em;
+  color: var(--ink);
+  transition: color .24s ease, background .24s ease;
+}
+/* hide the native disclosure marker in every engine */
+body.ns-home .lx-faq__item > summary::-webkit-details-marker { display: none; }
+body.ns-home .lx-faq__item > summary::marker { content: ""; }
+body.ns-home .lx-faq__item > summary:hover { color: var(--bronze-dark); background: rgba(201, 149, 74, .05); }
+
+/* generated numeral — presentational, not page content */
+body.ns-home .lx-faq__item > summary::before {
+  content: "0" counter(faq);
+  flex: none;
+  font: 700 11px/1.9 var(--label);
+  letter-spacing: .12em;
+  color: var(--bronze);
+}
+body.ns-home .lx-faq__item > summary > span { flex: 1 1 auto; min-width: 0; }
+/* the +/− indicator */
+body.ns-home .lx-faq__item > summary::after {
+  content: "";
+  flex: none;
+  width: 18px; height: 18px;
+  margin-top: 4px;
+  background:
+    linear-gradient(var(--bronze-dark), var(--bronze-dark)) center / 100% 1.5px no-repeat,
+    linear-gradient(var(--bronze-dark), var(--bronze-dark)) center / 1.5px 100% no-repeat;
+  transition: transform .32s var(--ease), opacity .28s ease;
+}
+body.ns-home .lx-faq__item[open] > summary::after { transform: rotate(135deg); }
+body.ns-home .lx-faq__item[open] > summary { color: var(--bronze-dark); }
+
+body.ns-home .lx-faq__body { padding: 0 26px 24px calc(26px + 22px + 18px); }
+body.ns-home .lx-faq__body p {
+  font: 400 15px/1.85 var(--text);
+  color: var(--body);
+  margin: 0 0 14px;
+}
+body.ns-home .lx-faq__body p:last-child { margin-bottom: 0; }
+body.ns-home .lx-faq__body ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+body.ns-home .lx-faq__body ul li {
+  position: relative;
+  padding-left: 20px;
+  font: 400 15px/1.7 var(--text);
+  color: var(--body);
+}
+body.ns-home .lx-faq__body ul li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: .68em;
+  width: 6px; height: 6px;
+  border-radius: var(--r-pill);
+  background: var(--bronze);
+}
+
+@media (max-width: 767px) {
+  body.ns-home .lx-faq__item > summary { padding: 18px 18px; gap: 12px; }
+  body.ns-home .lx-faq__body { padding: 0 18px 20px calc(18px + 22px + 12px); }
+}
+
+/* ---------------------------------------------------------------------------
    "Our Awareness & Services" — lives in footer.php, restyled on this page only
    ------------------------------------------------------------------------- */
 

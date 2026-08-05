@@ -369,6 +369,98 @@
       </div>
     </section>
 
+    <!-- 8. FAQ — native <details>/<summary>, so it opens and closes with no
+         JavaScript and is keyboard and screen-reader accessible by default.
+         The answers stay in the DOM when collapsed, so they are still indexed. -->
+    <section class="lx-section lx-faq">
+      <div class="lx-wrap">
+        <div class="lx-head lx-head--center">
+          <h2>FAQs regarding Drug De addiction and Alcohol Rehabilitation in Delhi, Noida &amp; Himachal</h2>
+        </div>
+
+        <div class="lx-faq__list">
+
+          <details class="lx-faq__item">
+            <summary><span>What is Alcoholism / Substance abuse?</span></summary>
+            <div class="lx-faq__body">
+              <p>Drug Addiction is a condition where the addict develops drug seeking behavior. There are three main stages in Addiction and those are Preoccupation, intoxication, and Withdrawal. An addict constantly craves for the Drug or substance, as the drug use progress, he seeks more and more quantity of the drug to get the intoxication effect, and finally develops tolerance and withdrawal symptoms.</p>
+            </div>
+          </details>
+
+          <details class="lx-faq__item">
+            <summary><span>How can I tell that someone I know is using drugs?</span></summary>
+            <div class="lx-faq__body">
+              <p>Some of the early warning signs of drug addiction are:</p>
+              <ul>
+                <li>Loss of appetite / loss of weight</li>
+                <li>Personal neglect in the form of unkempt hair, uncut nails, dirty clothes, decreased frequency of bathing, poor dental hygiene.</li>
+                <li>Frequent mood fluctuations ranging from grandiosity to depression.</li>
+                <li>Increase in monetary and emotional demands.</li>
+                <li>Drooping eyelids.</li>
+                <li>Hollowed eyes and dark circles under eyes.</li>
+                <li>Comes home late and at odd hours.</li>
+                <li>Avoiding old friends and family.</li>
+                <li>Compulsive lying</li>
+                <li>Disappearance of articles and personal belongings.</li>
+                <li>Unburnt Loose tobacco &ndash; in the ashtray.</li>
+                <li>Needle marks or abscesses on forearms, burnt tips of thumb, forefinger and middle finger.</li>
+                <li>Direct evidence in the form of a vial, stained coin, candle, foil may also be found.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="lx-faq__item">
+            <summary><span>Why does a substance abuser / alcoholic keep relapsing? What can be done about it?</span></summary>
+            <div class="lx-faq__body">
+              <p>Studies on relapse have consistently shown that relapse is a process, whose final step is drinking or drug use. Many things happen before a person picks up the drink or drug. The relapse process is inevitable; it is a basic symptom of the disease of addiction. However, the process can be arrested before patients get to that first drink or drug, and reversed. Arresting and reversing the relapse process is a lifelong aspect of recovery from alcoholism and drug addiction.</p>
+            </div>
+          </details>
+
+          <details class="lx-faq__item">
+            <summary><span>Can I safely use drugs / alcohol in limitation, now that I have completed treatment?</span></summary>
+            <div class="lx-faq__body">
+              <p>Addiction is a lifelong, chronic progressive illness. Experience shows it to be a stable diagnosis (i.e., even after a period of time of sobriety, return to drinking will result in rapid deterioration to worse levels than previously). One often quoted aspect of alcoholism is that it is &ldquo;cunning, baffling and powerful.&rdquo; Often the desire to &ldquo;safely&rdquo; use addictive drugs is a symptom of the disease, and addicts and alcoholics may not know it. In this case, the only safe course of action is to address the relapse trigger, rather than take the drug. Alcoholism/ Addiction is not a curable illnesses, but it can be arrested and then recovery is possible.</p>
+            </div>
+          </details>
+
+          <details class="lx-faq__item">
+            <summary><span>What can I do if he/ she doesn&rsquo;t want help?</span></summary>
+            <div class="lx-faq__body">
+              <p>Remember that not wanting treatment is a typical symptom of the disease of addiction. All patients with the disease of addiction go through periods where they don't want help. Some people stay there and never want help; some people do have moments of great pain where they are ready to accept help. Often, an intervention can be instrumental in motivating the individual to seek help. Drug addiction is a chronic, progressive, and ultimately fatal disease. An intervention can help the person get treatment even when he / she is suffering from the core symptom of denial.</p>
+            </div>
+          </details>
+
+          <details class="lx-faq__item">
+            <summary><span>What does a rehabilitation center do?</span></summary>
+            <div class="lx-faq__body">
+              <p>A rehabilitation center helps addicts in the recovery process. The centers have an outlined residential program. Use of discipline, creative &amp; constructive routines and psychological treatment methods are the salient features of the centers. The addicts are helped to analyze themselves, confront defensive behaviour and learn coping patterns. The duration of the patient's stay may vary from 6 to 7 months.</p>
+            </div>
+          </details>
+
+          <details class="lx-faq__item">
+            <summary><span>Can an addict lead a normal life?</span></summary>
+            <div class="lx-faq__body">
+              <p>Yes, and they can even progress and help other addicts during their treatment and recovery. They can restart their education, career plans, family reunification etc. They should however always completely abstain from all addictive and mood altering substances.</p>
+            </div>
+          </details>
+
+          <details class="lx-faq__item">
+            <summary><span>What is the role of family members?</span></summary>
+            <div class="lx-faq__body">
+              <p>Role of family members in helping the addict is very crucial.</p>
+              <ul>
+                <li>They need to accept that the addict is ill, and in need of treatment like any other disease.</li>
+                <li>They need to play a remedial role as prescribed by the counsellor</li>
+                <li>Changing their thinking, feeling and behaviour patterns is necessary</li>
+                <li>It is important to play a vigilant role in case the patient slips back to addiction</li>
+              </ul>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
