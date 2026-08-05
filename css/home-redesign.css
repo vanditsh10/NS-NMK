@@ -384,13 +384,15 @@ body.ns-home .lx-showcase.is-live .lx-showcase__sticky {
 }
 body.ns-home .lx-showcase.is-live .lx-showcase__frame {
   --p: 0;
-  /* 62% of the gutter-inset width at rest, growing to fill it. The sticky keeps
-     its gutter, so the video never touches the edge, and the radius is held
-     throughout rather than easing away. */
-  width: calc(62% + (100% - 62%) * var(--p));
-  /* second cap: keep the 16:9 frame inside the sticky panel with breathing
-     room above and below, so it is never cropped at full expansion */
-  max-width: min(100%, calc((100svh - var(--bar-h) - 64px) * 1.7778));
+  /* Final size: fills the gutter-inset width, but never taller than the sticky
+     panel allows, so the 16:9 frame is never cropped. */
+  --cap: min(100%, calc((100svh - var(--bar-h) - 64px) * 1.7778));
+  /* Scale from 62% OF THE FINAL SIZE, so the growth is the same proportion on
+     every screen. Keying the start off the container width instead made the
+     effect all but invisible on wide, short displays — on 2560x1080 it started
+     at 1504px against a 1671px cap, about 11% of growth. */
+  width: calc(var(--cap) * (0.62 + 0.38 * var(--p)));
+  max-width: var(--cap);
   border-radius: var(--r-xl);
   box-shadow: 0 40px 90px rgba(15, 31, 22, .22);
 }
@@ -695,19 +697,31 @@ body.ns-home .price-plans-section a.btn-style-5:hover::before { transform: trans
    overlays so they read as a pair rather than a repeat.
    flow-root: clearing #footer's legacy float left it not containing its floated
    sections, so it collapsed to 80px and leaked the photo as a stray strip. */
+/* Matches the original treatment: the photograph shows through directly, with
+   no tint over it. The image is already dark enough to read white text on.
+   flow-root because clearing #footer's legacy float left it not containing its
+   floated sections, which collapsed it to 80px. */
+/* Neutral black scrim, NOT the green tint that was here before — that is what
+   made the footer read as "green" rather than as the photograph. Measured off
+   the image: the middle third sits at ~65 luminance, which gives white text
+   only 3.4:1. A flat 45-55% black lifts that past 5:1 while leaving the sunrise
+   clearly visible. */
 body.ns-home #footer {
   display: flow-root;
-  background: url(../images/footer-bg.jpg) center 72% / cover no-repeat;
-  background-color: var(--forest);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .45) 0%, rgba(0, 0, 0, .58) 100%),
+    url(../images/footer-bg.jpg) left top / cover no-repeat;
+  background-color: #000;
+  padding: clamp(48px, 5vw, 72px) 0 30px;
 }
 body.ns-home #footer .footer-section-1 {
-  background: linear-gradient(180deg, rgba(9, 18, 13, .86) 0%, rgba(9, 18, 13, .93) 100%);
-  padding: clamp(48px, 5vw, 80px) 0 clamp(40px, 4vw, 64px);
+  background: none;
+  padding: 0 0 clamp(28px, 3vw, 44px);
 }
 body.ns-home #footer .footer-section-2 {
-  background: rgba(5, 11, 8, .93);
-  border-top: 1px solid var(--line-light);
-  padding: 30px 0 36px;
+  background: none;
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  padding: 30px 0 6px;
 }
 body.ns-home #footer .container {
   width: 100%; max-width: none;
@@ -733,7 +747,7 @@ body.ns-home #footer .footer-logo { display: block; float: none; margin: 0 0 22p
 body.ns-home #footer .footer-logo img { max-height: 62px; width: auto; }
 body.ns-home #footer .footer-section-1 p {
   font: 400 14.5px/1.85 var(--text);
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, .8);
   max-width: 46ch;
   margin: 0;
 }
@@ -766,7 +780,7 @@ body.ns-home #footer .footer-box ul.nav > li > a {
   padding: 9px 0;
   border: 0; background: none; border-radius: 0;
   font: 400 14.5px/1.55 var(--text);
-  color: rgba(255, 255, 255, .64);
+  color: rgba(255, 255, 255, .82);
   text-transform: none;
   letter-spacing: 0;
 }
@@ -794,7 +808,7 @@ body.ns-home #footer address ul li > span::after { display: none; }
 body.ns-home #footer address .text-box { min-width: 0; }
 body.ns-home #footer address .text-box p {
   font: 400 14.5px/1.7 var(--text);
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, .8);
   margin: 0 0 2px;
   max-width: none;
 }
@@ -835,7 +849,7 @@ body.ns-home #footer .footer-socila ul li a:hover {
 body.ns-home #footer .copy {
   display: block;
   font: 400 13.5px/1.7 var(--text);
-  color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, .78);
   text-align: right;
 }
 /* the keyword list is its own full-width row under the social/copyright line */
@@ -986,7 +1000,6 @@ body.ns-home .lx-callbar { display: none; }
 
 @media (min-width: 1500px) {
   body.ns-home .lx-form { grid-template-columns: repeat(3, 1fr); }
-  body.ns-home .price-plans-section .container > .row { grid-template-columns: repeat(4, 1fr); }
   body.ns-home .lx-centre__media img { height: 340px; }
 }
 
