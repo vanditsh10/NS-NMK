@@ -183,14 +183,19 @@ body.ns-home #main h2::after,
 body.ns-home .price-plans-section h2::before,
 body.ns-home .price-plans-section h2::after { display: none; }
 
-body.ns-home .lx-head { margin: 0 0 48px; max-width: 26ch; }
+body.ns-home .lx-head { margin: 0 0 48px; }
+/* The measure cap MUST live on the h2, not the wrapper: `ch` resolves against
+   the element's own font-size, and the wrapper inherits 14px body text — so a
+   cap here would squeeze a 42px headline into a ~200px column. */
 body.ns-home .lx-head h2 {
-  font: 700 clamp(25px, 3.8vw, 42px) / 1.2 var(--display);
+  font: 700 clamp(25px, 3.4vw, 42px) / 1.18 var(--display);
   letter-spacing: -.024em; color: var(--ink); text-transform: none; margin: 0;
+  max-width: 22ch;
   text-wrap: balance;
 }
 body.ns-home .lx-head--onDark h2 { color: var(--white); }
-body.ns-home .lx-head--center { margin-left: auto; margin-right: auto; text-align: center; }
+body.ns-home .lx-head--center { text-align: center; }
+body.ns-home .lx-head--center h2 { max-width: 26ch; margin-left: auto; margin-right: auto; }
 body.ns-home .lx-head--center .lx-eyebrow::before { display: none; }
 
 body.ns-home .lx-btn {
@@ -334,7 +339,7 @@ body.ns-home .lx-video--wide { max-width: 1100px; margin: 44px auto 0; border-ra
 
 body.ns-home .lx-treat {
   background:
-    linear-gradient(180deg, rgba(9, 18, 13, .94) 0%, rgba(9, 18, 13, .89) 100%),
+    linear-gradient(180deg, rgba(9, 18, 13, .86) 0%, rgba(9, 18, 13, .78) 100%),
     url(../images/testimonials-bg-1.jpg) center / cover no-repeat;
   color: var(--white);
 }
@@ -622,8 +627,20 @@ body.ns-home .price-plans-section a.btn-style-5:hover::before { transform: trans
    Footer (shared markup, scoped to this page)
    ------------------------------------------------------------------------- */
 
+/* Clearing #footer's own float left it no longer containing its floated
+   sections, so it collapsed to 80px and its background photo showed through as
+   a stray strip above the footer. flow-root makes it contain them again. */
+body.ns-home #footer { display: flow-root; background-image: none; background-color: var(--forest); }
 body.ns-home #footer .footer-section-1 { background: var(--forest); }
 body.ns-home #footer .footer-section-2 { background: #0a1610; }
+
+/* legacy dotted brackets around the footer quick-links */
+body.ns-home #footer .footer-box .nav > li,
+body.ns-home #footer .footer-box .nav > li > a { border: 0; background: none; }
+body.ns-home #footer .footer-box .nav > li > a { padding: 8px 0; }
+body.ns-home #footer .footer-box .nav > li > a::before,
+body.ns-home #footer .footer-box .nav > li > a::after { display: none; }
+body.ns-home #footer address ul li { border: 0; }
 body.ns-home #footer .container {
   width: 100%; max-width: none;
   padding-left: var(--gutter); padding-right: var(--gutter);
@@ -744,6 +761,18 @@ body.ns-home .lx-callbar { display: none; }
   body.ns-home .lx-centres__grid { grid-template-columns: repeat(3, 1fr); gap: 34px; }
   body.ns-home .lx-contact__grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 60px; }
   body.ns-home .price-plans-section .container > .row { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Wide laptops: a single full-width column of five short rows reads as empty
+   space, so the heading and the list sit side by side. */
+@media (min-width: 1200px) {
+  body.ns-home .lx-treat .lx-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: 72px;
+    align-items: start;
+  }
+  body.ns-home .lx-treat .lx-head { margin-bottom: 0; }
 }
 
 @media (min-width: 1500px) {
