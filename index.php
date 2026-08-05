@@ -176,6 +176,7 @@
             </div>
           </div>
         </div>
+        <span class="lx-scrollcue" aria-hidden="true"><i class="fa fa-angle-down"></i></span>
       </div>
     </section>
 
@@ -241,18 +242,26 @@
       <div class="lx-wrap">
         <div class="lx-centres__grid">
           <article class="lx-centre">
-            <div class="lx-centre__media"><img src="images/delhi.jpg" width="100%" alt="Naya Savera - Drug De-addiction & Alcohol Rehabilitation Centre Delhi & Noida" loading="lazy" /></div>
+            <div class="lx-centre__media">
+              <img src="images/delhi.jpg" width="100%" alt="Naya Savera - Drug De-addiction & Alcohol Rehabilitation Centre Delhi & Noida" loading="lazy" />
+              <div class="lx-centre__label">
+                <span class="lx-centre__kicker">NAYA SAVERA</span>
+                <strong class="lx-centre__name">Delhi</strong>
+              </div>
+            </div>
             <div class="lx-centre__body">
-              <span class="lx-centre__kicker">NAYA SAVERA</span>
-              <strong class="lx-centre__name">Delhi</strong>
               <a href="naya-savera-delhi.php" class="lx-btn lx-btn--outline">View Details</a>
             </div>
           </article>
           <article class="lx-centre">
-            <div class="lx-centre__media"><img src="images/noida.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Noida" loading="lazy" /></div>
+            <div class="lx-centre__media">
+              <img src="images/noida.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Noida" loading="lazy" />
+              <div class="lx-centre__label">
+                <span class="lx-centre__kicker">NAYA SAVERA</span>
+                <strong class="lx-centre__name">Noida</strong>
+              </div>
+            </div>
             <div class="lx-centre__body">
-              <span class="lx-centre__kicker">NAYA SAVERA</span>
-              <strong class="lx-centre__name">Noida</strong>
               <a href="naya-savera-noida.php" class="lx-btn lx-btn--outline">View Details</a>
             </div>
           </article>
@@ -265,10 +274,14 @@
           </div>
           -->
           <article class="lx-centre">
-            <div class="lx-centre__media"><img src="images/palampur.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Palampur, Himachal" loading="lazy" /></div>
+            <div class="lx-centre__media">
+              <img src="images/palampur.jpg" width="100%" alt="Naya Savera - No. 1 Drug De-addiction & Alcohol Rehabilitation Centre Palampur, Himachal" loading="lazy" />
+              <div class="lx-centre__label">
+                <span class="lx-centre__kicker">NAYA SAVERA</span>
+                <strong class="lx-centre__name">Palampur</strong>
+              </div>
+            </div>
             <div class="lx-centre__body">
-              <span class="lx-centre__kicker">NAYA SAVERA</span>
-              <strong class="lx-centre__name">Palampur</strong>
               <a href="#" class="lx-btn lx-btn--outline">View Details</a>
             </div>
           </article>
@@ -391,6 +404,32 @@
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // Reveal-on-scroll. Targets are chosen here rather than marked up in the
+  // HTML, so the markup stays clean and nothing shifts if this script fails.
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced && 'IntersectionObserver' in window) {
+    var targets = document.querySelectorAll(
+      '.lx-head, .lx-split__text, .lx-split__media, .lx-list li, .lx-lede,' +
+      '.lx-video--wide, .lx-centre, .lx-contact__side, .lx-contact__form,' +
+      '.price-plans-section .heading-style-2, .price-plans-section .btn-row'
+    );
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    Array.prototype.forEach.call(targets, function (el, i) {
+      el.classList.add('lx-reveal');
+      el.style.setProperty('--d', (i % 6) * 60 + 'ms');
+      io.observe(el);
+    });
+    // Safety net: reveal is decoration, never a reason for content to stay
+    // hidden. If anything above misbehaves, show everything anyway.
+    setTimeout(function () {
+      Array.prototype.forEach.call(targets, function (el) { el.classList.add('is-in'); });
+    }, 3000);
+  }
 
   // custom.js initialises the hero carousel at DOM-ready, and Owl fixes each
   // slide's width from the container at that instant. Fonts and images settling
