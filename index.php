@@ -209,48 +209,7 @@
       </div>
     </section>
 
-    <!-- 3. WHAT WE TREAT -->
-    <section class="lx-section lx-treat">
-      <div class="lx-wrap">
-        <div class="lx-head lx-head--onDark">
-          <span class="lx-eyebrow lx-eyebrow--light">This is Why </span>
-          <h2> We are The Best Nasha Mukti Kendra / Drug De addiction &amp;  Alcohol Rehabilitation Centre in India</h2>
-        </div>
-        <ul class="lx-list">
-          <li>
-            <h3><a href="nasha-mukti-kendra.php">NASHA MUKTI KENDRA </a></h3>
-          </li>
-          <li>
-            <h3><a href="best-alcohol-treatment-india.php">ALCOHOL TREATMENT </a></h3>
-          </li>
-          <li>
-            <h3><a href="best-drug-treatment-india.php">DRUGS TREATMENT</a></h3>
-          </li>
-          <li>
-            <h3><a href="best-de-addiction-centre-india.php">DE ADDICTION CENTRE</a></h3>
-          </li>
-          <li>
-            <h3><a href="best-rehabilitation-centre-india.php">ALCOHOL REHABILITAION CENTRE</a></h3>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 4. THE PROGRAMME -->
-    <section class="lx-section lx-programme">
-      <div class="lx-wrap">
-        <div class="lx-head lx-head--center">
-          <h2> WHY NAYA SAVERA IS BEST REHAB IN DELHI, NOIDA &amp; HIMACHAL?</h2>
-        </div>
-        <p class="lx-lede">We are India's Best Rehabilitation Centre for Alcohol Treatment with high success rate for recovery of Addict.</p>
-        <p class="lx-lede"><strong>Drug &amp; Alcohol Rehabilitation Programme</strong></p>
-        <div class="lx-video lx-video--wide">
-          <iframe src="https://www.youtube.com/embed/mETezzTrNSI?si=lsZ6xpPLVjXA71kY" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. THE CENTRES -->
+    <!-- 4. THE CENTRES -->
     <section class="lx-section lx-centres">
       <div class="lx-wrap">
         <div class="lx-centres__grid">
@@ -302,7 +261,48 @@
       </div>
     </section>
 
-    <!-- 6. CONTACT + ENQUIRY — the phone numbers and social links that used to
+    <!-- 5. THE PROGRAMME -->
+    <section class="lx-section lx-programme">
+      <div class="lx-wrap">
+        <div class="lx-head lx-head--center">
+          <h2> WHY NAYA SAVERA IS BEST REHAB IN DELHI, NOIDA &amp; HIMACHAL?</h2>
+        </div>
+        <p class="lx-lede">We are India's Best Rehabilitation Centre for Alcohol Treatment with high success rate for recovery of Addict.</p>
+        <p class="lx-lede"><strong>Drug &amp; Alcohol Rehabilitation Programme</strong></p>
+        <div class="lx-video lx-video--wide">
+          <iframe src="https://www.youtube.com/embed/mETezzTrNSI?si=lsZ6xpPLVjXA71kY" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WHAT WE TREAT -->
+    <section class="lx-section lx-treat">
+      <div class="lx-wrap">
+        <div class="lx-head lx-head--onDark">
+          <span class="lx-eyebrow lx-eyebrow--light">This is Why </span>
+          <h2> We are The Best Nasha Mukti Kendra / Drug De addiction &amp;  Alcohol Rehabilitation Centre in India</h2>
+        </div>
+        <ul class="lx-list">
+          <li>
+            <h3><a href="nasha-mukti-kendra.php">NASHA MUKTI KENDRA </a></h3>
+          </li>
+          <li>
+            <h3><a href="best-alcohol-treatment-india.php">ALCOHOL TREATMENT </a></h3>
+          </li>
+          <li>
+            <h3><a href="best-drug-treatment-india.php">DRUGS TREATMENT</a></h3>
+          </li>
+          <li>
+            <h3><a href="best-de-addiction-centre-india.php">DE ADDICTION CENTRE</a></h3>
+          </li>
+          <li>
+            <h3><a href="best-rehabilitation-centre-india.php">ALCOHOL REHABILITAION CENTRE</a></h3>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. CONTACT + ENQUIRY — the phone numbers and social links that used to
          sit in the header strip now live here, beside the form. -->
     <section class="lx-section lx-contact">
       <div class="lx-wrap">
