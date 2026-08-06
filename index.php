@@ -19,7 +19,7 @@
 <meta name="twitter:domain" content="nayasavera.org" />
 <meta name="twitter:title" content="Best Luxury Drug and Alcohol Rehab in Delhi, Best Alcohol Rehab in Noida NayaSavera.org" />
 <?php include("header-includes.php"); ?>
-<link href="/css/home-redesign.css" rel="stylesheet" type="text/css">
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 <link rel="canonical" href="https://nayasavera.org" />
 <script type="application/ld+json">
 {
@@ -101,48 +101,10 @@
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-<body class="campers-theme ns-home">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
 
-  <!-- =====================================================================
-       HEADER — one line: logo, navigation, call action.
-       This page does not include header.php; it carries its own header so the
-       bar can be a single row with no phone block. Every link and its anchor
-       text is identical to header.php. The phone numbers it used to hold now
-       live in the contact section further down the page.
-       ===================================================================== -->
-  <header class="lx-header" id="lxHeader">
-    <div class="lx-bar">
-      <strong class="lx-logo"><a href="/"><img src="images/logo.png" alt="Naya Savera - Best Rehab in Delhi, Nasha Mukti Kendra Delhi, Rehab Centre, Drug De-Addiction Centre in Delhi"></a></strong>
-
-      <nav class="lx-nav" id="lxNav" aria-label="Main">
-        <ul>
-          <li class="is-current"><a href="/">Home</a></li>
-          <li class="has-sub">
-            <a href="#">About Us &#8964;</a>
-            <ul>
-              <li><a href="about.php">About Us</a></li>
-              <li><a href="team-naya-savera.php">Team</a></li>
-            </ul>
-          </li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="treatment.html">Treatment</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="enquiry.html">Enquiry</a></li>
-          <li><a href="gallery.html">Photo Gallery</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="panchakarma-wellness-treatment.php">Panchakarma</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </nav>
-
-      <a href="tel:+91-9873020709" class="lx-btn lx-btn--call lx-bar__cta"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
-
-      <button type="button" class="lx-burger" id="lxBurger" aria-controls="lxNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <?php $lx_current = 'home'; include("header-lx.php"); ?>
 
   <div id="main">
 
@@ -481,35 +443,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <script src="js/jquery.counterup.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/lx-header.js"></script>
 <script>
 (function () {
-  // Mobile menu. This page has its own header, so it does not use bootstrap's
-  // collapse plugin — a few lines are cheaper and easier to reason about.
-  var burger = document.getElementById('lxBurger');
-  var nav = document.getElementById('lxNav');
-  var header = document.getElementById('lxHeader');
-  if (burger && nav) {
-    burger.addEventListener('click', function () {
-      var open = header.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    nav.addEventListener('click', function (e) {
-      // let a real navigation close the menu; ignore the "About Us" stub link
-      var a = e.target.closest('a');
-      if (a && a.getAttribute('href') !== '#') {
-        header.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-
-  // Shadow the bar once the page has moved, so it reads as lifted over content.
-  var onScroll = function () {
-    if (header) header.classList.toggle('is-stuck', window.scrollY > 8);
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
   // Reveal-on-scroll. Targets are chosen here rather than marked up in the
   // HTML, so the markup stays clean and nothing shifts if this script fails.
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

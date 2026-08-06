@@ -47,25 +47,51 @@ cp secrets.sample.php secrets.php
 It used to be hardcoded in `enquiry.php`; it was moved out so the key isn't
 public.
 
-## The home page has its own header — read this before editing the nav
+## Two header partials — read this before editing the nav
 
-`index.php` does **not** `include("header.php")`. It carries its own header
-markup so the bar can be a single row (logo, nav, call button) with no phone
-block. Every other page still uses `header.php` unchanged.
+The site currently has **two** headers:
 
-**Consequence: a nav change must be made in two places** — `header.php` for the
-rest of the site, and the `<header class="lx-header">` block near the top of
-`index.php` for the home page. The link list and anchor text are currently
-identical in both; keep them that way.
+| Partial | Used by | Shape |
+| --- | --- | --- |
+| `header.php` | every legacy page | social strip + logo + phone block + nav |
+| `header-lx.php` | `index.php`, `team-naya-savera.php` | one line: logo, nav, call button |
 
-The phone numbers `header.php` used to show now live in the contact section
-above the footer on the home page, along with the social links and email that
-were in the old top strip.
+**A nav change must be made in both.** The link list and anchor text are
+currently identical; keep them that way. `header-lx.php` marks the active item
+from `$lx_current`, set before the include:
 
-All home page styling is in `css/home-redesign.css`, scoped to `body.ns-home`
-and loaded only by `index.php`. Rules in there that touch shared markup (the
-footer, and the "Our Awareness & Services" block that lives in `footer.php`)
-are scoped the same way, so no other page is affected.
+```php
+<?php $lx_current = 'team'; include("header-lx.php"); ?>
+```
+
+Its behaviour (mobile menu, sticky shadow) lives in `js/lx-header.js` — no
+jQuery, no bootstrap collapse.
+
+`header-lx.php` has no phone block and no social strip. On the home page those
+moved into the contact section above the footer. **Any other page converted to
+this header loses them unless the page provides them** — see the note in
+`team-naya-savera.php` below.
+
+## The redesign stylesheet
+
+`css/lx.css`, scoped to `body.ns-lx`, loaded only by the redesigned pages. Rules
+that touch shared markup (`footer.php`, its "Our Awareness & Services" block,
+and `sidebar.php`) are scoped the same way, so legacy pages are untouched.
+
+Recurring trap: this theme floats a lot of containers (`#wrapper`, `#main`,
+`#footer`, `.sidebar-box`, `.price-plans-section`, the sidebar `form`). A
+floated ancestor collapses CSS grids inside it and stops parents containing
+their children — `float: none` and `display: flow-root` are used throughout to
+undo it.
+
+### team-naya-savera.php
+
+Rebuilt on the redesign language. Copy, title, description, keywords and
+canonical are byte-identical to the old page. Because it now uses
+`header-lx.php`, two destinations that only ever appeared in the old header
+strip are no longer on this page: **the Palampur number `tel:+91-9816008103`
+and the LinkedIn profile**. Everything else the page linked to is still
+reachable. Add a contact block to the page if those matter.
 
 ## Not in this repo
 
