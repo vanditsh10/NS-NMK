@@ -30,7 +30,7 @@ $lx_current = isset($lx_current) ? $lx_current : 'home';
               <li<?php if ($lx_current === 'team') echo ' class="is-current"'; ?>><a href="team-naya-savera.php">Team</a></li>
             </ul>
           </li>
-          <li><a href="services.html">Services</a></li>
+          <li<?php if ($lx_current === 'services') echo ' class="is-current"'; ?>><a href="services.html">Services</a></li>
           <li><a href="treatment.html">Treatment</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="enquiry.html">Enquiry</a></li>

@@ -814,6 +814,54 @@ body.ns-lx .lx-prose a {
 }
 body.ns-lx .lx-prose a:hover { color: var(--orange); border-bottom-color: var(--orange); }
 
+/* Lead image above an article */
+body.ns-lx .lx-figure {
+  float: none; width: 100%; margin: 0 0 36px; line-height: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: var(--cream);
+}
+body.ns-lx .lx-figure img { width: 100%; height: auto; display: block; }
+
+/* Service blocks: heading + its paragraphs, grouped. The source wraps these
+   headings in <u>; the element is kept and the underline turned off here, so
+   the markup and the document outline are untouched. */
+body.ns-lx .lx-services { display: grid; gap: 0; }
+body.ns-lx .lx-service {
+  padding: 28px 0 30px;
+  border-top: 1px solid var(--line-soft);
+}
+body.ns-lx .lx-service:first-child { padding-top: 0; border-top: 0; }
+body.ns-lx .lx-service:last-child { padding-bottom: 0; }
+body.ns-lx .lx-service u { text-decoration: none; }
+body.ns-lx .lx-service h2 {
+  position: relative;
+  margin: 0 0 14px;
+  padding-left: 20px;
+  font: 700 clamp(17px, 1.45vw, 21px) / 1.35 var(--display);
+  letter-spacing: -.015em;
+  color: var(--ink);
+  text-transform: none;
+}
+/* bronze rule standing in for the old underline. #main is in the selector to
+   outrank the page-wide `#main h2::before { display:none }` reset, which kills
+   the legacy grey bar but would otherwise kill this too. */
+body.ns-lx #main .lx-service > h2::before,
+body.ns-lx #main .lx-service > u > h2::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; top: .28em; bottom: .28em;
+  width: 3px;
+  /* the legacy rule sets height:2px, and an explicit height beats top+bottom on
+     an absolutely positioned box — without this the bar is a 3x2px dot */
+  height: auto;
+  border-radius: 2px;
+  background: var(--bronze);
+}
+body.ns-lx .lx-service p:last-child { margin-bottom: 0; }
+
 /* the three centre links at the foot of the article */
 body.ns-lx .lx-linkcards {
   list-style: none; margin: 40px 0 0; padding: 0;
