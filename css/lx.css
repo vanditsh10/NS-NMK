@@ -769,20 +769,27 @@ body.ns-lx .lx-crumbs .breadcrumb > li.active { color: rgba(255, 255, 255, .78);
 /* --- Article pages (about) ------------------------------------------------ */
 
 body.ns-lx .lx-article { background: var(--ivory); }
-body.ns-lx .lx-article__grid { display: grid; gap: 44px; align-items: start; }
+/* Contained, unlike the page head and the gallery. Running text cannot fill a
+   full-bleed column — it caps out at a ~70-character measure — so a full-width
+   grid left ~730px of dead space beside the prose. The block is centred and the
+   column itself is now the measure. */
+body.ns-lx .lx-article__grid {
+  display: grid; gap: 44px; align-items: start;
+  max-width: 1180px; margin-left: auto; margin-right: auto;
+}
 body.ns-lx .lx-article__main { min-width: 0; }
 body.ns-lx .lx-article .lx-head { margin-bottom: 30px; }
 body.ns-lx .lx-article .lx-head h2.title {
   font: 700 clamp(24px, 3.2vw, 36px) / 1.22 var(--display);
   letter-spacing: -.024em; color: var(--ink); text-transform: none; margin: 0;
-  max-width: 24ch;
+  max-width: none; /* the generic .lx-head h2 caps at 22ch — not wanted here */
 }
 /* The font-size lives on the wrapper so `ch` resolves against the reading size.
    Putting the measure cap on a wrapper that inherits 14px body text would give
    ~529px instead of ~636px — the same trap as the section headings. */
 body.ns-lx .lx-prose {
-  font: 400 clamp(15.5px, 1.15vw, 17px) / 1.85 var(--text);
-  max-width: 68ch;
+  font: 400 clamp(15.5px, 1.2vw, 18.5px) / 1.85 var(--text);
+  max-width: none; /* the column is the measure — see .lx-article__grid */
 }
 body.ns-lx .lx-prose p {
   font: inherit;
@@ -872,15 +879,11 @@ body.ns-lx .lx-shot:focus-visible::after { opacity: 1; }
   body.ns-lx .lx-gallery__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 }
 @media (min-width: 992px) {
-  body.ns-lx .lx-article__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 56px; }
+  body.ns-lx .lx-article__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: 72px; }
   body.ns-lx .lx-article aside { position: sticky; top: calc(var(--bar-h) + 28px); }
   body.ns-lx .lx-linkcards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   body.ns-lx .lx-gallery__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
-@media (min-width: 1500px) {
-  body.ns-lx .lx-article__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: 72px; }
-}
-
 body.ns-lx .lx-teampage { background: var(--ivory); }
 body.ns-lx .lx-teampage__grid { display: grid; gap: 44px; align-items: start; }
 body.ns-lx .lx-teampage__main { min-width: 0; }
@@ -888,6 +891,7 @@ body.ns-lx .lx-teampage .lx-head { margin-bottom: 34px; }
 body.ns-lx .lx-teampage .lx-head h2.title {
   font: 700 clamp(24px, 3.4vw, 38px) / 1.2 var(--display);
   letter-spacing: -.024em; color: var(--ink); text-transform: none; margin: 0;
+  max-width: none; /* the generic .lx-head h2 caps at 22ch — not wanted here */
 }
 
 body.ns-lx .lx-people { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
