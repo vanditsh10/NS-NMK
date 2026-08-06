@@ -737,6 +737,7 @@ body.ns-lx .lx-pagehead > .lx-wrap { width: 100%; }
 /* Each page keeps the banner the original rendered — verified in the browser,
    not inferred from selector specificity, which got it wrong once already. */
 body.ns-lx .lx-pagehead--treatment { background-image: url(../images/treatment-banner.jpg); }
+body.ns-lx .lx-pagehead--gallery { background-image: url(../images/gallery-banner.jpg); }
 /* Scrim sized from the images, not guessed. Measured over the bottom-left area
    where the H1 sits: treatment-banner is already 4.7:1 for white text bare, and
    services-banner needs only ~0.27 black for 4.5:1. So the wash is neutral
@@ -907,6 +908,59 @@ body.ns-lx .lx-linkcards li a:hover {
   box-shadow: var(--shadow-sm);
 }
 body.ns-lx .lx-linkcards li a:hover::before { transform: translateX(4px); }
+
+/* --- Photo gallery page ---------------------------------------------------
+   Full-bleed, unlike the article pages: a wall of images has no measure to
+   respect, so here the width is worth using. Thumbnails are 333x250, shown at
+   their native 4:3 so nothing is cropped. */
+
+body.ns-lx .lx-gallerypage { background: var(--ivory); }
+body.ns-lx .lx-gallerypage__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+/* the anchors are the original markup, kept verbatim, so they are styled by
+   their existing .link class rather than a new one */
+body.ns-lx .lx-gallerypage__grid > a.link {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  background: var(--cream);
+  box-shadow: var(--shadow-sm);
+  transition: transform .38s var(--ease), box-shadow .38s ease, z-index 0s;
+}
+body.ns-lx .lx-gallerypage__grid > a.link img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1s var(--ease);
+}
+body.ns-lx .lx-gallerypage__grid > a.link::after {
+  content: "\f00e"; /* fa-search-plus */
+  font-family: FontAwesome;
+  font-size: 19px;
+  color: #fff;
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, rgba(9, 18, 13, .18) 0%, rgba(9, 18, 13, .55) 100%);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+body.ns-lx .lx-gallerypage__grid > a.link:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+body.ns-lx .lx-gallerypage__grid > a.link:hover img { transform: scale(1.08); }
+body.ns-lx .lx-gallerypage__grid > a.link:hover::after,
+body.ns-lx .lx-gallerypage__grid > a.link:focus-visible::after { opacity: 1; }
+
+@media (min-width: 560px)  { body.ns-lx .lx-gallerypage__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } }
+@media (min-width: 900px)  { body.ns-lx .lx-gallerypage__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; } }
+@media (min-width: 1300px) { body.ns-lx .lx-gallerypage__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; } }
+@media (min-width: 1750px) { body.ns-lx .lx-gallerypage__grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 
 /* --- Contact band (contact-lx.php) ---------------------------------------
    Restores the phone numbers and social row that the one-line header dropped.
