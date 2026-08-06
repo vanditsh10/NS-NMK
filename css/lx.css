@@ -739,6 +739,7 @@ body.ns-lx .lx-pagehead > .lx-wrap { width: 100%; }
 body.ns-lx .lx-pagehead--treatment { background-image: url(../images/treatment-banner.jpg); }
 body.ns-lx .lx-pagehead--gallery { background-image: url(../images/gallery-banner.jpg); }
 body.ns-lx .lx-pagehead--panchakarma { background-image: url(../images/panchkarma.jpg); }
+body.ns-lx .lx-pagehead--contact { background-image: url(../images/contact-banner.jpg); }
 /* panchkarma.jpg is far brighter than the other banners — measured 162 average
    luminance behind the text against 32-64 for the rest — so the shared scrim
    left white text at only ~3:1. Deeper at the foot where the breadcrumb and H1
@@ -1098,6 +1099,72 @@ body.ns-lx .lx-quotes__cta a:hover {
 }
 @media (min-width: 992px) {
   body.ns-lx .lx-quotes__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+}
+
+/* --- Contact page ---------------------------------------------------------
+   One card per centre. The source paragraphs are untouched, including their
+   inline style="color:#000" on the tel links, which is overridden here. */
+
+body.ns-lx .lx-places { display: grid; gap: 16px; margin: 4px 0 0; }
+body.ns-lx .lx-place {
+  padding: 26px 26px 24px;
+  background: var(--white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  transition: border-color .3s ease, box-shadow .3s ease, transform .3s var(--ease);
+}
+body.ns-lx .lx-place:hover {
+  border-color: rgba(201, 149, 74, .5);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-3px);
+}
+body.ns-lx .lx-place p {
+  margin: 0;
+  font: 400 clamp(14.5px, 1.05vw, 16px) / 1.9 var(--text);
+  color: var(--body);
+}
+body.ns-lx .lx-place strong {
+  display: block;
+  margin-bottom: 10px;
+  font: 700 clamp(16px, 1.3vw, 18px) / 1.4 var(--display);
+  letter-spacing: -.015em;
+  color: var(--ink);
+}
+body.ns-lx .lx-place strong u { text-decoration: none; }
+body.ns-lx .lx-place .fa,
+body.ns-lx .lx-place__email .fa {
+  width: 26px; height: 26px;
+  margin-right: 2px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 999px;
+  background: rgba(201, 149, 74, .14);
+  color: var(--bronze-dark);
+  font-size: 12px;
+  vertical-align: middle;
+}
+/* the tel links carry an inline colour in the source, so it needs !important */
+body.ns-lx .lx-place a[href^="tel:"],
+body.ns-lx .lx-place__email a {
+  color: var(--ink) !important;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 149, 74, .45);
+  transition: color .24s ease, border-color .24s ease;
+}
+body.ns-lx .lx-place a[href^="tel:"]:hover,
+body.ns-lx .lx-place__email a:hover {
+  color: var(--orange) !important;
+  border-bottom-color: var(--orange);
+}
+body.ns-lx .lx-place__email {
+  margin: 22px 0 0;
+  font: 400 clamp(14.5px, 1.05vw, 16px) / 1.9 var(--text);
+  color: var(--body);
+}
+
+@media (min-width: 620px) {
+  body.ns-lx .lx-places { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.ns-lx .lx-place:first-child { grid-column: 1 / -1; }
 }
 
 /* --- Photo gallery page ---------------------------------------------------
