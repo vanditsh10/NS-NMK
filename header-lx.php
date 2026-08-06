@@ -31,7 +31,7 @@ $lx_current = isset($lx_current) ? $lx_current : 'home';
             </ul>
           </li>
           <li<?php if ($lx_current === 'services') echo ' class="is-current"'; ?>><a href="services.html">Services</a></li>
-          <li><a href="treatment.html">Treatment</a></li>
+          <li<?php if ($lx_current === 'treatment') echo ' class="is-current"'; ?>><a href="treatment.html">Treatment</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="enquiry.html">Enquiry</a></li>
           <li><a href="gallery.html">Photo Gallery</a></li>

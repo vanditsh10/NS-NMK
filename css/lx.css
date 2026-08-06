@@ -720,7 +720,11 @@ body.ns-lx .lx-faq__body ul li::before {
 body.ns-lx .lx-pagehead {
   position: relative;
   overflow: hidden;
-  background: url(../images/services-banner.jpg) center 40% / cover no-repeat;
+  /* default banner; pages with their own use a --<page> modifier below */
+  background-image: url(../images/services-banner.jpg);
+  background-position: center 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: var(--forest);
   /* tall enough to give the photograph room; content sits low, magazine-style */
   min-height: 58vh;
@@ -730,6 +734,9 @@ body.ns-lx .lx-pagehead {
   padding: clamp(90px, 10vw, 150px) 0 clamp(48px, 5vw, 76px);
 }
 body.ns-lx .lx-pagehead > .lx-wrap { width: 100%; }
+/* Each page keeps the banner the original rendered — verified in the browser,
+   not inferred from selector specificity, which got it wrong once already. */
+body.ns-lx .lx-pagehead--treatment { background-image: url(../images/treatment-banner.jpg); }
 body.ns-lx .lx-pagehead::before {
   content: "";
   position: absolute; inset: 0;
