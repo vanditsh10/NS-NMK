@@ -95,6 +95,8 @@
       </div>
     </section>
 
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>

@@ -18,10 +18,8 @@
 
   <div id="main">
 
-    <!-- PAGE HEAD — compact hero. No photograph: the only inner-page banner in
-         the library (services-banner.jpg, 1400x400) is low resolution, so a
-         forest ground with the bronze glow is used instead, matching the
-         contact section on the home page. -->
+    <!-- PAGE HEAD — keeps this page's own banner photograph (services-banner.jpg,
+         the image the original rendered), scrimmed for legibility. -->
     <section class="lx-pagehead">
       <div class="lx-wrap">
         <nav class="lx-crumbs" aria-label="Breadcrumb">
@@ -133,6 +131,8 @@
         </div>
       </div>
     </section>
+
+    <?php include("contact-lx.php"); ?>
 
   </div>
   <?php include("footer.php"); ?>

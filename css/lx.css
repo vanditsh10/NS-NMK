@@ -843,6 +843,40 @@ body.ns-lx .lx-linkcards li a:hover {
 }
 body.ns-lx .lx-linkcards li a:hover::before { transform: translateX(4px); }
 
+/* --- Contact band (contact-lx.php) ---------------------------------------
+   Restores the phone numbers and social row that the one-line header dropped.
+   Reuses .lx-numbers / .lx-social / .lx-email from the home contact section. */
+
+body.ns-lx .lx-contactband {
+  background: var(--forest);
+  position: relative;
+  overflow: hidden;
+  padding: clamp(46px, 5vw, 78px) 0;
+}
+body.ns-lx .lx-contactband::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(70% 120% at 100% 0%, rgba(201, 149, 74, .18) 0%, rgba(201, 149, 74, 0) 62%);
+  pointer-events: none;
+}
+body.ns-lx .lx-contactband__grid {
+  position: relative;
+  display: grid;
+  gap: 34px;
+  align-items: center;
+}
+body.ns-lx .lx-contactband .lx-numbers { grid-template-columns: 1fr; }
+body.ns-lx .lx-contactband .lx-social { margin-top: 0; }
+
+@media (min-width: 700px) {
+  body.ns-lx .lx-contactband .lx-numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 992px) {
+  body.ns-lx .lx-contactband__grid { grid-template-columns: minmax(0, 1fr) auto; gap: 56px; }
+  body.ns-lx .lx-contactband .lx-social { text-align: right; }
+  body.ns-lx .lx-contactband .lx-social ul { justify-content: flex-end; }
+}
+
 /* --- Gallery grid --------------------------------------------------------- */
 
 body.ns-lx .lx-gallery { background: var(--cream); }
