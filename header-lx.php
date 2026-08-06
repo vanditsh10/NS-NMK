@@ -23,10 +23,10 @@ $lx_current = isset($lx_current) ? $lx_current : 'home';
       <nav class="lx-nav" id="lxNav" aria-label="Main">
         <ul>
           <li<?php if ($lx_current === 'home') echo ' class="is-current"'; ?>><a href="/">Home</a></li>
-          <li class="has-sub">
+          <li class="has-sub<?php if ($lx_current === 'about' || $lx_current === 'team') echo ' is-current'; ?>">
             <a href="#">About Us &#8964;</a>
             <ul>
-              <li><a href="about.php">About Us</a></li>
+              <li<?php if ($lx_current === 'about') echo ' class="is-current"'; ?>><a href="about.php">About Us</a></li>
               <li<?php if ($lx_current === 'team') echo ' class="is-current"'; ?>><a href="team-naya-savera.php">Team</a></li>
             </ul>
           </li>
