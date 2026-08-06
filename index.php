@@ -108,11 +108,24 @@
 
   <div id="main">
 
-    <!-- 1. HERO — sunrise photograph, the meaning of the brand name.
-         The campaign carousel sits framed alongside; those three images have
-         their messages baked into the artwork, so they are never cropped. -->
-    <section class="lx-hero">
-      <div class="lx-hero__bg" aria-hidden="true"></div>
+    <!-- 1. HERO — the three campaign images ARE the background now, still the
+         same Owl carousel so they keep sliding, and still real <img> elements
+         so their alt text survives. The scrim below them is what makes the
+         headline readable. -->
+    <section class="lx-hero lx-hero--bgslides">
+      <div class="lx-hero__bg">
+        <div id="banner">
+          <div id="home-banner" class="owl-carousel owl-theme">
+            <div class="item">
+              <div class="caption">
+                <div class="container"> </div>
+              </div>
+              <img src="images/banner-img-1.jpg" alt="Drug De addiction centre in Delhi, Best Alcohol Rehab in Delhi, Nasha Mukti  Kendra Noida"> </div>
+            <div class="item"> <img src="images/banner-img-2.jpg" alt="Best Rehab in Delhi, Alcohlism Treatment Delhi"> </div>
+            <div class="item"> <img src="images/banner-img-3.jpg" alt=" Alcohlism Treatment Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi"> </div>
+          </div>
+        </div>
+      </div>
       <div class="lx-wrap lx-hero__wrap">
         <div class="lx-hero__grid">
           <div class="lx-hero__copy">
@@ -122,19 +135,6 @@
               <a href="tel:+91-9873020709" class="lx-btn lx-btn--call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
               <a href="contact.html" class="lx-btn lx-btn--onDark">We can Help
               Contact Now</a>
-            </div>
-          </div>
-          <div class="lx-hero__media">
-            <div id="banner">
-              <div id="home-banner" class="owl-carousel owl-theme">
-                <div class="item">
-                  <div class="caption">
-                    <div class="container"> </div>
-                  </div>
-                  <img src="images/banner-img-1.jpg" alt="Drug De addiction centre in Delhi, Best Alcohol Rehab in Delhi, Nasha Mukti  Kendra Noida"> </div>
-                <div class="item"> <img src="images/banner-img-2.jpg" alt="Best Rehab in Delhi, Alcohlism Treatment Delhi"> </div>
-                <div class="item"> <img src="images/banner-img-3.jpg" alt=" Alcohlism Treatment Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi"> </div>
-              </div>
             </div>
           </div>
         </div>

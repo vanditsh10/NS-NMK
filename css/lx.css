@@ -218,7 +218,9 @@ body.ns-lx .lx-btn--call:hover { background: var(--orange-600); color: var(--whi
 body.ns-lx .lx-btn--call .fa { font-size: 14px; }
 
 body.ns-lx .lx-btn--onDark {
-  background: rgba(255, 255, 255, .08); color: var(--white);
+  /* own dark bed rather than a translucent white one: this button sits over a
+     photograph that will change, so it must not depend on what is behind it */
+  background: rgba(0, 0, 0, .42); color: var(--white);
   border-color: rgba(255, 255, 255, .34);
   backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   white-space: pre-line;
@@ -246,14 +248,83 @@ body.ns-lx .lx-hero {
   align-items: center;
   padding: 48px 0 76px;
 }
+/* The carousel itself is the background. Owl still drives the sliding; these
+   rules just make it fill the hero and crop with object-fit instead of sitting
+   in a frame. */
 body.ns-lx .lx-hero__bg {
   position: absolute; inset: 0; z-index: -1;
   background: url(../images/footer-bg.jpg) center 38% / cover no-repeat;
   transform: scale(1.05);
 }
+body.ns-lx .lx-hero--bgslides { align-items: flex-start; padding-top: clamp(72px, 13vh, 168px); }
+body.ns-lx .lx-hero--bgslides .lx-hero__bg {
+  background: var(--forest);
+  transform: none;
+  overflow: hidden;
+}
+/* Height is forced to fill the hero; WIDTH is deliberately left to Owl, which
+   sets a pixel width on each item. Overriding it with 100% resolves against
+   the wrapper (items x count) and blew each slide up to ~10000px wide. */
+body.ns-lx .lx-hero--bgslides .lx-hero__bg #banner,
+body.ns-lx .lx-hero--bgslides .lx-hero__bg #home-banner,
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .owl-wrapper-outer,
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .owl-wrapper,
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .owl-item,
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .item {
+  height: 100% !important;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  outline: 0;
+  background: none;
+}
+body.ns-lx .lx-hero--bgslides .lx-hero__bg #banner,
+body.ns-lx .lx-hero--bgslides .lx-hero__bg #home-banner { width: 100%; }
+/* Shown whole — no zoom, no crop beyond what `cover` needs for the sides. */
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .caption { display: none; }
+/* pagination sits bottom-right, clear of the headline */
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .owl-controls { margin: 0; }
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .owl-pagination {
+  position: absolute; right: var(--gutter); bottom: 26px; left: auto;
+  text-align: right; z-index: 2;
+}
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .owl-page span {
+  width: 7px; height: 7px; margin: 0 4px;
+  border-radius: 999px; background: rgba(255,255,255,.5); opacity: 1;
+  transition: background .3s ease, width .3s ease;
+}
+body.ns-lx .lx-hero--bgslides .lx-hero__bg .owl-page.active span { background: var(--bronze); width: 24px; }
 body.ns-lx .lx-hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(100deg, rgba(9, 18, 13, .94) 0%, rgba(9, 18, 13, .80) 40%, rgba(9, 18, 13, .46) 72%, rgba(9, 18, 13, .60) 100%);
+}
+/* Netflix billboard, their three layers in their order:
+     1. a 77deg ramp, rgba(0,0,0,.6) -> transparent by 85%
+     2. a second 90deg ramp, rgba(0,0,0,.4) -> transparent by 60%
+     3. the signature bottom fade into the PAGE colour, so the hero melts into
+        the section beneath instead of ending on a hard edge
+   Netflix fades to #141414 because their page is dark; ours fades to ivory for
+   the same reason. That is why the copy sits in the upper-left band — below
+   the midpoint the fade is lifting toward ivory and white text would wash out.
+   Image is never cropped or zoomed; the gradients do all the work. */
+body.ns-lx .lx-hero--bgslides::before {
+  background:
+    linear-gradient(77deg, rgba(0, 0, 0, .60) 0%, rgba(0, 0, 0, 0) 85%),
+    linear-gradient(90deg, rgba(0, 0, 0, .40) 0%, rgba(0, 0, 0, 0) 60%),
+    linear-gradient(180deg,
+      rgba(250, 248, 243, 0) 0%,
+      rgba(250, 248, 243, 0) 62%,
+      rgba(250, 248, 243, .14) 71%,
+      rgba(250, 248, 243, .42) 82%,
+      rgba(250, 248, 243, .78) 92%,
+      var(--ivory) 100%);
 }
 body.ns-lx .lx-hero__wrap { width: 100%; position: relative; }
 body.ns-lx .lx-hero__grid { display: grid; gap: 44px; align-items: center; }
@@ -1927,6 +1998,29 @@ body.ns-lx .lx-callbar { display: none; }
   body.ns-lx .lx-nav ul ul a { padding: 10px 14px; color: var(--muted); }
 }
 
+/* Below the two-column breakpoint the billboard copy spans the full width, so
+   the left-to-right ramp no longer sits under it. Netflix switches to a
+   top-down fade at this size for the same reason. */
+@media (max-width: 991px) {
+  body.ns-lx .lx-hero--bgslides::before {
+    /* copy occupies roughly 6%-49% of the hero at this size, so the ramp is
+       held dark across that band and only released below it */
+    background:
+      linear-gradient(180deg,
+        rgba(0, 0, 0, .90) 0%,
+        rgba(0, 0, 0, .86) 30%,
+        rgba(0, 0, 0, .82) 52%,
+        rgba(0, 0, 0, .55) 64%,
+        rgba(0, 0, 0, .18) 76%,
+        rgba(0, 0, 0, 0) 86%),
+      linear-gradient(180deg,
+        rgba(250, 248, 243, 0) 70%,
+        rgba(250, 248, 243, .40) 86%,
+        var(--ivory) 100%);
+  }
+  body.ns-lx .lx-hero--bgslides { padding-top: clamp(48px, 8vh, 96px); }
+}
+
 @media (max-width: 767px) {
   body.ns-lx .lx-cta-row { flex-direction: column; }
   body.ns-lx .lx-cta-row .lx-btn { width: 100%; }
@@ -1954,6 +2048,9 @@ body.ns-lx .lx-callbar { display: none; }
 
 @media (min-width: 992px) {
   /* the carousel gets the larger share of the hero */
+  /* copy occupies the left band the gradient covers, as on a Netflix billboard */
+  body.ns-lx .lx-hero--bgslides .lx-hero__grid { grid-template-columns: minmax(0, 1fr); }
+  body.ns-lx .lx-hero--bgslides .lx-hero__copy { max-width: 46%; }
   body.ns-lx .lx-hero__grid { grid-template-columns: minmax(0, .92fr) minmax(0, 1.28fr); gap: 56px; }
   body.ns-lx .lx-centres__grid { grid-template-columns: repeat(3, 1fr); gap: 34px; }
   body.ns-lx .lx-contact__grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 60px; }
