@@ -9,31 +9,40 @@
 <meta name="keywords" content="Rehabilitation Centre in Kanpur, De Addiction Centre in Kanpur, Government Approved Rehabilitation and De Addiction Centre in Kanpur, drug treatment kanpur, drug de-addiction centre in kanpur, alcohol de-addiction centre in kanpur, best luxury rehab in kanpur, kanpur alcohlism treatment, best rehab in kanpur"/>
 <link href="https://nayasavera.org/rehabilitation-de-addiction-centre-kanpur.php" rel="canonical" />
 <?php include("header-includes.php"); ?>
-<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="inner-banner" class="centre-banner">
-      <h1>Rehabilitation Centre in Kanpur</h1>
-      <div class="breadcrumb-area">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
+
+  <?php include("header-lx.php"); ?>
+
+  <div id="main">
+
+    <section class="lx-pagehead lx-pagehead--centre">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
           <li><a href="/blog1.php">Blog</a></li>
           <li class="active">Rehabilitation Centre in Kanpur</li>
-        </ol>
+          </ol>
+        </nav>
+        <h1>Rehabilitation Centre in Kanpur</h1>
       </div>
-    </div>
-  </div>
-  <div id="main">
-    <section class="blog-post-section blog-larg tips-detail">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 col-sm-8">
-            <div class="post-box">
-              <div class="frame"> <img src="images/centre/kanpur.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in kanpur, Drug De-addiction centre in kanpur"> </div>
-              <div class="text-box">
+    </section>
+
+    <section class="lx-section lx-article">
+      <div class="lx-wrap">
+        <div class="lx-article__grid">
+
+          <div class="lx-article__main">
+
+            <div class="lx-figure frame">
+              <img loading="lazy" src="images/centre/kanpur.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in kanpur, Drug De-addiction centre in kanpur">
+            </div>
+
+            <div class="lx-prose">
+
                 <p>Trying to quit addiction and you are still falling for it  again and again and have no idea what to do, then get in touch with our <strong>rehabilitation  centre in Kanpur</strong> today.<strong> Naya Savera drug de addiction and  rehabilitation centre</strong> is one of the most safe and secure spaces for  people who are struggling with <strong>drug</strong>, <strong>alcohol</strong>,  or any kind of addiction. We have years of dealing with and helping patients in  such hard situations.</p>
 <p>A team member is constantly available to help the patient  and knows how to help them at the time of crisis. The most important factor  during the recovery journey is acceptance. Once you start accepting that you  are suffering from addiction, half of your problem is resolved. Once you admit  the issue of addiction, you have taken the right step, and now it’s the time to  make a change.</p>
 <p>Our <strong>de-addiction centre in Kanpur</strong>, helps  you to make that change in your life and start a sober life. We draft your  entire treatment plan after taking you through physical and mental  examinations. These examinations help us in determining how your treatment  process is required to proceed.&nbsp;</p>
@@ -47,32 +56,27 @@
 
                 <p>&nbsp;</p>
                 <h3>Call us Now <strong> <a href="tel:+91-9873290300">9873290300</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong></h3>
-              </div>
             </div>
           </div>
+
           <?php include("sidebar.php"); ?>
+
         </div>
       </div>
     </section>
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
-<script src="js/jquery-1.12.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
-<script src="js/zebra_datepicker.js"></script>
-<script src="js/function.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/jquery-1.6.1.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({overlay_gallery: true, theme: 'facebook', social_tools: false});
-  });
-</script>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
+<script src="js/lx-header.js"></script>
 </body>
 </html>

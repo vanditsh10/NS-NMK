@@ -20,11 +20,20 @@
 <meta name="twitter:domain" content="nayasavera.org" />
 <meta name="twitter:title" content="Page not found on Best Drug and Alcohol Rehab in Delhi, Best Alcohol Rehab in Noida NayaSavera.org" />
 <?php include("header-includes.php"); ?>
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 <link rel="canonical" href="https://nayasavera.org/404.php" />
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
+
+  <?php include("header-lx.php"); ?>
+
+  <div id="main">
+
+    <!-- The three banner images and the Owl carousel are kept exactly as they
+         were, so owl.carousel + custom.js are still loaded below. No breadcrumb
+         here: an error page sits nowhere in the hierarchy, and inventing a
+         crumb label would mean inventing copy. -->
   <div id="banner">
     <div id="home-banner" class="owl-carousel owl-theme">
       <div class="item">
@@ -36,26 +45,31 @@
       <div class="item"> <img src="images/banner-img-3.jpg" alt="  Best Rehab in Delhi"> </div>
     </div>
   </div>
-  <div id="main">
-    <section class="campers-text-section">
-      <div class="container">
-        <div class="heading-style-1" align="center"> 
+
+    <section class="lx-section lx-notfound">
+      <div class="lx-wrap">
+        <div class="lx-notfound__inner">
           <h1>Page not Found - on Nayasavera.org - Best Drug De addiction & Alcohol Rehab Centre Delhi, Noida & Himachal</span></h1>
-        </div>
-        <div class="row">
-          <div class="col-md-12 col-sm-12"><h3 align="center"><br><br>That page doesn't exist!</h3>
+          <div class="lx-prose"><h3 align="center"><br><br>That page doesn't exist!</h3>
                 <p align="center">Sorry, the page you were looking for could not be found.</p>
                 
                 <p align="center">visit the  <a href="/" title="">Home Page </a></p></div>
         </div>
       </div>
     </section>
-    
-    
-    
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
 <script src="js/jquery-1.12.2.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
@@ -66,6 +80,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <script src="js/jquery.counterup.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/lx-header.js"></script>
 </body>
 </html>
 <?php

@@ -9,29 +9,35 @@
 <meta name="keywords" content="Rehab in Delhi, Drug De-addiction centre in Delhi, Alcohol De-addiction Center in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra, Alcohlism Treatment, psychiatrist in India, psychiatric treatment Delhi, Psychiatric rehabilitation centre Delhi, Psychiatric rehab centre Delhi, senior psychiatrist consultant in Delhi, Psychiatrist in Delhi, Best psychiatrist in India, top five psychiatrist in Delhi,  Best psychiatrist in Delhi, Top psychiatrist in Delhi, Best psychiatrist for depression, Best child psychiatrist, Best psychiatrist for Obsessive compulsive disorder "/>
 <link href="https://nayasavera.org/privacy-policy.php" rel="canonical" />
 <?php include("header-includes.php"); ?>
-<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="inner-banner" class="services-banner" style="background-image: url(images/blog6.jpg); background-repeat: no-repeat;   background-position: centre top;   background-size: cover;">
-      <h1>Privacy Policy</h1>
-      <div class="breadcrumb-area">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
-          <li class="active">Privacy Policy</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+
+  <?php include("header-lx.php"); ?>
+
   <div id="main">
-    <section class="blog-post-section blog-larg tips-detail">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 col-sm-8">
-            <div class="post-box">
-              <div class="text-box">
+
+    <section class="lx-pagehead">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+          <li class="active">Privacy Policy</li>
+          </ol>
+        </nav>
+        <h1>Privacy Policy</h1>
+      </div>
+    </section>
+
+    <section class="lx-section lx-article">
+      <div class="lx-wrap">
+        <div class="lx-article__grid">
+
+          <div class="lx-article__main">
+
+            <div class="lx-prose">
+
                 <h1>Privacy Policy</h1>
 <p>This Privacy Policy describes Our policies and procedures on  the collection, use and disclosure of Your information when You use the Service  and tells You about Your privacy rights and how the law protects You.</p>
 <p>We use Your Personal data to provide and improve the  Service. By using the Service, You agree to the collection and use of  information in accordance with this Privacy Policy. This Privacy Policy has  been created with the help of the <a href="https://www.termsfeed.com/privacy-policy-generator/">Privacy  Policy Generator</a>.</p>
@@ -157,35 +163,27 @@ Purpose: These Cookies allow us to remember  choices You make when You use the W
 </ul>
 <p>contact Us. If We become aware that We  have collected Personal Data from anyone under the age of 13 without  verification of parental consent, We take steps to remove that information from  Our servers.</p>
 <p>If We need to rely on consent as a legal basis for  processing Your information and Your country requires consent from a parent, We  may require Your parent's consent before We collect and use that information.</p>
-
-
-              </div>
             </div>
           </div>
+
           <?php include("sidebar.php"); ?>
+
         </div>
       </div>
     </section>
-    
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
-<script src="js/jquery-1.12.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
-<script src="js/zebra_datepicker.js"></script>
-<script src="js/function.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/jquery-1.6.1.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({overlay_gallery: true, theme: 'facebook', social_tools: false});
-  });
-</script>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
+<script src="js/lx-header.js"></script>
 </body>
 </html>

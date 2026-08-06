@@ -9,31 +9,40 @@
 <meta name="keywords" content="Rehabilitation Centre in Ludhiana, De Addiction Centre in Ludhiana, Verified Rehabilitation and De Addiction Centre in Ludhiana, drug treatment ludhiana, drug de-addiction centre in ludhiana, alcohol de-addiction centre in ludhiana, best luxury rehab in ludhiana, ludhiana alcohlism treatment, best rehab in ludhiana"/>
 <link href="https://nayasavera.org/rehabilitation-de-addiction-centre-ludhiana.php" rel="canonical" />
 <?php include("header-includes.php"); ?>
-<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="inner-banner" class="centre-banner">
-      <h1>Rehabilitation Centre in Ludhiana</h1>
-      <div class="breadcrumb-area">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
+
+  <?php include("header-lx.php"); ?>
+
+  <div id="main">
+
+    <section class="lx-pagehead lx-pagehead--centre">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
           <li><a href="/blog1.php">Blog</a></li>
           <li class="active">Rehabilitation Centre in Ludhiana</li>
-        </ol>
+          </ol>
+        </nav>
+        <h1>Rehabilitation Centre in Ludhiana</h1>
       </div>
-    </div>
-  </div>
-  <div id="main">
-    <section class="blog-post-section blog-larg tips-detail">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 col-sm-8">
-            <div class="post-box">
-              <div class="frame"> <img src="images/centre/ludhiana.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in Ludhiana, Drug De-addiction centre in Ludhiana"> </div>
-              <div class="text-box">
+    </section>
+
+    <section class="lx-section lx-article">
+      <div class="lx-wrap">
+        <div class="lx-article__grid">
+
+          <div class="lx-article__main">
+
+            <div class="lx-figure frame">
+              <img loading="lazy" src="images/centre/ludhiana.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in Ludhiana, Drug De-addiction centre in Ludhiana">
+            </div>
+
+            <div class="lx-prose">
+
                 <p>Alcohol consumption or <strong>alcohol abuse</strong> has become quite common  these days. Whether we talk about youngsters, young adults, or teenagers,  alcohol has become pretty common these days. It is not wrong to say that many  people in the race to look cool try out alcohol and soon become addicted to it.  Without being aware of any consequences or the dreadful impact.&nbsp;</p>
 <p>So, to help you in such a tough situation, our <strong>rehabilitation centre  in Ludhiana</strong> is a perfect place. We have the expert professionals who are  always available to help you. As soon as you enroll yourself for the addiction  treatment at our <strong>de-addiction center in Ludhiana</strong>, you go through an  assessment. This assessment includes your physical and mental examination. This  helps us to give an idea about the patient’s current health and how the treatment  process has to move on.</p>
 <p>So, start your recovery as soon as possible if you feel sudden changes  in the behavior and attitude. On-time recovery is essential in the addiction  recovery process.&nbsp;</p>
@@ -55,32 +64,27 @@
 
                 <p>&nbsp;</p>
                 <h3>Call us Now <strong> <a href="tel:+91-9873290300">9873290300</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong></h3>
-              </div>
             </div>
           </div>
+
           <?php include("sidebar.php"); ?>
+
         </div>
       </div>
     </section>
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
-<script src="js/jquery-1.12.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
-<script src="js/zebra_datepicker.js"></script>
-<script src="js/function.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/jquery-1.6.1.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({overlay_gallery: true, theme: 'facebook', social_tools: false});
-  });
-</script>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
+<script src="js/lx-header.js"></script>
 </body>
 </html>

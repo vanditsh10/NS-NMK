@@ -278,7 +278,7 @@ body.ns-lx .lx-scrollcue {
 
 /* Campaign carousel — larger, rounded. The three images carry baked-in text,
    so they are shown whole at their native 2.81:1, never cropped or overlaid. */
-body.ns-lx #banner {
+body.ns-lx .lx-hero__media #banner {
   background: var(--forest);
   line-height: 0;
   margin: 0;
@@ -288,18 +288,18 @@ body.ns-lx #banner {
   outline: 1px solid rgba(255, 255, 255, .18);
   outline-offset: -1px;
 }
-body.ns-lx #banner .item img { width: 100%; height: auto; display: block; }
-body.ns-lx #banner .caption { display: none; }
-body.ns-lx #banner .owl-controls { margin: 0; position: relative; }
-body.ns-lx #banner .owl-controls .owl-pagination {
+body.ns-lx .lx-hero__media #banner .item img { width: 100%; height: auto; display: block; }
+body.ns-lx .lx-hero__media #banner .caption { display: none; }
+body.ns-lx .lx-hero__media #banner .owl-controls { margin: 0; position: relative; }
+body.ns-lx .lx-hero__media #banner .owl-controls .owl-pagination {
   position: absolute; left: 0; right: 0; bottom: 14px; text-align: center;
 }
-body.ns-lx #banner .owl-controls .owl-page span {
+body.ns-lx .lx-hero__media #banner .owl-controls .owl-page span {
   width: 7px; height: 7px; margin: 0 5px; border-radius: var(--r-pill);
   background: rgba(255, 255, 255, .5); opacity: 1;
   transition: background .3s ease, width .3s ease;
 }
-body.ns-lx #banner .owl-controls .owl-page.active span { background: var(--bronze); width: 26px; }
+body.ns-lx .lx-hero__media #banner .owl-controls .owl-page.active span { background: var(--bronze); width: 26px; }
 
 /* ---------------------------------------------------------------------------
    INTRO
@@ -740,6 +740,9 @@ body.ns-lx .lx-pagehead--treatment { background-image: url(../images/treatment-b
 body.ns-lx .lx-pagehead--gallery { background-image: url(../images/gallery-banner.jpg); }
 body.ns-lx .lx-pagehead--panchakarma { background-image: url(../images/panchkarma.jpg); }
 body.ns-lx .lx-pagehead--contact { background-image: url(../images/contact-banner.jpg); }
+body.ns-lx .lx-pagehead--faq { background-image: url(../images/faq-banner.jpg); }
+body.ns-lx .lx-pagehead--centre { background-image: url(../images/centre-banner.jpg); }
+body.ns-lx .lx-pagehead--enquiry { background-image: url(../images/enquiry-banner.jpg); }
 /* panchkarma.jpg is far brighter than the other banners — measured 162 average
    luminance behind the text against 32-64 for the rest — so the shared scrim
    left white text at only ~3:1. Deeper at the foot where the breadcrumb and H1
@@ -1099,6 +1102,157 @@ body.ns-lx .lx-quotes__cta a:hover {
 }
 @media (min-width: 992px) {
   body.ns-lx .lx-quotes__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+}
+
+/* --- Generic article content ----------------------------------------------
+   The bulk-converted pages keep their own markup inside .lx-prose, so these
+   rules cover whatever the legacy content happens to contain. */
+
+body.ns-lx .lx-prose h2 {
+  margin: 34px 0 14px;
+  font: 700 clamp(19px, 1.8vw, 25px) / 1.3 var(--display);
+  letter-spacing: -.02em; color: var(--ink); text-transform: none;
+}
+body.ns-lx .lx-prose h2:first-child { margin-top: 0; }
+body.ns-lx .lx-prose h2.title {
+  font-size: clamp(23px, 3vw, 34px); letter-spacing: -.024em; margin-bottom: 22px;
+}
+body.ns-lx .lx-prose h4 {
+  margin: 24px 0 10px;
+  font: 700 clamp(15px, 1.25vw, 17px) / 1.4 var(--display);
+  letter-spacing: -.01em; color: var(--ink); text-transform: none;
+}
+body.ns-lx .lx-prose h2 u,
+body.ns-lx .lx-prose h3 u,
+body.ns-lx .lx-prose h4 u { text-decoration: none; }
+body.ns-lx .lx-prose h1 {
+  margin: 30px 0 14px;
+  font: 700 clamp(21px, 2vw, 27px) / 1.28 var(--display);
+  letter-spacing: -.02em; color: var(--ink); text-transform: none;
+}
+body.ns-lx .lx-prose ol { margin: 0 0 20px; padding-left: 22px; }
+body.ns-lx .lx-prose ol > li { margin: 0 0 9px; }
+body.ns-lx .lx-prose img {
+  max-width: 100%; height: auto;
+  border-radius: var(--r-md);
+}
+body.ns-lx .lx-prose .frame { margin: 0 0 26px; line-height: 0; }
+body.ns-lx .lx-prose table {
+  width: 100%; margin: 0 0 24px;
+  border-collapse: collapse;
+  font: 400 15px/1.7 var(--text);
+}
+body.ns-lx .lx-prose table td,
+body.ns-lx .lx-prose table th {
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+body.ns-lx .lx-prose strong { color: var(--ink); }
+body.ns-lx .lx-prose .tips-detail-list { list-style: none; padding-left: 0; }
+body.ns-lx .lx-prose .tips-detail-list > li::before { display: none; }
+
+/* --- 404 ------------------------------------------------------------------- */
+
+body.ns-lx .lx-notfound { background: var(--ivory); text-align: center; }
+body.ns-lx .lx-notfound__inner { max-width: 760px; margin: 0 auto; }
+body.ns-lx .lx-notfound h1 {
+  margin: 0 0 18px;
+  font: 700 clamp(24px, 3.4vw, 38px) / 1.24 var(--display);
+  letter-spacing: -.024em; color: var(--ink); text-transform: none;
+}
+body.ns-lx .lx-notfound h3 {
+  margin: 22px 0 12px;
+  font: 700 clamp(17px, 1.6vw, 21px) / 1.35 var(--display);
+  letter-spacing: -.015em; color: var(--ink); text-transform: none;
+}
+body.ns-lx .lx-notfound h3 br { display: none; }
+body.ns-lx .lx-notfound .lx-prose { max-width: none; }
+body.ns-lx .lx-notfound .lx-prose p { margin: 0 0 12px; }
+body.ns-lx .lx-notfound a {
+  color: var(--bronze-dark); font-weight: 600; text-decoration: none;
+  border-bottom: 1px solid rgba(201, 149, 74, .45);
+  transition: color .24s ease, border-color .24s ease;
+}
+body.ns-lx .lx-notfound a:hover { color: var(--orange); border-bottom-color: var(--orange); }
+/* the carousel on this page is a plain full-width band, not the hero frame */
+body.ns-lx .lx-notfound ~ * #banner,
+body.ns-lx #main > #banner { border-radius: 0; box-shadow: none; outline: 0; }
+
+/* --- Enquiry page (full width, no sidebar) --------------------------------- */
+
+body.ns-lx .lx-enquiry { background: var(--ivory); }
+body.ns-lx .lx-enquiry__card {
+  max-width: 940px; margin: 0 auto;
+  padding: clamp(28px, 3.4vw, 52px);
+  background: var(--forest);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-md);
+}
+body.ns-lx .lx-enquiry__card .lx-head { margin-bottom: 30px; }
+body.ns-lx .lx-enquiry__card h2.title {
+  margin: 0;
+  font: 700 clamp(22px, 3vw, 32px) / 1.24 var(--display);
+  letter-spacing: -.024em; color: var(--white); text-transform: none;
+  max-width: none;
+}
+body.ns-lx .lx-enquiry__card h2::before,
+body.ns-lx .lx-enquiry__card h2::after { display: none; }
+body.ns-lx .lx-enquiry form {
+  display: grid; grid-template-columns: 1fr; gap: 20px;
+  float: none; width: 100%; margin: 0;
+}
+body.ns-lx .lx-enquiry form::before,
+body.ns-lx .lx-enquiry form::after { display: none; }
+body.ns-lx .lx-enquiry form > [class*="col-"] {
+  float: none; width: auto; padding: 0; min-width: 0;
+}
+body.ns-lx .lx-enquiry form label {
+  display: block; margin: 0 0 9px;
+  font: 600 9.5px/1 var(--label); letter-spacing: .26em; text-transform: uppercase;
+  color: rgba(255, 255, 255, .5);
+}
+body.ns-lx .lx-enquiry form input[type="text"],
+body.ns-lx .lx-enquiry form textarea {
+  width: 100%; box-sizing: border-box; float: none; height: auto;
+  padding: 15px 18px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, .05);
+  font: 400 16px/1.6 var(--text); color: var(--white);
+  transition: border-color .3s ease, background .3s ease, box-shadow .3s ease;
+}
+body.ns-lx .lx-enquiry form textarea { min-height: 130px; resize: vertical; }
+body.ns-lx .lx-enquiry form input[type="text"]::placeholder,
+body.ns-lx .lx-enquiry form textarea::placeholder { color: rgba(255, 255, 255, .34); }
+body.ns-lx .lx-enquiry form input[type="text"]:focus,
+body.ns-lx .lx-enquiry form textarea:focus {
+  outline: none; border-color: var(--bronze);
+  background: rgba(255, 255, 255, .08);
+  box-shadow: 0 0 0 4px rgba(201, 149, 74, .14);
+}
+body.ns-lx .lx-enquiry .g-recaptcha { max-width: 100%; overflow-x: auto; }
+body.ns-lx .lx-enquiry form input[type="submit"] {
+  float: none !important;
+  min-height: 56px; padding: 18px 44px;
+  border: 0; border-radius: var(--r-pill);
+  background: var(--orange); color: var(--white);
+  font: 600 11px/1 var(--label); letter-spacing: .17em; text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(255, 102, 0, .26);
+  transition: background .3s ease, box-shadow .3s ease, transform .3s ease;
+}
+body.ns-lx .lx-enquiry form input[type="submit"]:hover {
+  background: var(--orange-600); transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(255, 102, 0, .34);
+}
+body.ns-lx .lx-enquiry p { color: rgba(255, 255, 255, .8); }
+body.ns-lx .lx-enquiry p strong { color: var(--white); }
+
+@media (min-width: 700px) {
+  body.ns-lx .lx-enquiry form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.ns-lx .lx-enquiry form > .col-md-12 { grid-column: 1 / -1; }
 }
 
 /* --- Contact page ---------------------------------------------------------

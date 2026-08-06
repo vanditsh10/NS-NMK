@@ -9,31 +9,40 @@
 <meta name="keywords" content="Rehabilitation Centre in Jaipur, De Addiction Centre in Jaipur, Best Rehabilitation and De Addiction Centre in Jaipur, drug treatment jaipur, drug de-addiction centre in jaipur, alcohol de-addiction centre in jaipur, best luxury rehab in jaipur, jaipur alcohlism treatment, best rehab in jaipur"/>
 <link href="https://nayasavera.org/rehabilitation-de-addiction-centre-jaipur.php" rel="canonical" />
 <?php include("header-includes.php"); ?>
-<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="inner-banner" class="centre-banner">
-      <h1>Rehabilitation Centre in Jaipur</h1>
-      <div class="breadcrumb-area">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
+
+  <?php include("header-lx.php"); ?>
+
+  <div id="main">
+
+    <section class="lx-pagehead lx-pagehead--centre">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
           <li><a href="/blog1.php">Blog</a></li>
           <li class="active">Rehabilitation Centre in Jaipur</li>
-        </ol>
+          </ol>
+        </nav>
+        <h1>Rehabilitation Centre in Jaipur</h1>
       </div>
-    </div>
-  </div>
-  <div id="main">
-    <section class="blog-post-section blog-larg tips-detail">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 col-sm-8">
-            <div class="post-box">
-              <div class="frame"> <img src="images/centre/jaipur.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in jaipur, Drug De-addiction centre in jaipur"> </div>
-              <div class="text-box">
+    </section>
+
+    <section class="lx-section lx-article">
+      <div class="lx-wrap">
+        <div class="lx-article__grid">
+
+          <div class="lx-article__main">
+
+            <div class="lx-figure frame">
+              <img loading="lazy" src="images/centre/jaipur.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in jaipur, Drug De-addiction centre in jaipur">
+            </div>
+
+            <div class="lx-prose">
+
                 <p>Now, you don't need to suffer from addiction anymore! With  the help of the reputable <strong>rehabilitation centre in Jaipur</strong>,  you can now start your addiction recovery process. <strong><a href="/">Naya Savera drug de  addiction and rehabilitation centre</a></strong> is a perfect place to start your  sobriety journey and battle against alcoholism.</p>
 <p>We offer you the best addiction recovery services, ranging  from counselling and therapy to yoga and meditation sessions. We ensure that  you receive the right amount of care and support from our end.</p>
 <h2><strong>Addiction recovery offered at our rehabilitation  centre in Jaipur</strong></h2>
@@ -49,32 +58,27 @@
 <p>Have faith in our recovery process, and we will help you to  create a new healthy addiction-free lifestyle.</p>
                 <p>&nbsp;</p>
                 <h3>Call us Now <strong> <a href="tel:+91-9873290300">9873290300</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong></h3>
-              </div>
             </div>
           </div>
+
           <?php include("sidebar.php"); ?>
+
         </div>
       </div>
     </section>
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
-<script src="js/jquery-1.12.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
-<script src="js/zebra_datepicker.js"></script>
-<script src="js/function.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/jquery-1.6.1.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({overlay_gallery: true, theme: 'facebook', social_tools: false});
-  });
-</script>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
+<script src="js/lx-header.js"></script>
 </body>
 </html>

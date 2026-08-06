@@ -9,29 +9,36 @@
 <meta name="keywords" content="Rehab in Delhi, Drug De-addiction centre in Delhi, Alcohol De-addiction Center in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra, Alcohlism Treatment, psychiatrist in India, psychiatric treatment Delhi, Psychiatric rehabilitation centre Delhi, Psychiatric rehab centre Delhi, senior psychiatrist consultant in Delhi, Psychiatrist in Delhi, Best psychiatrist in India, top five psychiatrist in Delhi,  Best psychiatrist in Delhi, Top psychiatrist in Delhi, Best psychiatrist for depression, Best child psychiatrist, Best psychiatrist for Obsessive compulsive disorder "/>
 <link href="https://nayasavera.org/best-rehabilitation-centre-india.php" rel="canonical" />
 <?php include("header-includes.php"); ?>
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="inner-banner" class="treatment-banner">
-      <h1>Best Rehabilitation Centre in Delhi NCR, Noida and Himachal Pradesh</h1>
-      <div class="breadcrumb-area">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
+
+  <?php include("header-lx.php"); ?>
+
+  <div id="main">
+
+    <section class="lx-pagehead lx-pagehead--treatment">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
           <li><a href="/treatment.html">Treatment</a></li>
           <li class="active">Rehabilitation Centre</li>
-        </ol>
+          </ol>
+        </nav>
+        <h1>Best Rehabilitation Centre in Delhi NCR, Noida and Himachal Pradesh</h1>
       </div>
-    </div>
-  </div>
-  <div id="main">
-    <section class="blog-post-section blog-larg tips-detail">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 col-sm-8">
-            <div class="post-box">
-              <div class="text-box">
+    </section>
+
+    <section class="lx-section lx-article">
+      <div class="lx-wrap">
+        <div class="lx-article__grid">
+
+          <div class="lx-article__main">
+
+            <div class="lx-prose">
+
                 <h2>REHABILITATION CENTRE</h2>
                 <p><img src="images/rehab.jpg" align="right" alt="best rehab in delhi and noida" />A rehabilitation works as a detoxification treatment mentally and physically for an addict. Naya Savera rehabilitation centre comes up with a complete plan for an addict to follow. It is made sure by our mentors that the <a href="/treatment.html">followup</a> plan is being implemented in a disciplinary way throughout the centre.</p>
                 <p><a href="/treatment.html">Reason Why we are One of the Best Drug and Alcohol Rehabilitation Service Providers</a></p>
@@ -43,25 +50,28 @@
                 <p><strong><a href="best-rehabilitation-centre-india.php">Top Rehab Centres in Delhi</strong></a></p>
                 <p>Naya Savera also believes that an addict requires to be strong physically to face any consequence of <strong>Drug Abuse</strong> thereby Yoga is the part of everyday practice in our <strong>rehabilitation center</strong> </p>
                 <p>We work for the Better of society and making a change in the nation by changing people lives and helping them find a way to the much happier path without alcohol and drug addiction.</p>
-                <a href="contact.html" class="btn-style-2">We Can Help</a> </div>
+                <a href="contact.html" class="btn-style-2">We Can Help</a>
             </div>
           </div>
+
           <?php include("sidebar.php"); ?>
+
         </div>
       </div>
     </section>
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
-<script src="js/jquery-1.12.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
-<script src="js/zebra_datepicker.js"></script>
-<script src="js/function.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/custom.js"></script>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
+<script src="js/lx-header.js"></script>
 </body>
 </html>

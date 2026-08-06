@@ -10,119 +10,88 @@
 <?php include("header-includes.php"); ?>
 <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css">
 <link href="https://nayasavera.org/naya-savera-noida.php" rel="canonical" />
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="inner-banner" class="treatment-banner">
-      <h1>Best De - Addiction centre in Noida</h1>
-      <div class="breadcrumb-area">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
-          <li class="active">Best Drug & Alcohol De - Addiction centre in Noida</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+
+  <?php include("header-lx.php"); ?>
+
   <div id="main">
-    <section class="blog-post-section blog-larg tips-detail">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 col-sm-8">
-            <div class="post-box">
-              <div class="text-box">
+
+    <section class="lx-pagehead lx-pagehead--treatment">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+          <li class="active">Best Drug & Alcohol De - Addiction centre in Noida</li>
+          </ol>
+        </nav>
+        <h1>Best De - Addiction centre in Noida</h1>
+      </div>
+    </section>
+
+    <section class="lx-section lx-article">
+      <div class="lx-wrap">
+        <div class="lx-article__grid">
+
+          <div class="lx-article__main">
+
+            <div class="lx-prose">
+
                 <h2>Best De - Addiction centre in Noida</h2>
                 <p><img src="images/drug-treatment.jpg" align="right" alt="Best rehab in noida, no 1 drug rehabilitation in noida"/>Naya Savera Drug De Addiction Centre is one of the best Government recognised rehab centre in Delhi </p>
                 <p>We Follow all the best practises for quick and speedy recovery of every patients.</p>
                 <p> Naya Savera - Best rehab in Delhi, Noida & Himachal, a non profit organisation is one pit stop fighting against such taboos and creating awareness for a disease like drug addiction. </p>
                 <p>Yes, Addiction is a disease which was also recognised by the World Health Organisation in 1956. In this disease a person continuously gets intoxicated with his/her addiction and eventually becomes powerless to put a stop to this sickness. </p>
                 <p>That's why our <a href="best-rehabilitation-centre-india.php">NASHA MUKTI KENDRA in DELHI</a> is one of the Top Rehabilitation centres in India.</p>
-                <a href="contact.html" class="btn-style-2">We Can Help</a> </div>
+                <a href="contact.html" class="btn-style-2">We Can Help</a>
             </div>
           </div>
+
           <?php include("sidebar.php"); ?>
+
         </div>
       </div>
     </section>
-    <section class="testimonials-style-3">
-      <div class="container">
-        <div class="heading-style-1"> <span>Gallery</span>
+
+    <!-- GALLERY — the same images and the same prettyPhoto links, shown as a
+         grid rather than an Owl carousel. -->
+    <section class="lx-section lx-gallery">
+      <div class="lx-wrap">
+        <div class="lx-head lx-head--center">
+          <span class="lx-eyebrow">Gallery</span>
           <h2>Noida - Best Drug De Addiction and Alcohol Rehabilitation</h2>
         </div>
-        <div class="owl-carousel owl-theme testimonials-3">
-          <div class="item">
-            <div class="testi-box">
-              <div class="left-box">
-                <div class="round-thumb"><a href="images/n1.jpg" rel="prettyPhoto[gal]"><img src="images/n1.jpg" alt="Naya Savera - Noida -  best rehab in noida"></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testi-box">
-              <div class="left-box">
-                <div class="round-thumb"><a href="images/n2.jpg" rel="prettyPhoto[gal]"><img src="images/n2.jpg" alt="Naya Savera - Noida drug deaddiction centre"></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testi-box">
-              <div class="left-box">
-                <div class="round-thumb"><a href="images/n4.jpg" rel="prettyPhoto[gal]"><img src="images/n4.jpg" alt="Naya Savera - Noida alcohol rehab centre"></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testi-box">
-              <div class="left-box">
-                <div class="round-thumb"><a href="images/a7.jpg" rel="prettyPhoto[gal]"><img src="images/a7.jpg" alt="Naya Savera - Noida chitta rehab centre"></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testi-box">
-              <div class="left-box">
-                <div class="round-thumb"><a href="images/a8.jpg" rel="prettyPhoto[gal]"><img src="images/a8.jpg" alt="Naya Savera - Noida"></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testi-box">
-              <div class="left-box">
-                <div class="round-thumb"><a href="images/n10.jpg" rel="prettyPhoto[gal]"><img src="images/n10.jpg" alt="Naya Savera - Noida drug treatment centre"></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testi-box">
-              <div class="left-box">
-                <div class="round-thumb"><a href="images/n11.jpg" rel="prettyPhoto[gal]"><img src="images/n11.jpg" alt="Naya Savera - Noida nasha mukti kendra"></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testi-box">
-              <div class="left-box">
-                <div class="round-thumb"><a href="images/n12.jpg" rel="prettyPhoto[gal]"><img src="images/n12.jpg" alt="Naya Savera - Noida rehab centre"></a></div>
-              </div>
-            </div>
-          </div>
+        <div class="lx-gallery__grid">
+          <a href="images/n1.jpg" rel="prettyPhoto[gal]"><img loading="lazy" src="images/n1.jpg" alt="Naya Savera - Noida -  best rehab in noida"></a>
+          <a href="images/n2.jpg" rel="prettyPhoto[gal]"><img loading="lazy" src="images/n2.jpg" alt="Naya Savera - Noida drug deaddiction centre"></a>
+          <a href="images/n4.jpg" rel="prettyPhoto[gal]"><img loading="lazy" src="images/n4.jpg" alt="Naya Savera - Noida alcohol rehab centre"></a>
+          <a href="images/a7.jpg" rel="prettyPhoto[gal]"><img loading="lazy" src="images/a7.jpg" alt="Naya Savera - Noida chitta rehab centre"></a>
+          <a href="images/a8.jpg" rel="prettyPhoto[gal]"><img loading="lazy" src="images/a8.jpg" alt="Naya Savera - Noida"></a>
+          <a href="images/n10.jpg" rel="prettyPhoto[gal]"><img loading="lazy" src="images/n10.jpg" alt="Naya Savera - Noida drug treatment centre"></a>
+          <a href="images/n11.jpg" rel="prettyPhoto[gal]"><img loading="lazy" src="images/n11.jpg" alt="Naya Savera - Noida nasha mukti kendra"></a>
+          <a href="images/n12.jpg" rel="prettyPhoto[gal]"><img loading="lazy" src="images/n12.jpg" alt="Naya Savera - Noida rehab centre"></a>
         </div>
       </div>
     </section>
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
+<script src="js/lx-header.js"></script>
+<!-- jQuery + prettyPhoto only; jquery-1.6.1 is deliberately not loaded,
+     the original pulled it in AFTER 1.12.2 and silently replaced it. -->
 <script src="js/jquery-1.12.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
-<script src="js/zebra_datepicker.js"></script>
-<script src="js/function.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/jquery-1.6.1.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){

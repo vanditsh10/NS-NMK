@@ -9,31 +9,40 @@
 <meta name="keywords" content="Rehabilitation Centre in Gurgaon, De Addiction Centre in Gurgaon, Top Rehabilitation and De Addiction Centre in Gurgaon, Drug Treatment gurgaon, Drug De-addiction centre in gurgaon, Alcohol De-addiction Center in gurgaon, Best luxury Rehab in gurgaon, Nasha Mukti  Kendra, gurgaon Alcohlism Treatment"/>
 <link href="https://nayasavera.org/rehabilitation-de-addiction-centre-gurgaon.php" rel="canonical" />
 <?php include("header-includes.php"); ?>
-<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="inner-banner" class="centre-banner">
-      <h1>Rehabilitation Centre in Gurgaon</h1>
-      <div class="breadcrumb-area">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
+
+  <?php include("header-lx.php"); ?>
+
+  <div id="main">
+
+    <section class="lx-pagehead lx-pagehead--centre">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
           <li><a href="/blog1.php">Blog</a></li>
           <li class="active">Rehabilitation Centre in Gurgaon</li>
-        </ol>
+          </ol>
+        </nav>
+        <h1>Rehabilitation Centre in Gurgaon</h1>
       </div>
-    </div>
-  </div>
-  <div id="main">
-    <section class="blog-post-section blog-larg tips-detail">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 col-sm-8">
-            <div class="post-box">
-              <div class="frame"> <img src="images/centre/gurgaon.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in gurgaon, Drug De-addiction centre in gurgaon"> </div>
-              <div class="text-box">
+    </section>
+
+    <section class="lx-section lx-article">
+      <div class="lx-wrap">
+        <div class="lx-article__grid">
+
+          <div class="lx-article__main">
+
+            <div class="lx-figure frame">
+              <img loading="lazy" src="images/centre/gurgaon.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in gurgaon, Drug De-addiction centre in gurgaon">
+            </div>
+
+            <div class="lx-prose">
+
                 <p>Are you looking for the safest space to get  hold of your addiction. <strong><a href="/">Naya Savera  Rehabilitation and de-addiction centre</a></strong>, the best <strong>rehabilitation centre in Gurgaon</strong>. If you are looking for an affordable addiction recovery solution, call  out our team today. </p>
 <p>Addiction recovery is a tough journey, however,  with the right care, support, and medication, you can overcome it. At <strong>our de-addiction  centre in Gurgaon</strong>, you are offered  luxurious services at an affordable price. Apart from this, we also offer a  monitored and controlled environment to our patients for a better and more  effective recovery. </p>
 <p><strong>Drug and alcohol</strong> addiction has become quite common among people, many teenagers and  young adults are falling into the trap of addiction without releasing the  dangerous consequences.</p>
@@ -51,32 +60,27 @@
 
                 <p>&nbsp;</p>
                 <h3>Call us Now <strong> <a href="tel:+91-9873290300">9873290300</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong></h3>
-              </div>
             </div>
           </div>
+
           <?php include("sidebar.php"); ?>
+
         </div>
       </div>
     </section>
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
-<script src="js/jquery-1.12.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
-<script src="js/zebra_datepicker.js"></script>
-<script src="js/function.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/jquery-1.6.1.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({overlay_gallery: true, theme: 'facebook', social_tools: false});
-  });
-</script>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
+<script src="js/lx-header.js"></script>
 </body>
 </html>

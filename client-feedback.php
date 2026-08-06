@@ -8,39 +8,39 @@
 <meta name="description" content="Feedback and comments for NayaSavera - Rehab in Delhi, Drug De-addiction centre in Delhi, Alcohol De-addiction Center in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra, Alcohlism Treatment "/>
 <meta name="keywords" content="Rehab in Delhi, Drug De-addiction centre in Delhi, Alcohol De-addiction Center in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra, Alcohlism Treatment, psychiatrist in India, psychiatric treatment Delhi, Psychiatric rehabilitation centre Delhi, Psychiatric rehab centre Delhi, senior psychiatrist consultant in Delhi, Psychiatrist in Delhi, Best psychiatrist in India, top five psychiatrist in Delhi,  Best psychiatrist in Delhi, Top psychiatrist in Delhi, Best psychiatrist for depression, Best child psychiatrist, Best psychiatrist for Obsessive compulsive disorder "/>
 <?php include("header-includes.php"); ?>
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 </head>
-<body class="campers-theme">
- 
+<body class="campers-theme ns-lx">
 <div id="wrapper">
- 
-<?php include("header.php"); ?>
- 
- 
- 
-<div id="banner">
-<div id="inner-banner" class="faq-banner">
-<h1>Feedback / Comments</h1>
-<div class="breadcrumb-area">
-<ol class="breadcrumb">
-<li><a href="/">Home</a></li>
-<li class="active">Feedback / Comments</li>
-</ol>
-</div>
-</div>
-</div>
- 
-<div id="main">
- 
-<section class="blog-post-section blog-larg tips-detail">
-<div class="container">
-<div class="row">
-<div class="col-md-9 col-sm-8">
-<div class="post-box">
-<div class="frame">
-<img src="images/banner5.jpg" alt="FAQs for Treatment by Naya Savera, Alcohol De-addiction Center in Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra">
 
-</div>
-<div class="text-box">
+  <?php include("header-lx.php"); ?>
+
+  <div id="main">
+
+    <section class="lx-pagehead lx-pagehead--faq">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+<li class="active">Feedback / Comments</li>
+          </ol>
+        </nav>
+        <h1>Feedback / Comments</h1>
+      </div>
+    </section>
+
+    <section class="lx-section lx-article">
+      <div class="lx-wrap">
+        <div class="lx-article__grid">
+
+          <div class="lx-article__main">
+
+            <div class="lx-figure frame">
+              <img loading="lazy" src="images/banner5.jpg" alt="FAQs for Treatment by Naya Savera, Alcohol De-addiction Center in Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra">
+            </div>
+
+            <div class="lx-prose">
+
 <h2 class="title">Feedback / Comments</h2>
 <p align="center"><fieldset style="border:#3300FF 1px solid; padding:15px;">
 <legend><strong>POST A REVIEW</strong></legend>
@@ -75,39 +75,27 @@
 <legend><strong>CLIENT REVIEWS</strong></legend>
              
         </fieldset>
+            </div>
+          </div>
 
+          <?php include("sidebar.php"); ?>
 
+        </div>
+      </div>
+    </section>
+
+    <?php include("contact-lx.php"); ?>
+
+  </div>
+  <?php include("footer.php"); ?>
 </div>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
 </div>
-</div>
-<?php include("sidebar.php"); ?>
-</div>
-</div>
-</section>
- 
-</div>
- 
-<?php include("footer.php"); ?>
- 
-</div>
- 
- 
-<script src="js/jquery-1.12.2.min.js"></script>
- 
-<script src="js/bootstrap.min.js"></script>
- 
-<script src="js/owl.carousel.min.js"></script>
- 
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
- 
-<script src="js/zebra_datepicker.js"></script>
- 
-<script src="js/function.js"></script>
- 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
- 
-<script src="js/custom.js"></script>
+
+<script src="js/lx-header.js"></script>
 </body>
 </html>

@@ -110,31 +110,38 @@
 <meta name="keywords" content="Rehab in Delhi, Drug De-addiction centre in Delhi, Alcohol De-addiction Center in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra, Alcohlism Treatment, psychiatrist in India, psychiatric treatment Delhi, Psychiatric rehabilitation centre Delhi, Psychiatric rehab centre Delhi, senior psychiatrist consultant in Delhi, Psychiatrist in Delhi, Best psychiatrist in India, top five psychiatrist in Delhi,  Best psychiatrist in Delhi, Top psychiatrist in Delhi, Best psychiatrist for depression, Best child psychiatrist, Best psychiatrist for Obsessive compulsive disorder "/>
 <link href="https://nayasavera.org/enquiry.html" rel="canonical" />
 <?php include("header-includes.php"); ?>
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="inner-banner" class="enquiry-banner">
-      <h1>Enquiry for Drug De addiction &  Alcohol Rehabilitation Centre Delhi</h1>
-      <div class="breadcrumb-area">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
-          <li class="active">Enquiry</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+
+  <?php $lx_current = 'enquiry'; include("header-lx.php"); ?>
+
   <div id="main">
-    <section class="contact-page blog-larg tips-detail">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <div class="post-box">
-              <div class="text-box">
-                <h2 class="title">Enquire for Best rehab in Delhi, Noida & Himachal</h2>
-                <?php
+
+    <section class="lx-pagehead lx-pagehead--enquiry">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+          <li class="active">Enquiry</li>
+          </ol>
+        </nav>
+        <h1>Enquiry for Drug De addiction &  Alcohol Rehabilitation Centre Delhi</h1>
+      </div>
+    </section>
+
+    <!-- The form, its PHP conditional, every field name, pattern, required
+         flag and the reCAPTCHA are carried over verbatim; only the wrapper
+         and styling change. This page has no sidebar, so the form is centred. -->
+    <section class="lx-section lx-enquiry">
+      <div class="lx-wrap">
+        <div class="lx-enquiry__card">
+          <div class="lx-head">
+            <h2 class="title">Enquire for Best rehab in Delhi, Noida & Himachal</h2>
+          </div>
+<?php
 						if(isset($send_status) && $send_status){
 							
 							echo '<p>&nbsp;</p><p><strong>'.$dmsg.'</strong></p>';
@@ -179,24 +186,22 @@
                   </div>
                 </form>
                 <?php } ?>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
-<script src="js/jquery-1.12.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
-<script src="js/zebra_datepicker.js"></script>
-<script src="js/function.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/custom.js"></script>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
+<script src="js/lx-header.js"></script>
 </body>
 </html>

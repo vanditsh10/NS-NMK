@@ -32,8 +32,8 @@ $lx_current = isset($lx_current) ? $lx_current : 'home';
           </li>
           <li<?php if ($lx_current === 'services') echo ' class="is-current"'; ?>><a href="services.html">Services</a></li>
           <li<?php if ($lx_current === 'treatment') echo ' class="is-current"'; ?>><a href="treatment.html">Treatment</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="enquiry.html">Enquiry</a></li>
+          <li<?php if ($lx_current === 'faq') echo ' class="is-current"'; ?>><a href="faq.html">FAQ</a></li>
+          <li<?php if ($lx_current === 'enquiry') echo ' class="is-current"'; ?>><a href="enquiry.html">Enquiry</a></li>
           <li<?php if ($lx_current === 'gallery') echo ' class="is-current"'; ?>><a href="gallery.html">Photo Gallery</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li<?php if ($lx_current === 'panchakarma') echo ' class="is-current"'; ?>><a href="panchakarma-wellness-treatment.php">Panchakarma</a></li>

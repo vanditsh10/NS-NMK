@@ -9,31 +9,40 @@
 <meta name="keywords" content="Rehabilitation Centre in Rohtak, De Addiction Centre in Rohtak, Top Rehabilitation and De Addiction Centre in Rohtak, drug treatment Rohtak, drug de-addiction centre in Rohtak, alcohol de-addiction centre in Rohtak, best luxury rehab in Rohtak, Rohtak alcohlism treatment, best rehab in Rohtak"/>
 <link href="https://nayasavera.org/rehabilitation-de-addiction-centre-rohtak.php" rel="canonical" />
 <?php include("header-includes.php"); ?>
-<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<link href="/css/lx.css" rel="stylesheet" type="text/css">
 </head>
-<body class="campers-theme">
+<body class="campers-theme ns-lx">
 <div id="wrapper">
-  <?php include("header.php"); ?>
-  <div id="banner">
-    <div id="inner-banner" class="centre-banner">
-      <h1>Rehabilitation Centre in Rohtak</h1>
-      <div class="breadcrumb-area">
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
+
+  <?php include("header-lx.php"); ?>
+
+  <div id="main">
+
+    <section class="lx-pagehead lx-pagehead--centre">
+      <div class="lx-wrap">
+        <nav class="lx-crumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
           <li><a href="/blog1.php">Blog</a></li>
           <li class="active">Rehabilitation Centre in Rohtak</li>
-        </ol>
+          </ol>
+        </nav>
+        <h1>Rehabilitation Centre in Rohtak</h1>
       </div>
-    </div>
-  </div>
-  <div id="main">
-    <section class="blog-post-section blog-larg tips-detail">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 col-sm-8">
-            <div class="post-box">
-              <div class="frame"> <img src="images/centre/rohtak.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in Rohtak, Drug De-addiction centre in Rohtak"> </div>
-              <div class="text-box">
+    </section>
+
+    <section class="lx-section lx-article">
+      <div class="lx-wrap">
+        <div class="lx-article__grid">
+
+          <div class="lx-article__main">
+
+            <div class="lx-figure frame">
+              <img loading="lazy" src="images/centre/rohtak.jpg" alt="Treatment by Naya Savera, Alcohol De-addiction Center in Rohtak, Drug De-addiction centre in Rohtak">
+            </div>
+
+            <div class="lx-prose">
+
                 <p>Starting an addiction recovery treatment at a <strong>rehabilitation  centre in Rohtak</strong> is one of the toughest yet the best decisions of your  life. So, if you are someone who is planning to start their addiction treatment  in a rehab centre, then you need to be fully prepared for it.&nbsp;</p>
 <p>While you are starting your addiction recovery journey, you  might have to keep a hold on your jobs, bills, or family responsibility. So,  make sure that you already look out for alternatives and take help from your  close family members on planning it.</p>
 <p>The addiction recovery journey is a stressful process and a  completely new experience for you. So, to help you out, we have listed out some  ways in which you can prepare for a <strong>rehabilitation centre in Rohtak.</strong></p>
@@ -49,32 +58,27 @@
 
                 <p>&nbsp;</p>
                 <h3>Call us Now <strong> <a href="tel:+91-9873290300">9873290300</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong></h3>
-              </div>
             </div>
           </div>
+
           <?php include("sidebar.php"); ?>
+
         </div>
       </div>
     </section>
+
+    <?php include("contact-lx.php"); ?>
+
   </div>
   <?php include("footer.php"); ?>
 </div>
-<script src="js/jquery-1.12.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.noconflict.js"></script>
-<script src="js/theme-scripts.js"></script>
-<script src="js/zebra_datepicker.js"></script>
-<script src="js/function.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/jquery-1.6.1.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $("a[rel^='prettyPhoto']").prettyPhoto({overlay_gallery: true, theme: 'facebook', social_tools: false});
-  });
-</script>
+
+<!-- Sticky mobile action bar, as on the other redesigned pages -->
+<div class="lx-callbar" role="complementary">
+  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+</div>
+
+<script src="js/lx-header.js"></script>
 </body>
 </html>
