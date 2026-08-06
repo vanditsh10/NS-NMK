@@ -737,12 +737,22 @@ body.ns-lx .lx-pagehead > .lx-wrap { width: 100%; }
 /* Each page keeps the banner the original rendered — verified in the browser,
    not inferred from selector specificity, which got it wrong once already. */
 body.ns-lx .lx-pagehead--treatment { background-image: url(../images/treatment-banner.jpg); }
+/* Scrim sized from the images, not guessed. Measured over the bottom-left area
+   where the H1 sits: treatment-banner is already 4.7:1 for white text bare, and
+   services-banner needs only ~0.27 black for 4.5:1. So the wash is neutral
+   black (not the green-black it was), nearly clear across the top so the
+   photograph reads, and weighted to the foot where the text actually is —
+   ~0.66 there, which puts both banners past 7:1. */
 body.ns-lx .lx-pagehead::before {
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(100deg, rgba(9, 18, 13, .93) 0%, rgba(9, 18, 13, .82) 42%, rgba(9, 18, 13, .58) 100%),
-    radial-gradient(70% 120% at 100% 0%, rgba(201, 149, 74, .22) 0%, rgba(201, 149, 74, 0) 60%);
+    linear-gradient(180deg,
+      rgba(0, 0, 0, .06) 0%,
+      rgba(0, 0, 0, .14) 42%,
+      rgba(0, 0, 0, .46) 72%,
+      rgba(0, 0, 0, .72) 100%),
+    radial-gradient(65% 110% at 100% 0%, rgba(201, 149, 74, .12) 0%, rgba(201, 149, 74, 0) 62%);
   pointer-events: none;
 }
 body.ns-lx .lx-pagehead .lx-wrap { position: relative; }
