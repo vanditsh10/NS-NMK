@@ -177,7 +177,9 @@ body.ns-lx .lx-eyebrow {
   color: var(--bronze-dark); margin-bottom: 22px;
 }
 body.ns-lx .lx-eyebrow::before { content: ""; width: 40px; height: 1px; background: var(--bronze); }
-body.ns-lx .lx-eyebrow--light { color: var(--bronze); }
+/* pale tone: at 10px this is small text needing 4.5:1, which full-strength
+   bronze cannot reach over the brighter slides */
+body.ns-lx .lx-eyebrow--light { color: #e8cfa4; }
 
 /* custom.css hangs a grey 35px bar off EVERY h2 via `.campers-theme h2::before`.
    Kill it once for the whole page rather than per section. */
@@ -251,8 +253,17 @@ body.ns-lx .lx-hero {
 /* The carousel itself is the background. Owl still drives the sliding; these
    rules just make it fill the hero and crop with object-fit instead of sitting
    in a frame. */
+/* Layer order inside the hero (which is isolate, so this is self-contained):
+     bg  = auto  -> images
+     ::before = 1 -> the scrim
+     __wrap   = 2 -> the copy
+   The scrim used to be z-index:-1, the SAME as the background layer. With equal
+   z-index paint order falls back to DOM order, and ::before is generated as the
+   first child — so the images painted straight over the gradient and it was
+   never visible. The bg layer deliberately takes no z-index of its own, so the
+   Owl pagination inside it can still sit above the scrim. */
 body.ns-lx .lx-hero__bg {
-  position: absolute; inset: 0; z-index: -1;
+  position: absolute; inset: 0;
   background: url(../images/footer-bg.jpg) center 38% / cover no-repeat;
   transform: scale(1.05);
 }
@@ -302,7 +313,7 @@ body.ns-lx .lx-hero--bgslides .lx-hero__bg .owl-page span {
 }
 body.ns-lx .lx-hero--bgslides .lx-hero__bg .owl-page.active span { background: var(--bronze); width: 24px; }
 body.ns-lx .lx-hero::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(100deg, rgba(9, 18, 13, .94) 0%, rgba(9, 18, 13, .80) 40%, rgba(9, 18, 13, .46) 72%, rgba(9, 18, 13, .60) 100%);
 }
 /* Netflix billboard, their three layers in their order:
@@ -316,17 +327,28 @@ body.ns-lx .lx-hero::before {
    Image is never cropped or zoomed; the gradients do all the work. */
 body.ns-lx .lx-hero--bgslides::before {
   background:
-    linear-gradient(77deg, rgba(0, 0, 0, .60) 0%, rgba(0, 0, 0, 0) 85%),
-    linear-gradient(90deg, rgba(0, 0, 0, .40) 0%, rgba(0, 0, 0, 0) 60%),
+    /* 1. horizontal ramp — carries the left side on wide screens */
+    linear-gradient(90deg, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, .35) 45%, rgba(0, 0, 0, 0) 80%),
+    /* 2. vertical ramp over the band the copy occupies (top to ~50% of the
+       hero). This is what makes the headline readable on narrow screens, where
+       the copy spans 95% of the width and a horizontal ramp does nothing. */
+    linear-gradient(180deg,
+      rgba(0, 0, 0, .85) 0%,
+      rgba(0, 0, 0, .80) 30%,
+      rgba(0, 0, 0, .76) 52%,
+      rgba(0, 0, 0, .28) 68%,
+      rgba(0, 0, 0, 0) 78%),
+    /* 3. the billboard fade into the page colour, so the hero melts into the
+       section beneath instead of ending on a hard edge */
     linear-gradient(180deg,
       rgba(250, 248, 243, 0) 0%,
-      rgba(250, 248, 243, 0) 62%,
-      rgba(250, 248, 243, .14) 71%,
-      rgba(250, 248, 243, .42) 82%,
-      rgba(250, 248, 243, .78) 92%,
+      rgba(250, 248, 243, 0) 72%,
+      rgba(250, 248, 243, .20) 80%,
+      rgba(250, 248, 243, .55) 88%,
+      rgba(250, 248, 243, .85) 95%,
       var(--ivory) 100%);
 }
-body.ns-lx .lx-hero__wrap { width: 100%; position: relative; }
+body.ns-lx .lx-hero__wrap { width: 100%; position: relative; z-index: 2; }
 body.ns-lx .lx-hero__grid { display: grid; gap: 44px; align-items: center; }
 body.ns-lx .lx-hero__copy, body.ns-lx .lx-hero__media { min-width: 0; }
 
@@ -814,6 +836,9 @@ body.ns-lx .lx-pagehead--contact { background-image: url(../images/contact-banne
 body.ns-lx .lx-pagehead--faq { background-image: url(../images/faq-banner.jpg); }
 body.ns-lx .lx-pagehead--centre { background-image: url(../images/centre-banner.jpg); }
 body.ns-lx .lx-pagehead--enquiry { background-image: url(../images/enquiry-banner.jpg); }
+body.ns-lx .lx-pagehead--faq { background-image: url(../images/faq-banner.jpg); }
+body.ns-lx .lx-pagehead--centre { background-image: url(../images/centre-banner.jpg); }
+body.ns-lx .lx-pagehead--enquiry { background-image: url(../images/enquiry-banner.jpg); }
 /* panchkarma.jpg is far brighter than the other banners — measured 162 average
    luminance behind the text against 32-64 for the rest — so the shared scrim
    left white text at only ~3:1. Deeper at the foot where the breadcrumb and H1
@@ -821,11 +846,12 @@ body.ns-lx .lx-pagehead--enquiry { background-image: url(../images/enquiry-banne
 body.ns-lx .lx-pagehead--panchakarma::before {
   background:
     linear-gradient(180deg,
-      rgba(0, 0, 0, .10) 0%,
-      rgba(0, 0, 0, .24) 40%,
-      rgba(0, 0, 0, .80) 65%,
-      rgba(0, 0, 0, .90) 100%),
-    radial-gradient(65% 110% at 100% 0%, rgba(201, 149, 74, .10) 0%, rgba(201, 149, 74, 0) 62%);
+      rgba(0, 0, 0, .04) 0%,
+      rgba(0, 0, 0, .26) 32%,
+      rgba(0, 0, 0, .78) 60%,
+      rgba(0, 0, 0, .94) 84%,
+      rgb(0, 0, 0) 100%),
+    radial-gradient(65% 110% at 100% 0%, rgba(201, 149, 74, .10) 0%, rgba(201, 149, 74, 0) 55%);
 }
 /* Scrim sized from the images, not guessed. Measured over the bottom-left area
    where the H1 sits: treatment-banner is already 4.7:1 for white text bare, and
@@ -836,15 +862,37 @@ body.ns-lx .lx-pagehead--panchakarma::before {
 body.ns-lx .lx-pagehead::before {
   content: "";
   position: absolute; inset: 0;
+  /* Decisive black ramp rather than a light even wash. Average contrast is not
+     enough over a busy photograph — bright detail behind individual letters
+     still breaks legibility — so the foot goes to solid black and the text sits
+     on that, independent of whatever image is behind. The top stays fully clear
+     so the photograph still reads. */
   background:
     linear-gradient(180deg,
-      rgba(0, 0, 0, .06) 0%,
-      rgba(0, 0, 0, .18) 42%,
-      rgba(0, 0, 0, .52) 72%,
-      rgba(0, 0, 0, .76) 100%),
-    radial-gradient(65% 110% at 100% 0%, rgba(201, 149, 74, .12) 0%, rgba(201, 149, 74, 0) 62%);
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, .16) 32%,
+      rgba(0, 0, 0, .60) 60%,
+      rgba(0, 0, 0, .90) 84%,
+      rgb(0, 0, 0) 100%),
+    radial-gradient(65% 110% at 100% 0%, rgba(201, 149, 74, .12) 0%, rgba(201, 149, 74, 0) 55%);
   pointer-events: none;
 }
+
+/* The black carries on into whatever section follows, so the hero bleeds into
+   the page instead of stopping at a hard edge. */
+body.ns-lx .lx-pagehead + .lx-section { position: relative; }
+body.ns-lx .lx-pagehead + .lx-section::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 130px;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* content clears the bleed */
+body.ns-lx .lx-pagehead + .lx-section > .lx-wrap { position: relative; z-index: 1; }
+body.ns-lx .lx-pagehead + .lx-section { padding-top: clamp(150px, 13vw, 210px); }
 body.ns-lx .lx-pagehead .lx-wrap { position: relative; }
 body.ns-lx .lx-pagehead h1 {
   font: 700 clamp(28px, 4.2vw, 50px) / 1.14 var(--display);
