@@ -180,6 +180,12 @@ body.ns-lx .lx-eyebrow::before { content: ""; width: 40px; height: 1px; backgrou
 /* pale tone: at 10px this is small text needing 4.5:1, which full-strength
    bronze cannot reach over the brighter slides */
 body.ns-lx .lx-eyebrow--light { color: #e8cfa4; }
+/* Over the hero PHOTOGRAPHS even the pale bronze falls short. Measured against
+   all five slides it bottoms out at 3.1:1 on hero-5 (the bright room) — white
+   takes the same point to 5.6:1. Elsewhere the pale bronze sits on flat black
+   and clears easily, so the accent is kept there and only overridden here.
+   The 40px rule before it stays bronze: decoration is contrast-exempt. */
+body.ns-lx .lx-hero .lx-eyebrow--light { color: #fff; }
 
 /* custom.css hangs a grey 35px bar off EVERY h2 via `.campers-theme h2::before`.
    Kill it once for the whole page rather than per section. */
@@ -331,21 +337,41 @@ body.ns-lx .lx-hero::before {
    the same reason. That is why the copy sits in the upper-left band — below
    the midpoint the fade is lifting toward ivory and white text would wash out.
    Image is never cropped or zoomed; the gradients do all the work. */
+/* Solved against the five slides in images/hero/, not eyeballed, and tuned so
+   the photographs stay visible — they are the reason anyone trusts this page.
+   Only applies at >=992px: the block below switches the hero to an uncropped
+   band on phones and turns this ::before off entirely.
+
+   KNOWN LIMITATION, accepted on purpose. These stops are percentages of the
+   HERO, but the headline wraps to more lines as the window narrows, so the
+   copy climbs into the light part of the ramp. Worst-case headline contrast:
+   3.4:1 at 1920 (AA wants 3.0), but 2.0:1 at 1440 and 1.6:1 at 1280/1000.
+   A scrim anchored to .lx-hero__copy fixes this at every width and was built,
+   but it reads as a dark blob behind the text and was rejected on looks. If
+   you revisit it, scope the fix to 992-1599px so ~1920 keeps this exact
+   appearance, and note that a pseudo-element paints only inside its own box —
+   a radial gradient must reach fully transparent BEFORE that box ends or the
+   box edge shows up as a hard rectangle over the photograph. See README. */
 body.ns-lx .lx-hero--bgslides::before {
   background:
-    /* 1. horizontal ramp — does more of the work now, so the vertical one can
-       stay light and the photograph reads across the top and right */
-    linear-gradient(90deg, rgba(0, 0, 0, .86) 0%, rgba(0, 0, 0, .72) 24%, rgba(0, 0, 0, .40) 46%, rgba(0, 0, 0, .10) 70%, rgba(0, 0, 0, 0) 85%),
-    /* 2. vertical ramp, heaviest under the copy, which now sits at the FOOT of
-       the hero. Light across the top so the slide reads, then deepening from
-       the midpoint down. This is what carries legibility on narrow screens,
-       where the copy spans 95% of the width and a horizontal ramp does nothing. */
+    /* 1. horizontal ramp — holds on the left under the copy, then clears
+       completely by 80%. Everything right of the headline is untouched
+       photograph. */
+    linear-gradient(90deg,
+      rgba(0, 0, 0, .78) 0%,
+      rgba(0, 0, 0, .74) 22%,
+      rgba(0, 0, 0, .30) 50%,
+      rgba(0, 0, 0, .02) 66%,
+      rgba(0, 0, 0, 0) 80%),
+    /* 2. vertical ramp, deliberately shallow through the middle. Its real job
+       is the bottom fade that melts the hero into the black section beneath,
+       and that starts at 90% rather than 80% — reclaiming a tenth of the frame
+       height that used to be black for no legibility reason at all. */
     linear-gradient(180deg,
-      rgba(0, 0, 0, .04) 0%,
+      rgba(0, 0, 0, .02) 0%,
       rgba(0, 0, 0, .02) 30%,
-      rgba(0, 0, 0, .30) 48%,
-      rgba(0, 0, 0, .66) 62%,
-      rgba(0, 0, 0, .88) 80%,
+      rgba(0, 0, 0, .24) 40%,
+      rgba(0, 0, 0, .88) 90%,
       rgb(0, 0, 0) 100%);
 }
 body.ns-lx .lx-hero__wrap { width: 100%; position: relative; z-index: 2; }
@@ -465,11 +491,22 @@ body.ns-lx .lx-showcase__frame {
   margin: 0 auto;
   border-radius: var(--r-xl);
   overflow: hidden;
+  /* White matte. The section behind is #000 and the video's own footage is
+     dark, so a rounded dark rectangle on black read as no corners at all.
+     This is a box-shadow ring rather than a border or padding on purpose: the
+     scroll-expand sizing solves --cap off this element's own width, and any
+     change to its box model would feed straight back into that. A shadow
+     paints outside the box and costs the layout nothing. Spread follows
+     border-radius, so the ring is rounded too. */
+  box-shadow: 0 0 0 clamp(6px, .62vw, 11px) #fff;
 }
 /* An iframe is composited on its own layer and is NOT reliably clipped by a
    rounded parent with overflow:hidden — the corners render square. Putting the
    radius on the iframe itself is the only dependable fix. */
-body.ns-lx .lx-showcase__frame .lx-video { border-radius: inherit; box-shadow: none; }
+/* White, not the default forest green: this is what shows in the instant
+   before the YouTube iframe paints, and it keeps the matte reading as one
+   continuous white frame rather than a white ring around a dark green box. */
+body.ns-lx .lx-showcase__frame .lx-video { border-radius: inherit; box-shadow: none; background: #fff; }
 body.ns-lx .lx-showcase__frame .lx-video iframe { border-radius: inherit; }
 body.ns-lx .lx-video iframe { border-radius: inherit; }
 
@@ -494,7 +531,11 @@ body.ns-lx .lx-showcase.is-live .lx-showcase__frame {
   width: calc(var(--cap) * (0.62 + 0.38 * var(--p)));
   max-width: var(--cap);
   border-radius: var(--r-xl);
-  box-shadow: 0 40px 90px rgba(15, 31, 22, .22);
+  /* Keep the white matte here too — this rule is more specific than the base
+     .lx-showcase__frame and was silently dropping the ring. The soft drop
+     shadow that used to be alone on this line is invisible against #000, so
+     the ring is what actually defines the frame's shape. */
+  box-shadow: 0 0 0 clamp(6px, .62vw, 11px) #fff, 0 40px 90px rgba(0, 0, 0, .55);
 }
 
 /* ---------------------------------------------------------------------------
@@ -2066,12 +2107,12 @@ body.ns-lx .lx-callbar { display: none; }
    the left-to-right ramp no longer sits under it. Netflix switches to a
    top-down fade at this size for the same reason. */
 /* Phones and small tablets get a different composition entirely.
-   The slides are 2.81:1. Forcing them to fill a ~100svh, 375px-wide hero with
-   `cover` throws away about three quarters of the frame — the reason the
-   mobile hero looked so bad. Here the image runs as a band at its OWN ratio,
-   nothing cropped, and the copy sits beneath it on solid black. No scrim is
-   needed over the copy at all, so it is white on black: maximum legibility and
-   the photograph is fully visible. */
+   Forcing the slides to fill a ~100svh, 375px-wide hero with `cover` throws
+   away most of the frame — the reason the mobile hero looked so bad. Here the
+   image runs as a band at the masters' own 16:9, nothing cropped, and the copy
+   sits beneath it on solid black. No scrim is needed over the copy at all, so
+   it is white on black: maximum legibility and the photograph is fully
+   visible. */
 @media (max-width: 991px) {
   body.ns-lx .lx-hero--bgslides {
     display: block;
@@ -2084,16 +2125,19 @@ body.ns-lx .lx-callbar { display: none; }
     position: relative;
     inset: auto;
     width: 100%;
-    aspect-ratio: 2.81 / 1;
+    aspect-ratio: 16 / 9;
     transform: none;
   }
   body.ns-lx .lx-hero--bgslides .lx-hero__bg .item img { object-fit: cover; }
-  /* only a short fade where the band meets the black, no wash over the copy */
-  body.ns-lx .lx-hero--bgslides::before {
-    top: auto;
-    height: 34%;
+  /* The fade belongs at the foot of the BAND, where the photograph meets the
+     black copy area — not at the foot of the hero, which is already black.
+     z-index 1 keeps it under the Owl dots (z-index 2). */
+  body.ns-lx .lx-hero--bgslides .lx-hero__bg::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 38%;
+    z-index: 1; pointer-events: none;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .55) 62%, rgb(0, 0, 0) 100%);
   }
+  body.ns-lx .lx-hero--bgslides::before { display: none; }
   body.ns-lx .lx-hero--bgslides .lx-hero__wrap { padding-top: clamp(26px, 6vw, 40px); }
   body.ns-lx .lx-hero--bgslides .lx-scrollcue { display: none; }
 }
@@ -2106,7 +2150,10 @@ body.ns-lx .lx-callbar { display: none; }
   body.ns-lx .lx-showcase.is-live .lx-showcase__track { height: auto; }
   body.ns-lx .lx-showcase.is-live .lx-showcase__sticky { position: static; height: auto; overflow: visible; padding: 0 var(--gutter); }
   body.ns-lx .lx-showcase.is-live .lx-showcase__frame {
-    width: 100%; max-width: 100%; border-radius: var(--r-lg); box-shadow: var(--shadow-md);
+    width: 100%; max-width: 100%; border-radius: var(--r-lg);
+    /* thinner matte than desktop, but keep it — this rule used to reset the
+       ring away and leave a dark frame invisible against the black section */
+    box-shadow: 0 0 0 5px #fff;
   }
   body.ns-lx .lx-hero__bg { background-position: center 42%; }
   body.ns-lx .lx-hero:not(.lx-hero--bgslides) { padding: 34px 0 68px; }

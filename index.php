@@ -108,10 +108,14 @@
 
   <div id="main">
 
-    <!-- 1. HERO — the three campaign images ARE the background now, still the
-         same Owl carousel so they keep sliding, and still real <img> elements
-         so their alt text survives. The scrim below them is what makes the
-         headline readable. -->
+    <!-- 1. HERO — five photographs of the centres ARE the background now:
+         Noida from the lawn, morning exercise on that lawn, the Himachal
+         centre under the snow line, the community, and a residents' room.
+         images/hero/hero-{1..5}.jpg are cut to a uniform 16:9 and resampled
+         from gallery/66, 67, 68, 13 and 88 (see README). Still the same Owl
+         carousel so they keep sliding, and still real <img> elements so their
+         alt text survives. The scrim below them is what makes the headline
+         readable — see the contrast note in css/lx.css. -->
     <section class="lx-hero lx-hero--bgslides">
       <div class="lx-hero__bg">
         <div id="banner">
@@ -120,9 +124,11 @@
               <div class="caption">
                 <div class="container"> </div>
               </div>
-              <img src="images/banner-img-1.jpg" alt="Drug De addiction centre in Delhi, Best Alcohol Rehab in Delhi, Nasha Mukti  Kendra Noida"> </div>
-            <div class="item"> <img src="images/banner-img-2.jpg" alt="Best Rehab in Delhi, Alcohlism Treatment Delhi"> </div>
-            <div class="item"> <img src="images/banner-img-3.jpg" alt=" Alcohlism Treatment Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi"> </div>
+              <img src="images/hero/hero-1.jpg" alt="Drug De addiction centre in Delhi, Best Alcohol Rehab in Delhi, Nasha Mukti  Kendra Noida"> </div>
+            <div class="item"> <img src="images/hero/hero-2.jpg" alt="Best Rehab in Delhi, Alcohlism Treatment Delhi"> </div>
+            <div class="item"> <img src="images/hero/hero-3.jpg" alt=" Alcohlism Treatment Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi"> </div>
+            <div class="item"> <img src="images/hero/hero-4.jpg" alt="Naya Savera at Nodia - best rehab in Nodia"> </div>
+            <div class="item"> <img src="images/hero/hero-5.jpg" alt="Naya Savera at Nodia - best rehab in Nodia"> </div>
           </div>
         </div>
       </div>

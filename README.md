@@ -84,6 +84,63 @@ floated ancestor collapses CSS grids inside it and stops parents containing
 their children — `float: none` and `display: flow-root` are used throughout to
 undo it.
 
+### Home hero images — `images/hero/`
+
+`hero-1..5.jpg` are the home page's background slides. They are **derived
+files**, cut and resampled from photographs already in the repo:
+
+| file | source | shows |
+| --- | --- | --- |
+| `hero-1.jpg` | `gallery/66.jpg` | Noida centre from the lawn, residents lined up |
+| `hero-2.jpg` | `gallery/67.jpg` | morning exercise on the Noida lawn |
+| `hero-3.jpg` | `gallery/68.jpg` | the Himachal centre under the snow line |
+| `hero-4.jpg` | `gallery/13.jpg` | the community, hands raised |
+| `hero-5.jpg` | `gallery/88.jpg` | a residents' room |
+
+Each is cropped to a uniform **16:9** and resampled to 1440×810 (LANCZOS +
+unsharp, q74). The uniform ratio is what lets the mobile hero show the frames
+**whole**, with no crop at all — `css/lx.css` gives the mobile band
+`aspect-ratio: 16 / 9` to match. Change the masters' ratio and that rule has to
+change with it.
+
+The sources are only 800–1000px wide, so these are upscaled; resampling them
+offline beats letting the browser stretch them, but the real ceiling is the
+photography. **Higher-resolution originals would be the single biggest
+improvement to this hero.**
+
+Regenerating them is not optional bookkeeping: the hero scrim in `css/lx.css`
+is solved against these exact pixels. Swap an image and re-check contrast in
+the copy zone.
+
+**Known issue, accepted deliberately.** The scrim is a gradient pinned to the
+hero in percentages, tuned so the photographs stay visible at ~1920px. But the
+headline wraps to a different number of lines at every width, so the copy
+block's top edge sits at 44% of the hero at 1920px and only 12% at 1280px — the
+gradient cannot follow it. Measured worst-case headline contrast:
+
+| width | headline | AA wants |
+| --- | --- | --- |
+| 1000px | 1.6:1 | 3.0 |
+| 1280px | 1.6:1 | 3.0 |
+| 1440px | 2.0:1 | 3.0 |
+| 1920px | 3.4:1 | 3.0 |
+
+So on a 13–14" laptop the headline is hard to read over the brighter slides.
+This predates the current gradient — the older, heavier one failed at those
+widths too (1.7 / 1.7 / 2.2). Mobile is unaffected: at <=991px the hero becomes
+an uncropped band with the copy on solid black.
+
+A scrim anchored to `.lx-hero__copy` fixes it at every width, and was tried —
+but it reads as a dark blob behind the text and was rejected on looks. If this
+gets revisited, the constraint to respect is that a pseudo-element paints only
+inside its own box, so a radial gradient must reach fully transparent before
+that box ends or the box edge shows as a hard rectangle. Anything checking hero
+contrast must check **1000, 1280, 1440 and 1920**, not just one.
+
+The old campaign artwork (`images/banner-img-1..3.jpg`) is still in the repo and
+still used by `404.php`; do not delete it. `index.php`'s `og:image` also still
+points at `banner-img-1.jpg`, deliberately left alone as a meta tag.
+
 ### team-naya-savera.php
 
 Rebuilt on the redesign language. Copy, title, description, keywords and
