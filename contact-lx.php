@@ -23,7 +23,6 @@
               <span>Delhi / Noida Contact Nos:</span>
               <strong>
                 <a href="tel:+91-9873290300">9873290300</a>
-                <a href="tel:+91-9873020709">9873020709</a>
                 <a href="https://wa.me/919873290300" aria-label="Whatsapp"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a>
               </strong>
             </div>

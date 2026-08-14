@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stages of Drug Addiction -Blog - Best Rehabilitation Centres in Delhi, Drug Deaddiction centre in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra</title>
-<meta name="description" content="Drug addiction is a kind of chronic disease, and relapse is of epidemic proportions, more than 80% addicts relapse after treating. Call us: 9873020709 "/>
+<meta name="description" content="Drug addiction is a kind of chronic disease, and relapse is of epidemic proportions, more than 80% addicts relapse after treating. Call us: 9873290300 "/>
 <meta name="keywords" content="Drug Treatment Delhi, Drug De-addiction centre in Delhi, Alcohol De-addiction Center in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra, Alcohlism Treatment, psychiatrist in India, psychiatric treatment Delhi, Psychiatric rehabilitation centre Delhi, Psychiatric rehab centre Delhi, senior psychiatrist consultant in Delhi, Psychiatrist in Delhi, Best psychiatrist in India, top five psychiatrist in Delhi,  Best psychiatrist in Delhi, Top psychiatrist in Delhi, Best psychiatrist for depression, Best child psychiatrist, Best psychiatrist for Obsessive compulsive disorder, Nasha Mukti Kendra in Noida, Best Rehabilitation Centre in Delhi, Alcohol Treatment in Himachal Pradesh, Kullu Manali"/>
 <link href="https://nayasavera.org/blog-stages-of-drug-addiction.php" rel="canonical" />
 <?php include("header-includes.php"); ?>
@@ -43,7 +43,7 @@
                 <p>If you or a loved one is struggling with  addiction, it's important to seek help. NayaSavera <a href="treatment.html">de Addiction treatment</a> options include therapy, medication, and support groups. The earlier treatment  is sought, the better the chances for recovery. NayaSavera - NashaMukti Kendra  is a non-profit organization registered under the Indian Trust Act of 1950. It  established its first De- addiction &amp; Rehabilitation Facility in 2008, in a  small village (Jhiri) in Himachal Pradesh. Today, it is running two  De-addiction &amp; Rehabilitation facilities in Himachal Pradesh and one in  Delhi and another one in Noida.</p>
                 <p>NayaSavera de addiction and Rehabilitaion  Centre's mission is to provide effective, evidence-based  addiction treatment and support to individuals and their families, in a caring  and compassionate environment.</p>
                 <p>&nbsp;</p>
-                <h3>Call us Now <strong> <a href="tel:+91-9873020709">9873020709</a> <a href="https://wa.me/+919873020709"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873020709"></i></a></strong></h3>
+                <h3>Call us Now <strong> <a href="tel:+91-9873290300">9873290300</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong></h3>
               </div>
             </div>
           </div>

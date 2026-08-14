@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Embarking on the Journey to Sobriety: A Guide to Overcoming Addiction - Best Rehab in Delhi, Nasha Mukti  Kendra</title>
-<meta name="description" content="NayaSavera Drug De-addiction and  Rehabilitation Centre, we understand that the Journey to sobriety is  different for everyone. It's a journey that requires courage, commitment, and  support. Whether you're struggling with alcohol, drugs, or any other addiction, strategies to help you navigate the road to  recovery and reclaim control of your life. Call us: 9873020709 "/>
+<meta name="description" content="NayaSavera Drug De-addiction and  Rehabilitation Centre, we understand that the Journey to sobriety is  different for everyone. It's a journey that requires courage, commitment, and  support. Whether you're struggling with alcohol, drugs, or any other addiction, strategies to help you navigate the road to  recovery and reclaim control of your life. Call us: 9873290300 "/>
 <meta name="keywords" content="Drug Treatment Delhi, Drug De-addiction centre in Delhi, Alcohol De-addiction Center in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra, Alcohlism Treatment, psychiatrist in India, psychiatric treatment Delhi, Psychiatric rehabilitation centre Delhi, Psychiatric rehab centre Delhi, senior psychiatrist consultant in Delhi, Psychiatrist in Delhi, Best psychiatrist in India, top five psychiatrist in Delhi,  Best psychiatrist in Delhi, Top psychiatrist in Delhi, Best psychiatrist for depression, Best child psychiatrist, Best psychiatrist for Obsessive compulsive disorder, Nasha Mukti Kendra in Noida, Best Rehabilitation Centre in Delhi, Alcohol Treatment in Himachal Pradesh, Kullu Manali"/>
 <link href="https://nayasavera.org/blog-a-guide-to-overcoming-addiction.php" rel="canonical" />
 <?php include("header-includes.php"); ?>
@@ -61,7 +61,7 @@ While relapse is a common part of the recovery  process, it's essential to devel
 Embarking on the journey to sobriety is a  courageous and life-changing decision. At NayaSavera Celebrity NashaMukti  Kendra &amp; Drug Deaddiction and Rehabilitation Centre, we're here to support  you every step of the way. With personalized treatment plans, therapy and  counselling, and a supportive community, we'll help you reclaim control of your  life and achieve lasting sobriety. Remember, recovery is possible, and you're  not alone.</p>
 
                 <p>&nbsp;</p>
-                <h3>Call us Now <strong> <a href="tel:+91-9873020709">9873020709</a> <a href="https://wa.me/+919873020709"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873020709"></i></a></strong></h3>
+                <h3>Call us Now <strong> <a href="tel:+91-9873290300">9873290300</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong></h3>
               </div>
             </div>
           </div>

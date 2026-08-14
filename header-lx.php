@@ -41,7 +41,7 @@ $lx_current = isset($lx_current) ? $lx_current : 'home';
         </ul>
       </nav>
 
-      <a href="tel:+91-9873020709" class="lx-btn lx-btn--call lx-bar__cta"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+      <a href="tel:+91-9873290300" class="lx-btn lx-btn--call lx-bar__cta"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873290300 </a>
 
       <button type="button" class="lx-burger" id="lxBurger" aria-controls="lxNav" aria-expanded="false" aria-label="Toggle navigation">
         <span></span><span></span><span></span>

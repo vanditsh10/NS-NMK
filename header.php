@@ -20,7 +20,7 @@
       <div class="col-md-9">
         <div class="book-section">
           <div class="number-box"> <i class="fa fa-phone"></i>
-            <div class="number-text"> <span><strong>Delhi / Noida Contact Nos:</strong></span> <strong><a href="tel:+91-9873290300">9873290300</a> <a href="tel:+91-9873020709">9873020709</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong> </div>
+            <div class="number-text"> <span><strong>Delhi / Noida Contact Nos:</strong></span> <strong><a href="tel:+91-9873290300">9873290300</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong> </div>
             
             <div class="number-text"> <span><strong>Palampur Contact No:</strong></span> <strong><a href="tel:+91-9816008103">+91-9816008103</a></strong> </div>
           </div>

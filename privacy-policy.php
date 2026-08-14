@@ -180,7 +180,7 @@ Purpose: These Cookies allow us to remember  choices You make when You use the W
 
 <!-- Sticky mobile action bar, as on the other redesigned pages -->
 <div class="lx-callbar" role="complementary">
-  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="tel:+91-9873290300" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873290300 </a>
   <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
 </div>
 

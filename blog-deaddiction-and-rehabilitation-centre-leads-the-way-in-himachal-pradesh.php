@@ -99,7 +99,7 @@
                   </div>
                 </div>
                 <p>&nbsp;</p>
-                <h3>Call us Now <strong> <a href="tel:+91-9418068101">9418068101</a> <a href="https://wa.me/+919873020709"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873020709"></i></a></strong></h3>
+                <h3>Call us Now <strong> <a href="tel:+91-9418068101">9418068101</a> <a href="https://wa.me/919873290300"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a></strong></h3>
               </div>
             </div>
           </div>

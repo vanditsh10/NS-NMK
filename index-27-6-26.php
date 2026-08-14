@@ -173,7 +173,7 @@
           </div>
           <div class="col-md-4 col-sm-6"> <br>
             <br>
-            <a href="tel:+91-9873020709" class="btn-style-2" style="margin-top:20px"><i class="fa fa-phone" style="font-size:24px"></i> CALL NOW +91-9873020709 </a> </div>
+            <a href="tel:+91-9873290300" class="btn-style-2" style="margin-top:20px"><i class="fa fa-phone" style="font-size:24px"></i> CALL NOW +91-9873290300 </a> </div>
           <div class="col-md-4 col-sm-6"> <br>
             <br>
             <a href="contact.html" class="btn-style-2" style="margin-top:20px">We can Help 

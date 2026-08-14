@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Drug Addiction amid Covid-19 - Blog - Best Rehabilitation Centres in Delhi, Drug De-addiction centre in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra</title>
-<meta name="description" content="Drug addiction is a kind of chronic disease, and relapse is of epidemic proportions, more than 80% addicts relapse after treating. Call us: 9873020709 "/>
+<meta name="description" content="Drug addiction is a kind of chronic disease, and relapse is of epidemic proportions, more than 80% addicts relapse after treating. Call us: 9873290300 "/>
 <meta name="keywords" content="Drug Treatment, Drug De-addiction centre in Delhi, Alcohol De-addiction Center in Delhi, Best Rehab in Delhi, Nasha Mukti  Kendra, Alcohlism Treatment, psychiatrist in India, psychiatric treatment Delhi, Psychiatric rehabilitation centre Delhi, Psychiatric rehab centre Delhi, senior psychiatrist consultant in Delhi, Psychiatrist in Delhi, Best psychiatrist in India, top five psychiatrist in Delhi,  Best psychiatrist in Delhi, Top psychiatrist in Delhi, Best psychiatrist for depression, Best child psychiatrist, Best psychiatrist for Obsessive compulsive disorder, Nasha Mukti Kendra in Noida, Best Rehabilitation Centre in Delhi, Alcohol Treatment in Himachal Pradesh, Kullu Manali"/>
 <link href="https://nayasavera.org/blog-drug-addiction-amid-covid-19.php" rel="canonical" />
 <?php include("header-includes.php"); ?>

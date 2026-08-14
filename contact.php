@@ -59,13 +59,13 @@ Himachal Pradesh - 176083<br />
               <article class="lx-place">
                 <p><strong>Delhi: -&nbsp;<u>Naya Savera Drug De - Addiction &amp; Rehabilitation Centre</u></strong><br>
                   <i class="fa fa-map-marker"></i> : D- 422, Swaroop Hospital, Swaroop Nagar, Delhi<br />
-                  <i class="fa fa-phone"></i> : <a href="tel:+91-9873290300" style="color:#000">+91-9873290300</a> <a href="tel:+91-9873020709" style="color:#000">+91-9873020709</a></p>
+                  <i class="fa fa-phone"></i> : <a href="tel:+91-9873290300" style="color:#000">+91-9873290300</a></p>
               </article>
 
               <article class="lx-place">
                 <p><strong>Noida: -&nbsp;<u>Naya Savera Drug De - Addiction &amp; Rehabilitation Centre</u></strong><br>
                   <i class="fa fa-map-marker"></i> : Badauli Bangar, Noida Sector 154, Noida-201310 (Near Noida-Greater Noida Express Highway)<br />
-                  <i class="fa fa-phone"></i> : <a href="tel:+91-9873290300" style="color:#000">+91-9873290300</a> <a href="tel:+91-9873020709" style="color:#000">+91-9873020709</a></p>
+                  <i class="fa fa-phone"></i> : <a href="tel:+91-9873290300" style="color:#000">+91-9873290300</a></p>
               </article>
 
             </div>
@@ -88,7 +88,7 @@ Himachal Pradesh - 176083<br />
 
 <!-- Sticky mobile action bar, as on the other redesigned pages -->
 <div class="lx-callbar" role="complementary">
-  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="tel:+91-9873290300" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873290300 </a>
   <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
 </div>
 

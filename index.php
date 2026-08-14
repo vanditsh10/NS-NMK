@@ -138,7 +138,7 @@
             <span class="lx-eyebrow lx-eyebrow--light">Welcome to Naya Savera</span>
             <h1 class="lx-hero__title">Best Drug De addiction &amp; Alcohol Rehab Centre Delhi, Noida &amp; Himachal</h1>
             <div class="lx-cta-row">
-              <a href="tel:+91-9873020709" class="lx-btn lx-btn--call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+              <a href="tel:+91-9873290300" class="lx-btn lx-btn--call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873290300 </a>
               <a href="contact.html" class="lx-btn lx-btn--onDark">We can Help
               Contact Now</a>
             </div>
@@ -282,7 +282,6 @@
                 <span>Delhi / Noida Contact Nos:</span>
                 <strong>
                   <a href="tel:+91-9873290300">9873290300</a>
-                  <a href="tel:+91-9873020709">9873020709</a>
                   <a href="https://wa.me/919873290300" aria-label="Whatsapp"><i class="fa fa-whatsapp" title="Whatsapp: +91-9873290300"></i></a>
                 </strong>
               </div>
@@ -435,7 +434,7 @@
 
 <!-- Sticky mobile action bar: repeats this page's own call link so it is never more than one tap away -->
 <div class="lx-callbar" role="complementary">
-  <a href="tel:+91-9873020709" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873020709 </a>
+  <a href="tel:+91-9873290300" class="lx-callbar__call"><i class="fa fa-phone" aria-hidden="true"></i> CALL NOW +91-9873290300 </a>
   <a href="https://wa.me/919873290300" class="lx-callbar__wa" title="Message us on Whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
 </div>
 
